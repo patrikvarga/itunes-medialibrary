@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings persistenceUnitName="medialibrary8" jaxb-support="false" id="_142859439544162" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:ns4="http://nbmodeler.java.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:package>net.kemitix.itunes.medialibrary.domain</jpa:package>
+    <jpa:entity class="Container" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439544265">
+        <jpa:table name="container"/>
+        <jpa:attributes>
+            <jpa:id name="containerPid" attribute-type="java.lang.Integer" visibile="true" id="_142859439545292">
+                <jpa:column name="container_pid" unique="false" nullable="true" insertable="true" updatable="true" table="container"/>
+            </jpa:id>
+            <jpa:basic name="distinguishedKind" optional="false" attribute-type="int" visibile="true" id="_142859439545293">
+                <jpa:column name="distinguished_kind" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="dateCreated" optional="false" attribute-type="int" visibile="true" id="_142859439545294">
+                <jpa:column name="date_created" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="dateModified" optional="false" attribute-type="int" visibile="true" id="_142859439545295">
+                <jpa:column name="date_modified" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="name" optional="false" attribute-type="java.lang.String" visibile="true" id="_142859439545296">
+                <jpa:column name="name" unique="false" nullable="false" insertable="true" updatable="true" table="container" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="nameOrder" optional="false" attribute-type="int" visibile="true" id="_142859439545297">
+                <jpa:column name="name_order" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="parentPid" optional="false" attribute-type="int" visibile="true" id="_142859439545298">
+                <jpa:column name="parent_pid" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="mediaKinds" optional="false" attribute-type="int" visibile="true" id="_142859439545299">
+                <jpa:column name="media_kinds" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="workoutTemplateId" optional="false" attribute-type="int" visibile="true" id="_1428594395452100">
+                <jpa:column name="workout_template_id" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="isHidden" optional="false" attribute-type="int" visibile="true" id="_1428594395452101">
+                <jpa:column name="is_hidden" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="description" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395452102">
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" table="container" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="smartEvaluationOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395452103">
+                <jpa:column name="smart_evaluation_order" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartIsFolder" optional="false" attribute-type="int" visibile="true" id="_1428594395452104">
+                <jpa:column name="smart_is_folder" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartIsDynamic" optional="false" attribute-type="int" visibile="true" id="_1428594395452105">
+                <jpa:column name="smart_is_dynamic" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartIsFiltered" optional="false" attribute-type="int" visibile="true" id="_1428594395452106">
+                <jpa:column name="smart_is_filtered" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartIsGenius" optional="false" attribute-type="int" visibile="true" id="_1428594395452107">
+                <jpa:column name="smart_is_genius" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartEnabledOnly" optional="false" attribute-type="int" visibile="true" id="_1428594395452108">
+                <jpa:column name="smart_enabled_only" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartIsLimited" optional="false" attribute-type="int" visibile="true" id="_1428594395452109">
+                <jpa:column name="smart_is_limited" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartLimitKind" optional="false" attribute-type="int" visibile="true" id="_1428594395452110">
+                <jpa:column name="smart_limit_kind" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartLimitOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395452111">
+                <jpa:column name="smart_limit_order" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartLimitValue" optional="false" attribute-type="int" visibile="true" id="_1428594395452112">
+                <jpa:column name="smart_limit_value" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartReverseLimitOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395452113">
+                <jpa:column name="smart_reverse_limit_order" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="smartCriteria" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395452114">
+                <jpa:column name="smart_criteria" unique="false" nullable="true" insertable="true" updatable="true" table="container" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="playOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395452115">
+                <jpa:column name="play_order" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="isReversed" optional="false" attribute-type="int" visibile="true" id="_1428594395452116">
+                <jpa:column name="is_reversed" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="albumFieldOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395452117">
+                <jpa:column name="album_field_order" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="repeatMode" optional="false" attribute-type="int" visibile="true" id="_1428594395452118">
+                <jpa:column name="repeat_mode" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="shuffleItems" optional="false" attribute-type="int" visibile="true" id="_1428594395453119">
+                <jpa:column name="shuffle_items" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="hasBeenShuffled" optional="false" attribute-type="int" visibile="true" id="_1428594395453120">
+                <jpa:column name="has_been_shuffled" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="filepath" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395453121">
+                <jpa:column name="filepath" unique="false" nullable="false" insertable="true" updatable="true" table="container" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="isSaveable" optional="false" attribute-type="int" visibile="true" id="_1428594395453122">
+                <jpa:column name="is_saveable" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="isSrcRemote" optional="false" attribute-type="int" visibile="true" id="_1428594395453123">
+                <jpa:column name="is_src_remote" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="isIgnoredSyncing" optional="false" attribute-type="int" visibile="true" id="_1428594395453124">
+                <jpa:column name="is_ignored_syncing" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="containerType" optional="false" attribute-type="int" visibile="true" id="_1428594395453125">
+                <jpa:column name="container_type" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="isContainerTypeActiveTarget" optional="false" attribute-type="int" visibile="true" id="_1428594395453126">
+                <jpa:column name="is_container_type_active_target" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="origDateModified" optional="false" attribute-type="int" visibile="true" id="_1428594395453127">
+                <jpa:column name="orig_date_modified" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="storeCloudId" optional="false" attribute-type="int" visibile="true" id="_1428594395453128">
+                <jpa:column name="store_cloud_id" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="hasCloudPlayOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395453129">
+                <jpa:column name="has_cloud_play_order" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="containedMediaType" optional="false" attribute-type="int" visibile="true" id="_1428594395453130">
+                <jpa:column name="contained_media_type" unique="false" nullable="false" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+            <jpa:basic name="isIgnorableItunesPlaylist" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453131">
+                <jpa:column name="is_ignorable_itunes_playlist" unique="false" nullable="true" insertable="true" updatable="true" table="container"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="BaseLocation" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439544866">
+        <jpa:table name="base_location"/>
+        <jpa:attributes>
+            <jpa:id name="baseLocationId" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453132">
+                <jpa:column name="base_location_id" unique="false" nullable="true" insertable="true" updatable="true" table="base_location"/>
+            </jpa:id>
+            <jpa:basic name="path" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395453133">
+                <jpa:column name="path" unique="false" nullable="false" insertable="true" updatable="true" table="base_location" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Chapter" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439544867">
+        <jpa:table name="chapter"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453134">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="chapter"/>
+            </jpa:id>
+            <jpa:basic name="chapterData" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453135">
+                <jpa:column name="chapter_data" unique="false" nullable="true" insertable="true" updatable="true" table="chapter" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ItemVideo" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439544868">
+        <jpa:table name="item_video"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453136">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item_video"/>
+            </jpa:id>
+            <jpa:basic name="videoQuality" optional="false" attribute-type="int" visibile="true" id="_1428594395453137">
+                <jpa:column name="video_quality" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="isRental" optional="false" attribute-type="int" visibile="true" id="_1428594395453138">
+                <jpa:column name="is_rental" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="hasChapterData" optional="false" attribute-type="int" visibile="true" id="_1428594395453139">
+                <jpa:column name="has_chapter_data" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="seasonNumber" optional="false" attribute-type="int" visibile="true" id="_1428594395453140">
+                <jpa:column name="season_number" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="episodeId" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395453141">
+                <jpa:column name="episode_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_video" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="networkName" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395453142">
+                <jpa:column name="network_name" unique="false" nullable="false" insertable="true" updatable="true" table="item_video" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="extendedContentRating" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395453143">
+                <jpa:column name="extended_content_rating" unique="false" nullable="false" insertable="true" updatable="true" table="item_video" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="movieInfo" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395453144">
+                <jpa:column name="movie_info" unique="false" nullable="false" insertable="true" updatable="true" table="item_video" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="hasAlternateAudio" optional="false" attribute-type="int" visibile="true" id="_1428594395453145">
+                <jpa:column name="has_alternate_audio" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="hasSubtitles" optional="false" attribute-type="int" visibile="true" id="_1428594395453146">
+                <jpa:column name="has_subtitles" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="audioLanguage" optional="false" attribute-type="int" visibile="true" id="_1428594395453147">
+                <jpa:column name="audio_language" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="audioTrackIndex" optional="false" attribute-type="int" visibile="true" id="_1428594395453148">
+                <jpa:column name="audio_track_index" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="audioTrackId" optional="false" attribute-type="int" visibile="true" id="_1428594395453149">
+                <jpa:column name="audio_track_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="subtitleLanguage" optional="false" attribute-type="int" visibile="true" id="_1428594395453150">
+                <jpa:column name="subtitle_language" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="subtitleTrackIndex" optional="false" attribute-type="int" visibile="true" id="_1428594395453151">
+                <jpa:column name="subtitle_track_index" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="rentalDuration" optional="false" attribute-type="int" visibile="true" id="_1428594395453152">
+                <jpa:column name="rental_duration" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="rentalPlaybackDuration" optional="false" attribute-type="int" visibile="true" id="_1428594395453153">
+                <jpa:column name="rental_playback_duration" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="rentalPlaybackDateStarted" optional="false" attribute-type="int" visibile="true" id="_1428594395453154">
+                <jpa:column name="rental_playback_date_started" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="rentalDateStarted" optional="false" attribute-type="int" visibile="true" id="_1428594395453155">
+                <jpa:column name="rental_date_started" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+            <jpa:basic name="isDemo" optional="false" attribute-type="int" visibile="true" id="_1428594395453156">
+                <jpa:column name="is_demo" unique="false" nullable="false" insertable="true" updatable="true" table="item_video"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="GeniusConfig" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439544869">
+        <jpa:table name="genius_config">
+            <jpa:unique-constraint>
+                <jpa:column-name>version</jpa:column-name>
+            </jpa:unique-constraint>
+        </jpa:table>
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453157">
+                <jpa:column name="id" unique="false" nullable="true" insertable="true" updatable="true" table="genius_config"/>
+            </jpa:id>
+            <jpa:basic name="version" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453158">
+                <jpa:column name="version" unique="false" nullable="true" insertable="true" updatable="true" table="genius_config"/>
+            </jpa:basic>
+            <jpa:basic name="defaultNumResults" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453159">
+                <jpa:column name="default_num_results" unique="false" nullable="true" insertable="true" updatable="true" table="genius_config"/>
+            </jpa:basic>
+            <jpa:basic name="minNumResults" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453160">
+                <jpa:column name="min_num_results" unique="false" nullable="true" insertable="true" updatable="true" table="genius_config"/>
+            </jpa:basic>
+            <jpa:basic name="data" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453161">
+                <jpa:column name="data" unique="false" nullable="true" insertable="true" updatable="true" table="genius_config" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ArtworkFreeList" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439544970">
+        <jpa:table name="artwork_free_list"/>
+        <jpa:attributes>
+            <jpa:id name="offset" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453162">
+                <jpa:column name="offset" unique="false" nullable="true" insertable="true" updatable="true" table="artwork_free_list"/>
+            </jpa:id>
+            <jpa:basic name="length" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453163">
+                <jpa:column name="length" unique="false" nullable="true" insertable="true" updatable="true" table="artwork_free_list"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ItemExtra" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439544971">
+        <jpa:table name="item_extra"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453164">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:id>
+            <jpa:basic name="title" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395453165">
+                <jpa:column name="title" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="sortTitle" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453166">
+                <jpa:column name="sort_title" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="artworkCacheId" optional="false" attribute-type="int" visibile="true" id="_1428594395453167">
+                <jpa:column name="artwork_cache_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="discCount" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453168">
+                <jpa:column name="disc_count" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="trackCount" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453169">
+                <jpa:column name="track_count" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="totalTimeMs" optional="false" attribute-type="double" visibile="true" id="_1428594395453170">
+                <jpa:column name="total_time_ms" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="year" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453171">
+                <jpa:column name="year" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="location" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395453172">
+                <jpa:column name="location" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="fileSize" optional="false" attribute-type="int" visibile="true" id="_1428594395453173">
+                <jpa:column name="file_size" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="integrity" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453174">
+                <jpa:column name="integrity" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="isCompilation" optional="false" attribute-type="int" visibile="true" id="_1428594395453175">
+                <jpa:column name="is_compilation" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="isAudibleAudioBook" optional="false" attribute-type="int" visibile="true" id="_1428594395453176">
+                <jpa:column name="is_audible_audio_book" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="dateCreated" optional="false" attribute-type="int" visibile="true" id="_1428594395453177">
+                <jpa:column name="date_created" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="dateModified" optional="false" attribute-type="int" visibile="true" id="_1428594395453178">
+                <jpa:column name="date_modified" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="mediaKind" optional="false" attribute-type="int" visibile="true" id="_1428594395453179">
+                <jpa:column name="media_kind" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="contentRating" optional="false" attribute-type="int" visibile="true" id="_1428594395453180">
+                <jpa:column name="content_rating" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="contentRatingLevel" optional="false" attribute-type="int" visibile="true" id="_1428594395453181">
+                <jpa:column name="content_rating_level" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="isUserDisabled" optional="false" attribute-type="int" visibile="true" id="_1428594395453182">
+                <jpa:column name="is_user_disabled" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="bpm" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453183">
+                <jpa:column name="bpm" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="geniusId" optional="false" attribute-type="int" visibile="true" id="_1428594395453184">
+                <jpa:column name="genius_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="comment" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453185">
+                <jpa:column name="comment" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="grouping" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453186">
+                <jpa:column name="grouping" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="description" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453187">
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="descriptionLong" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453188">
+                <jpa:column name="description_long" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="collectionDescription" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453189">
+                <jpa:column name="collection_description" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="copyright" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453190">
+                <jpa:column name="copyright" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="pendingGeniusChecksum" optional="false" attribute-type="int" visibile="true" id="_1428594395453191">
+                <jpa:column name="pending_genius_checksum" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="categoryId" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453192">
+                <jpa:column name="category_id" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="locationKindId" optional="false" attribute-type="int" visibile="true" id="_1428594395453193">
+                <jpa:column name="location_kind_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_extra"/>
+            </jpa:basic>
+            <jpa:basic name="screenshotCacheId" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395453194">
+                <jpa:column name="screenshot_cache_id" unique="false" nullable="true" insertable="true" updatable="true" table="item_extra" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ItemSearch" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545072">
+        <jpa:table name="item_search"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395453195">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item_search"/>
+            </jpa:id>
+            <jpa:basic name="searchTitle" optional="false" attribute-type="int" visibile="true" id="_1428594395453196">
+                <jpa:column name="search_title" unique="false" nullable="false" insertable="true" updatable="true" table="item_search"/>
+            </jpa:basic>
+            <jpa:basic name="searchAlbum" optional="false" attribute-type="int" visibile="true" id="_1428594395453197">
+                <jpa:column name="search_album" unique="false" nullable="false" insertable="true" updatable="true" table="item_search"/>
+            </jpa:basic>
+            <jpa:basic name="searchArtist" optional="false" attribute-type="int" visibile="true" id="_1428594395453198">
+                <jpa:column name="search_artist" unique="false" nullable="false" insertable="true" updatable="true" table="item_search"/>
+            </jpa:basic>
+            <jpa:basic name="searchComposer" optional="false" attribute-type="int" visibile="true" id="_1428594395453199">
+                <jpa:column name="search_composer" unique="false" nullable="false" insertable="true" updatable="true" table="item_search"/>
+            </jpa:basic>
+            <jpa:basic name="searchAlbumArtist" optional="false" attribute-type="int" visibile="true" id="_1428594395453200">
+                <jpa:column name="search_album_artist" unique="false" nullable="false" insertable="true" updatable="true" table="item_search"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ItemStore" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545073">
+        <jpa:table name="item_store"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454201">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item_store"/>
+            </jpa:id>
+            <jpa:basic name="storeItemId" optional="false" attribute-type="int" visibile="true" id="_1428594395454202">
+                <jpa:column name="store_item_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="storeArtistId" optional="false" attribute-type="int" visibile="true" id="_1428594395454203">
+                <jpa:column name="store_artist_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="storeComposerId" optional="false" attribute-type="int" visibile="true" id="_1428594395454204">
+                <jpa:column name="store_composer_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="storeGenreId" optional="false" attribute-type="int" visibile="true" id="_1428594395454205">
+                <jpa:column name="store_genre_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="storePlaylistId" optional="false" attribute-type="int" visibile="true" id="_1428594395454206">
+                <jpa:column name="store_playlist_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="storefrontId" optional="false" attribute-type="int" visibile="true" id="_1428594395454207">
+                <jpa:column name="storefront_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="purchaseHistoryId" optional="false" attribute-type="int" visibile="true" id="_1428594395454208">
+                <jpa:column name="purchase_history_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="purchaseHistoryToken" optional="false" attribute-type="int" visibile="true" id="_1428594395454209">
+                <jpa:column name="purchase_history_token" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="purchaseHistoryRedownloadParams" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454210">
+                <jpa:column name="purchase_history_redownload_params" unique="false" nullable="true" insertable="true" updatable="true" table="item_store" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="storeSagaId" optional="false" attribute-type="int" visibile="true" id="_1428594395454211">
+                <jpa:column name="store_saga_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="matchRedownloadParams" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454212">
+                <jpa:column name="match_redownload_params" unique="false" nullable="true" insertable="true" updatable="true" table="item_store" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="syncId" optional="false" attribute-type="int" visibile="true" id="_1428594395454213">
+                <jpa:column name="sync_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="homeSharingId" optional="false" attribute-type="int" visibile="true" id="_1428594395454214">
+                <jpa:column name="home_sharing_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="isOtaPurchased" optional="false" attribute-type="int" visibile="true" id="_1428594395454215">
+                <jpa:column name="is_ota_purchased" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="storeKind" optional="false" attribute-type="int" visibile="true" id="_1428594395454216">
+                <jpa:column name="store_kind" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="accountId" optional="false" attribute-type="int" visibile="true" id="_1428594395454217">
+                <jpa:column name="account_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="keyVersions" optional="false" attribute-type="int" visibile="true" id="_1428594395454218">
+                <jpa:column name="key_versions" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="keyPlatformId" optional="false" attribute-type="int" visibile="true" id="_1428594395454219">
+                <jpa:column name="key_platform_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="keyId" optional="false" attribute-type="int" visibile="true" id="_1428594395454220">
+                <jpa:column name="key_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="keyId2" optional="false" attribute-type="int" visibile="true" id="_1428594395454221">
+                <jpa:column name="key_id_2" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="datePurchased" optional="false" attribute-type="int" visibile="true" id="_1428594395454222">
+                <jpa:column name="date_purchased" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="dateReleased" optional="false" attribute-type="int" visibile="true" id="_1428594395454223">
+                <jpa:column name="date_released" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="externalGuid" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454224">
+                <jpa:column name="external_guid" unique="false" nullable="true" insertable="true" updatable="true" table="item_store" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="feedUrl" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454225">
+                <jpa:column name="feed_url" unique="false" nullable="true" insertable="true" updatable="true" table="item_store" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="artworkUrl" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454226">
+                <jpa:column name="artwork_url" unique="false" nullable="true" insertable="true" updatable="true" table="item_store" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="storeXid" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454227">
+                <jpa:column name="store_xid" unique="false" nullable="true" insertable="true" updatable="true" table="item_store" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="storeFlavor" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454228">
+                <jpa:column name="store_flavor" unique="false" nullable="true" insertable="true" updatable="true" table="item_store" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="storeMatchedStatus" optional="false" attribute-type="int" visibile="true" id="_1428594395454229">
+                <jpa:column name="store_matched_status" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="storeRedownloadedStatus" optional="false" attribute-type="int" visibile="true" id="_1428594395454230">
+                <jpa:column name="store_redownloaded_status" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+            <jpa:basic name="storeLinkId" optional="false" attribute-type="int" visibile="true" id="_1428594395454231">
+                <jpa:column name="store_link_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_store"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ItemArtist" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545074">
+        <jpa:table name="item_artist"/>
+        <jpa:attributes>
+            <jpa:id name="itemArtistPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454232">
+                <jpa:column name="item_artist_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item_artist"/>
+            </jpa:id>
+            <jpa:basic name="itemArtist" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395454233">
+                <jpa:column name="item_artist" unique="false" nullable="false" insertable="true" updatable="true" table="item_artist" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="sortItemArtist" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454234">
+                <jpa:column name="sort_item_artist" unique="false" nullable="true" insertable="true" updatable="true" table="item_artist" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="seriesName" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395454235">
+                <jpa:column name="series_name" unique="false" nullable="false" insertable="true" updatable="true" table="item_artist" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="sortSeriesName" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454236">
+                <jpa:column name="sort_series_name" unique="false" nullable="true" insertable="true" updatable="true" table="item_artist" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="groupingKey" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454237">
+                <jpa:column name="grouping_key" unique="false" nullable="true" insertable="true" updatable="true" table="item_artist" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="cloudStatus" optional="false" attribute-type="int" visibile="true" id="_1428594395454238">
+                <jpa:column name="cloud_status" unique="false" nullable="false" insertable="true" updatable="true" table="item_artist"/>
+            </jpa:basic>
+            <jpa:basic name="representativeItemPid" optional="false" attribute-type="int" visibile="true" id="_1428594395454239">
+                <jpa:column name="representative_item_pid" unique="false" nullable="false" insertable="true" updatable="true" table="item_artist"/>
+            </jpa:basic>
+            <jpa:basic name="artistArtworkCacheId" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395454240">
+                <jpa:column name="artist_artwork_cache_id" unique="false" nullable="false" insertable="true" updatable="true" table="item_artist" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="AlbumArtist" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545075">
+        <jpa:table name="album_artist"/>
+        <jpa:attributes>
+            <jpa:id name="albumArtistPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454241">
+                <jpa:column name="album_artist_pid" unique="false" nullable="true" insertable="true" updatable="true" table="album_artist"/>
+            </jpa:id>
+            <jpa:basic name="albumArtist" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395454242">
+                <jpa:column name="album_artist" unique="false" nullable="false" insertable="true" updatable="true" table="album_artist" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="sortAlbumArtist" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454243">
+                <jpa:column name="sort_album_artist" unique="false" nullable="true" insertable="true" updatable="true" table="album_artist" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="groupingKey" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454244">
+                <jpa:column name="grouping_key" unique="false" nullable="true" insertable="true" updatable="true" table="album_artist" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="cloudStatus" optional="false" attribute-type="int" visibile="true" id="_1428594395454245">
+                <jpa:column name="cloud_status" unique="false" nullable="false" insertable="true" updatable="true" table="album_artist"/>
+            </jpa:basic>
+            <jpa:basic name="artworkCacheId" optional="false" attribute-type="int" visibile="true" id="_1428594395454246">
+                <jpa:column name="artwork_cache_id" unique="false" nullable="false" insertable="true" updatable="true" table="album_artist"/>
+            </jpa:basic>
+            <jpa:basic name="representativeItemPid" optional="false" attribute-type="int" visibile="true" id="_1428594395454247">
+                <jpa:column name="representative_item_pid" unique="false" nullable="false" insertable="true" updatable="true" table="album_artist"/>
+            </jpa:basic>
+            <jpa:basic name="artistArtworkCacheId" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395454248">
+                <jpa:column name="artist_artwork_cache_id" unique="false" nullable="false" insertable="true" updatable="true" table="album_artist" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ItemStats" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545076">
+        <jpa:table name="item_stats"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454249">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:id>
+            <jpa:basic name="userRating" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454250">
+                <jpa:column name="user_rating" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="needsRestore" optional="false" attribute-type="int" visibile="true" id="_1428594395454251">
+                <jpa:column name="needs_restore" unique="false" nullable="false" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="downloadIdentifier" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454252">
+                <jpa:column name="download_identifier" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="playCountUser" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454253">
+                <jpa:column name="play_count_user" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="playCountRecent" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454254">
+                <jpa:column name="play_count_recent" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="hasBeenPlayed" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454255">
+                <jpa:column name="has_been_played" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="datePlayed" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454256">
+                <jpa:column name="date_played" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="dateSkipped" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454257">
+                <jpa:column name="date_skipped" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="dateAccessed" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454258">
+                <jpa:column name="date_accessed" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="isAlarm" optional="false" attribute-type="int" visibile="true" id="_1428594395454259">
+                <jpa:column name="is_alarm" unique="false" nullable="false" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="skipCountUser" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454260">
+                <jpa:column name="skip_count_user" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="skipCountRecent" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454261">
+                <jpa:column name="skip_count_recent" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="rememberBookmark" optional="false" attribute-type="int" visibile="true" id="_1428594395454262">
+                <jpa:column name="remember_bookmark" unique="false" nullable="false" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="bookmarkTimeMs" optional="true" attribute-type="java.lang.Double" visibile="true" id="_1428594395454263">
+                <jpa:column name="bookmark_time_ms" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats" precision="2000000000" scale="10"/>
+            </jpa:basic>
+            <jpa:basic name="hidden" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454264">
+                <jpa:column name="hidden" unique="false" nullable="true" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+            <jpa:basic name="chosenByAutoFill" optional="false" attribute-type="int" visibile="true" id="_1428594395454265">
+                <jpa:column name="chosen_by_auto_fill" unique="false" nullable="false" insertable="true" updatable="true" table="item_stats"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Genre" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545077">
+        <jpa:table name="genre"/>
+        <jpa:attributes>
+            <jpa:id name="genreId" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454266">
+                <jpa:column name="genre_id" unique="false" nullable="true" insertable="true" updatable="true" table="genre"/>
+            </jpa:id>
+            <jpa:basic name="genre" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395454267">
+                <jpa:column name="genre" unique="false" nullable="false" insertable="true" updatable="true" table="genre" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="groupingKey" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454268">
+                <jpa:column name="grouping_key" unique="false" nullable="true" insertable="true" updatable="true" table="genre" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="cloudStatus" optional="false" attribute-type="int" visibile="true" id="_1428594395454269">
+                <jpa:column name="cloud_status" unique="false" nullable="false" insertable="true" updatable="true" table="genre"/>
+            </jpa:basic>
+            <jpa:basic name="representativeItemPid" optional="false" attribute-type="int" visibile="true" id="_1428594395454270">
+                <jpa:column name="representative_item_pid" unique="false" nullable="false" insertable="true" updatable="true" table="genre"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="DbInfo" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545078">
+        <jpa:table name="db_info"/>
+        <jpa:attributes>
+            <jpa:id name="dbPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454271">
+                <jpa:column name="db_pid" unique="false" nullable="true" insertable="true" updatable="true" table="db_info"/>
+            </jpa:id>
+            <jpa:basic name="primaryContainerPid" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454272">
+                <jpa:column name="primary_container_pid" unique="false" nullable="true" insertable="true" updatable="true" table="db_info"/>
+            </jpa:basic>
+            <jpa:basic name="mediaFolderUrl" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454273">
+                <jpa:column name="media_folder_url" unique="false" nullable="true" insertable="true" updatable="true" table="db_info" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="audioLanguage" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454274">
+                <jpa:column name="audio_language" unique="false" nullable="true" insertable="true" updatable="true" table="db_info"/>
+            </jpa:basic>
+            <jpa:basic name="subtitleLanguage" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454275">
+                <jpa:column name="subtitle_language" unique="false" nullable="true" insertable="true" updatable="true" table="db_info"/>
+            </jpa:basic>
+            <jpa:basic name="geniusCuid" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454276">
+                <jpa:column name="genius_cuid" unique="false" nullable="true" insertable="true" updatable="true" table="db_info" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="bib" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454277">
+                <jpa:column name="bib" unique="false" nullable="true" insertable="true" updatable="true" table="db_info" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="rib" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454278">
+                <jpa:column name="rib" unique="false" nullable="true" insertable="true" updatable="true" table="db_info" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Lyrics" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545079">
+        <jpa:table name="lyrics"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454279">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="lyrics"/>
+            </jpa:id>
+            <jpa:basic name="checksum" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454280">
+                <jpa:column name="checksum" unique="false" nullable="true" insertable="true" updatable="true" table="lyrics"/>
+            </jpa:basic>
+            <jpa:basic name="lyrics" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454281">
+                <jpa:column name="lyrics" unique="false" nullable="true" insertable="true" updatable="true" table="lyrics" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="GeniusSimilarities" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545080">
+        <jpa:table name="genius_similarities"/>
+        <jpa:attributes>
+            <jpa:id name="geniusId" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454282">
+                <jpa:column name="genius_id" unique="false" nullable="true" insertable="true" updatable="true" table="genius_similarities"/>
+            </jpa:id>
+            <jpa:basic name="data" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395454283">
+                <jpa:column name="data" unique="false" nullable="true" insertable="true" updatable="true" table="genius_similarities" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Item" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545081">
+        <jpa:table name="item"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395454284">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item"/>
+            </jpa:id>
+            <jpa:basic name="mediaType" optional="false" attribute-type="int" visibile="true" id="_1428594395454285">
+                <jpa:column name="media_type" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="titleOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395454286">
+                <jpa:column name="title_order" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="titleOrderSection" optional="false" attribute-type="int" visibile="true" id="_1428594395454287">
+                <jpa:column name="title_order_section" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="itemArtistPid" optional="false" attribute-type="int" visibile="true" id="_1428594395454288">
+                <jpa:column name="item_artist_pid" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="itemArtistOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395455289">
+                <jpa:column name="item_artist_order" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="itemArtistOrderSection" optional="false" attribute-type="int" visibile="true" id="_1428594395455290">
+                <jpa:column name="item_artist_order_section" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="seriesNameOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395455291">
+                <jpa:column name="series_name_order" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="seriesNameOrderSection" optional="false" attribute-type="int" visibile="true" id="_1428594395455292">
+                <jpa:column name="series_name_order_section" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="albumPid" optional="false" attribute-type="int" visibile="true" id="_1428594395455293">
+                <jpa:column name="album_pid" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="albumOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395455294">
+                <jpa:column name="album_order" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="albumOrderSection" optional="false" attribute-type="int" visibile="true" id="_1428594395455295">
+                <jpa:column name="album_order_section" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="albumArtistPid" optional="false" attribute-type="int" visibile="true" id="_1428594395455296">
+                <jpa:column name="album_artist_pid" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="albumArtistOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395455297">
+                <jpa:column name="album_artist_order" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="albumArtistOrderSection" optional="false" attribute-type="int" visibile="true" id="_1428594395455298">
+                <jpa:column name="album_artist_order_section" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="composerPid" optional="false" attribute-type="int" visibile="true" id="_1428594395455299">
+                <jpa:column name="composer_pid" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="composerOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395455300">
+                <jpa:column name="composer_order" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="composerOrderSection" optional="false" attribute-type="int" visibile="true" id="_1428594395455301">
+                <jpa:column name="composer_order_section" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="genreId" optional="false" attribute-type="int" visibile="true" id="_1428594395455302">
+                <jpa:column name="genre_id" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="genreOrder" optional="false" attribute-type="int" visibile="true" id="_1428594395455303">
+                <jpa:column name="genre_order" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="genreOrderSection" optional="false" attribute-type="int" visibile="true" id="_1428594395455304">
+                <jpa:column name="genre_order_section" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="discNumber" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455305">
+                <jpa:column name="disc_number" unique="false" nullable="true" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="trackNumber" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455306">
+                <jpa:column name="track_number" unique="false" nullable="true" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="episodeSortId" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455307">
+                <jpa:column name="episode_sort_id" unique="false" nullable="true" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="baseLocationId" optional="false" attribute-type="int" visibile="true" id="_1428594395455308">
+                <jpa:column name="base_location_id" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="remoteLocationId" optional="false" attribute-type="int" visibile="true" id="_1428594395455309">
+                <jpa:column name="remote_location_id" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+            <jpa:basic name="excludeFromShuffle" optional="false" attribute-type="int" visibile="true" id="_1428594395455310">
+                <jpa:column name="exclude_from_shuffle" unique="false" nullable="false" insertable="true" updatable="true" table="item"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ItemPlayback" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545082">
+        <jpa:table name="item_playback"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455311">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:id>
+            <jpa:basic name="audioFormat" optional="false" attribute-type="int" visibile="true" id="_1428594395455312">
+                <jpa:column name="audio_format" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="bitRate" optional="false" attribute-type="int" visibile="true" id="_1428594395455313">
+                <jpa:column name="bit_rate" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="codecType" optional="false" attribute-type="int" visibile="true" id="_1428594395455314">
+                <jpa:column name="codec_type" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="codecSubtype" optional="false" attribute-type="int" visibile="true" id="_1428594395455315">
+                <jpa:column name="codec_subtype" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="dataKind" optional="false" attribute-type="int" visibile="true" id="_1428594395455316">
+                <jpa:column name="data_kind" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="dataUrl" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455317">
+                <jpa:column name="data_url" unique="false" nullable="true" insertable="true" updatable="true" table="item_playback" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="duration" optional="false" attribute-type="int" visibile="true" id="_1428594395455318">
+                <jpa:column name="duration" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="eqPreset" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455319">
+                <jpa:column name="eq_preset" unique="false" nullable="true" insertable="true" updatable="true" table="item_playback" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="format" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455320">
+                <jpa:column name="format" unique="false" nullable="true" insertable="true" updatable="true" table="item_playback" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="gaplessHeuristicInfo" optional="false" attribute-type="int" visibile="true" id="_1428594395455321">
+                <jpa:column name="gapless_heuristic_info" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="gaplessEncodingDelay" optional="false" attribute-type="int" visibile="true" id="_1428594395455322">
+                <jpa:column name="gapless_encoding_delay" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="gaplessEncodingDrain" optional="false" attribute-type="int" visibile="true" id="_1428594395455323">
+                <jpa:column name="gapless_encoding_drain" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="gaplessLastFrameResynch" optional="false" attribute-type="int" visibile="true" id="_1428594395455324">
+                <jpa:column name="gapless_last_frame_resynch" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="hasVideo" optional="false" attribute-type="int" visibile="true" id="_1428594395455325">
+                <jpa:column name="has_video" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="relativeVolume" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455326">
+                <jpa:column name="relative_volume" unique="false" nullable="true" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="sampleRate" optional="false" attribute-type="double" visibile="true" id="_1428594395455327">
+                <jpa:column name="sample_rate" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="startTimeMs" optional="false" attribute-type="double" visibile="true" id="_1428594395455328">
+                <jpa:column name="start_time_ms" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="stopTimeMs" optional="false" attribute-type="double" visibile="true" id="_1428594395455329">
+                <jpa:column name="stop_time_ms" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+            <jpa:basic name="volumeNormalizationEnergy" optional="false" attribute-type="int" visibile="true" id="_1428594395455330">
+                <jpa:column name="volume_normalization_energy" unique="false" nullable="false" insertable="true" updatable="true" table="item_playback"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Album" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545083">
+        <jpa:table name="album"/>
+        <jpa:attributes>
+            <jpa:id name="albumPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455331">
+                <jpa:column name="album_pid" unique="false" nullable="true" insertable="true" updatable="true" table="album"/>
+            </jpa:id>
+            <jpa:basic name="album" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395455332">
+                <jpa:column name="album" unique="false" nullable="false" insertable="true" updatable="true" table="album" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="sortAlbum" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455333">
+                <jpa:column name="sort_album" unique="false" nullable="true" insertable="true" updatable="true" table="album" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="albumArtistPid" optional="false" attribute-type="int" visibile="true" id="_1428594395455334">
+                <jpa:column name="album_artist_pid" unique="false" nullable="false" insertable="true" updatable="true" table="album"/>
+            </jpa:basic>
+            <jpa:basic name="representativeItemPid" optional="false" attribute-type="int" visibile="true" id="_1428594395455335">
+                <jpa:column name="representative_item_pid" unique="false" nullable="false" insertable="true" updatable="true" table="album"/>
+            </jpa:basic>
+            <jpa:basic name="groupingKey" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455336">
+                <jpa:column name="grouping_key" unique="false" nullable="true" insertable="true" updatable="true" table="album" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="cloudStatus" optional="false" attribute-type="int" visibile="true" id="_1428594395455337">
+                <jpa:column name="cloud_status" unique="false" nullable="false" insertable="true" updatable="true" table="album"/>
+            </jpa:basic>
+            <jpa:basic name="artworkCacheId" optional="false" attribute-type="int" visibile="true" id="_1428594395455338">
+                <jpa:column name="artwork_cache_id" unique="false" nullable="false" insertable="true" updatable="true" table="album"/>
+            </jpa:basic>
+            <jpa:basic name="userRating" optional="false" attribute-type="int" visibile="true" id="_1428594395455339">
+                <jpa:column name="user_rating" unique="false" nullable="false" insertable="true" updatable="true" table="album"/>
+            </jpa:basic>
+            <jpa:basic name="allCompilations" optional="false" attribute-type="int" visibile="true" id="_1428594395455340">
+                <jpa:column name="all_compilations" unique="false" nullable="false" insertable="true" updatable="true" table="album"/>
+            </jpa:basic>
+            <jpa:basic name="feedUrl" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455341">
+                <jpa:column name="feed_url" unique="false" nullable="true" insertable="true" updatable="true" table="album" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="seasonNumber" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455342">
+                <jpa:column name="season_number" unique="false" nullable="true" insertable="true" updatable="true" table="album"/>
+            </jpa:basic>
+            <jpa:basic name="albumYear" optional="false" attribute-type="int" visibile="true" id="_1428594395455343">
+                <jpa:column name="album_year" unique="false" nullable="false" insertable="true" updatable="true" table="album"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Composer" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545084">
+        <jpa:table name="composer"/>
+        <jpa:attributes>
+            <jpa:id name="composerPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455344">
+                <jpa:column name="composer_pid" unique="false" nullable="true" insertable="true" updatable="true" table="composer"/>
+            </jpa:id>
+            <jpa:basic name="composer" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395455345">
+                <jpa:column name="composer" unique="false" nullable="false" insertable="true" updatable="true" table="composer" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="sortComposer" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455346">
+                <jpa:column name="sort_composer" unique="false" nullable="true" insertable="true" updatable="true" table="composer" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="groupingKey" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455347">
+                <jpa:column name="grouping_key" unique="false" nullable="true" insertable="true" updatable="true" table="composer" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="cloudStatus" optional="false" attribute-type="int" visibile="true" id="_1428594395455348">
+                <jpa:column name="cloud_status" unique="false" nullable="false" insertable="true" updatable="true" table="composer"/>
+            </jpa:basic>
+            <jpa:basic name="artworkCacheId" optional="false" attribute-type="int" visibile="true" id="_1428594395455349">
+                <jpa:column name="artwork_cache_id" unique="false" nullable="false" insertable="true" updatable="true" table="composer"/>
+            </jpa:basic>
+            <jpa:basic name="representativeItemPid" optional="false" attribute-type="int" visibile="true" id="_1428594395455350">
+                <jpa:column name="representative_item_pid" unique="false" nullable="false" insertable="true" updatable="true" table="composer"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ContainerItems" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545085">
+        <jpa:table name="container_items"/>
+        <jpa:attributes>
+            <jpa:id name="containerPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455351">
+                <jpa:column name="container_pid" unique="false" nullable="true" insertable="true" updatable="true" table="container_items"/>
+            </jpa:id>
+            <jpa:basic name="itemPidData" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395455352">
+                <jpa:column name="item_pid_data" unique="false" nullable="true" insertable="true" updatable="true" table="container_items" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="StoreLink" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545086">
+        <jpa:table name="store_link"/>
+        <jpa:attributes>
+            <jpa:id name="storeLinkId" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455353">
+                <jpa:column name="store_link_id" unique="false" nullable="true" insertable="true" updatable="true" table="store_link"/>
+            </jpa:id>
+            <jpa:basic name="url" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395455354">
+                <jpa:column name="url" unique="false" nullable="false" insertable="true" updatable="true" table="store_link" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="LocationKind" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545087">
+        <jpa:table name="location_kind">
+            <jpa:unique-constraint>
+                <jpa:column-name>kind</jpa:column-name>
+            </jpa:unique-constraint>
+        </jpa:table>
+        <jpa:attributes>
+            <jpa:id name="locationKindId" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455355">
+                <jpa:column name="location_kind_id" unique="false" nullable="true" insertable="true" updatable="true" table="location_kind"/>
+            </jpa:id>
+            <jpa:basic name="kind" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395455356">
+                <jpa:column name="kind" unique="false" nullable="false" insertable="true" updatable="true" table="location_kind" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Category" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545088">
+        <jpa:table name="category">
+            <jpa:unique-constraint>
+                <jpa:column-name>category</jpa:column-name>
+            </jpa:unique-constraint>
+        </jpa:table>
+        <jpa:attributes>
+            <jpa:id name="categoryId" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455357">
+                <jpa:column name="category_id" unique="false" nullable="true" insertable="true" updatable="true" table="category"/>
+            </jpa:id>
+            <jpa:basic name="category" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395455358">
+                <jpa:column name="category" unique="false" nullable="false" insertable="true" updatable="true" table="category" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="EntityRevision" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545089">
+        <jpa:table name="entity_revision"/>
+        <jpa:attributes>
+            <jpa:id name="revision" attribute-type="java.lang.Integer" visibile="true" id="_1428594395455359">
+                <jpa:column name="revision" unique="false" nullable="true" insertable="true" updatable="true" table="entity_revision"/>
+            </jpa:id>
+            <jpa:basic name="entityPid" optional="false" attribute-type="int" visibile="true" id="_1428594395455360">
+                <jpa:column name="entity_pid" unique="false" nullable="false" insertable="true" updatable="true" table="entity_revision"/>
+            </jpa:basic>
+            <jpa:basic name="deleted" optional="false" attribute-type="int" visibile="true" id="_1428594395455361">
+                <jpa:column name="deleted" unique="false" nullable="false" insertable="true" updatable="true" table="entity_revision"/>
+            </jpa:basic>
+            <jpa:basic name="class1" optional="false" attribute-type="int" visibile="true" id="_1428594395455362">
+                <jpa:column name="class" unique="false" nullable="false" insertable="true" updatable="true" table="entity_revision"/>
+            </jpa:basic>
+            <jpa:basic name="revisionType" optional="false" attribute-type="int" visibile="true" id="_1428594395455363">
+                <jpa:column name="revision_type" unique="false" nullable="false" insertable="true" updatable="true" table="entity_revision"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ItemUpp" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545090">
+        <jpa:table name="item_upp"/>
+        <jpa:attributes>
+            <jpa:id name="itemPid" attribute-type="java.lang.Integer" visibile="true" id="_1428594395456364">
+                <jpa:column name="item_pid" unique="false" nullable="true" insertable="true" updatable="true" table="item_upp"/>
+            </jpa:id>
+            <jpa:basic name="bookkeeperIdentifier" optional="false" attribute-type="java.lang.String" visibile="true" id="_1428594395456365">
+                <jpa:column name="bookkeeper_identifier" unique="false" nullable="false" insertable="true" updatable="true" table="item_upp" length="2000000000"/>
+            </jpa:basic>
+            <jpa:basic name="metadataTimestamp" optional="true" attribute-type="java.lang.Double" visibile="true" id="_1428594395456366">
+                <jpa:column name="metadata_timestamp" unique="false" nullable="true" insertable="true" updatable="true" table="item_upp" precision="2000000000" scale="10"/>
+            </jpa:basic>
+            <jpa:basic name="metadataEntityRevision" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395456367">
+                <jpa:column name="metadata_entity_revision" unique="false" nullable="true" insertable="true" updatable="true" table="item_upp"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="GeniusMetadata" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_142859439545091">
+        <jpa:table name="genius_metadata"/>
+        <jpa:attributes>
+            <jpa:id name="geniusId" attribute-type="java.lang.Integer" visibile="true" id="_1428594395456368">
+                <jpa:column name="genius_id" unique="false" nullable="true" insertable="true" updatable="true" table="genius_metadata"/>
+            </jpa:id>
+            <jpa:basic name="revisionLevel" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395456369">
+                <jpa:column name="revision_level" unique="false" nullable="true" insertable="true" updatable="true" table="genius_metadata"/>
+            </jpa:basic>
+            <jpa:basic name="version" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395456370">
+                <jpa:column name="version" unique="false" nullable="true" insertable="true" updatable="true" table="genius_metadata"/>
+            </jpa:basic>
+            <jpa:basic name="checksum" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1428594395456371">
+                <jpa:column name="checksum" unique="false" nullable="true" insertable="true" updatable="true" table="genius_metadata"/>
+            </jpa:basic>
+            <jpa:basic name="data" optional="true" attribute-type="java.lang.String" visibile="true" id="_1428594395456372">
+                <jpa:column name="data" unique="false" nullable="true" insertable="true" updatable="true" table="genius_metadata" length="2000000000"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:diagram id="_142859439544163">
+        <plane elementRef="_142859439544162" id="_142859439544164_p">
+            <shape elementRef="_142859439544265" id="_142859439544265_gui">
+                <Bounds x="32.0" y="32.0" width="228.0" height="846.0"/>
+            </shape>
+            <shape elementRef="_142859439544866" id="_142859439544866_gui">
+                <Bounds x="6164.0" y="32.0" width="192.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_142859439544867" id="_142859439544867_gui">
+                <Bounds x="3575.0" y="32.0" width="153.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_142859439544868" id="_142859439544868_gui">
+                <Bounds x="2555.0" y="32.0" width="219.0" height="466.0"/>
+            </shape>
+            <shape elementRef="_142859439544869" id="_142859439544869_gui">
+                <Bounds x="5846.0" y="32.0" width="190.0" height="146.0"/>
+            </shape>
+            <shape elementRef="_142859439544970" id="_142859439544970_gui">
+                <Bounds x="6484.0" y="32.0" width="210.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_142859439544971" id="_142859439544971_gui">
+                <Bounds x="7174.0" y="32.0" width="208.0" height="666.0"/>
+            </shape>
+            <shape elementRef="_142859439545072" id="_142859439545072_gui">
+                <Bounds x="704.0" y="32.0" width="176.0" height="166.0"/>
+            </shape>
+            <shape elementRef="_142859439545073" id="_142859439545073_gui">
+                <Bounds x="3856.0" y="32.0" width="275.0" height="666.0"/>
+            </shape>
+            <shape elementRef="_142859439545074" id="_142859439545074_gui">
+                <Bounds x="1658.0" y="32.0" width="188.0" height="226.0"/>
+            </shape>
+            <shape elementRef="_142859439545075" id="_142859439545075_gui">
+                <Bounds x="4905.0" y="32.0" width="188.0" height="206.0"/>
+            </shape>
+            <shape elementRef="_142859439545076" id="_142859439545076_gui">
+                <Bounds x="8440.0" y="32.0" width="176.0" height="386.0"/>
+            </shape>
+            <shape elementRef="_142859439545077" id="_142859439545077_gui">
+                <Bounds x="388.0" y="32.0" width="188.0" height="146.0"/>
+            </shape>
+            <shape elementRef="_142859439545078" id="_142859439545078_gui">
+                <Bounds x="4601.0" y="32.0" width="176.0" height="206.0"/>
+            </shape>
+            <shape elementRef="_142859439545079" id="_142859439545079_gui">
+                <Bounds x="1974.0" y="32.0" width="137.0" height="106.0"/>
+            </shape>
+            <shape elementRef="_142859439545080" id="_142859439545080_gui">
+                <Bounds x="6822.0" y="32.0" width="224.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_142859439545081" id="_142859439545081_gui">
+                <Bounds x="1008.0" y="32.0" width="206.0" height="586.0"/>
+            </shape>
+            <shape elementRef="_142859439545082" id="_142859439545082_gui">
+                <Bounds x="2902.0" y="32.0" width="221.0" height="446.0"/>
+            </shape>
+            <shape elementRef="_142859439545083" id="_142859439545083_gui">
+                <Bounds x="2239.0" y="32.0" width="188.0" height="306.0"/>
+            </shape>
+            <shape elementRef="_142859439545084" id="_142859439545084_gui">
+                <Bounds x="7799.0" y="32.0" width="188.0" height="186.0"/>
+            </shape>
+            <shape elementRef="_142859439545085" id="_142859439545085_gui">
+                <Bounds x="5221.0" y="32.0" width="205.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_142859439545086" id="_142859439545086_gui">
+                <Bounds x="5554.0" y="32.0" width="164.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_142859439545087" id="_142859439545087_gui">
+                <Bounds x="1342.0" y="32.0" width="188.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_142859439545088" id="_142859439545088_gui">
+                <Bounds x="7510.0" y="32.0" width="161.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_142859439545089" id="_142859439545089_gui">
+                <Bounds x="3251.0" y="32.0" width="196.0" height="146.0"/>
+            </shape>
+            <shape elementRef="_142859439545090" id="_142859439545090_gui">
+                <Bounds x="8115.0" y="32.0" width="197.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_142859439545091" id="_142859439545091_gui">
+                <Bounds x="4259.0" y="32.0" width="214.0" height="146.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>

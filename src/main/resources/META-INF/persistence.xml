@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="medialibrary8" transaction-type="RESOURCE_LOCAL">
-    <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:/home/pcampbell/Dropbox/Projects/iTunes-MediaLibrary/samples/MediaLibrary.sqlitedb"/>
-      <property name="javax.persistence.jdbc.user" value=""/>
-      <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-      <property name="javax.persistence.jdbc.password" value=""/>
-      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
-    </properties>
-  </persistence-unit>
+    <persistence-unit name="medialibrary8" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>net.kemitix.itunes.medialibrary.domain.Container</class>
+        <class>net.kemitix.itunes.medialibrary.domain.BaseLocation</class>
+        <class>net.kemitix.itunes.medialibrary.domain.Chapter</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ItemVideo</class>
+        <class>net.kemitix.itunes.medialibrary.domain.GeniusConfig</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ArtworkFreeList</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ItemExtra</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ItemSearch</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ItemStore</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ItemArtist</class>
+        <class>net.kemitix.itunes.medialibrary.domain.AlbumArtist</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ItemStats</class>
+        <class>net.kemitix.itunes.medialibrary.domain.Genre</class>
+        <class>net.kemitix.itunes.medialibrary.domain.DbInfo</class>
+        <class>net.kemitix.itunes.medialibrary.domain.Lyrics</class>
+        <class>net.kemitix.itunes.medialibrary.domain.GeniusSimilarities</class>
+        <class>net.kemitix.itunes.medialibrary.domain.Item</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ItemPlayback</class>
+        <class>net.kemitix.itunes.medialibrary.domain.Album</class>
+        <class>net.kemitix.itunes.medialibrary.domain.Composer</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ContainerItems</class>
+        <class>net.kemitix.itunes.medialibrary.domain.StoreLink</class>
+        <class>net.kemitix.itunes.medialibrary.domain.LocationKind</class>
+        <class>net.kemitix.itunes.medialibrary.domain.Category</class>
+        <class>net.kemitix.itunes.medialibrary.domain.EntityRevision</class>
+        <class>net.kemitix.itunes.medialibrary.domain.ItemUpp</class>
+        <class>net.kemitix.itunes.medialibrary.domain.GeniusMetadata</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:/home/pcampbell/Dropbox/Projects/iTunes-MediaLibrary/samples/MediaLibrary.sqlitedb"/>
+            <property name="javax.persistence.jdbc.user" value=""/>
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+        </properties>
+    </persistence-unit>
 </persistence>
