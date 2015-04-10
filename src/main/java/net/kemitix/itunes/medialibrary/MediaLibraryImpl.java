@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 
 class MediaLibraryImpl implements MediaLibrary {
 
+    private static final Logger logger = Logger.getLogger(MediaLibraryImpl.class.getName());
+
     private File sqliteFile;
 
     @Override
@@ -45,7 +47,7 @@ class MediaLibraryImpl implements MediaLibrary {
         try {
             return getConnection() != null;
         } catch (SQLException | ClassNotFoundException | IOException ex) {
-            Logger.getLogger(MediaLibraryImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, null, ex);
             return false;
         }
     }
