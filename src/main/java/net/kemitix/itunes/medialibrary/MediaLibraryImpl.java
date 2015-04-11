@@ -7,7 +7,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.stereotype.Component;
 
+@Component
 class MediaLibraryImpl implements MediaLibrary {
 
     private static final Logger logger = Logger.getLogger(MediaLibraryImpl.class.getName());
