@@ -1,21 +1,20 @@
 package net.kemitix.itunes.medialibrary;
 
 import java.io.File;
-import lombok.Getter;
-import lombok.Setter;
+import java.util.List;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@Setter
-@Getter
 public class ITunesMediaLibrary {
 
+    private final AnnotationConfigApplicationContext cx;
     private final MediaLibrary mediaLibrary;
 
     public ITunesMediaLibrary(File mediaLibraryFile) {
-        mediaLibrary = new MediaLibraryImpl();
-        mediaLibrary.setLibraryFile(mediaLibraryFile);
+        cx = new AnnotationConfigApplicationContext(LibraryConfiguration.class);
+        mediaLibrary = cx.getBean(MediaLibrary.class);
     }
 
-    public boolean isLibraryConnected() {
-        return mediaLibrary.isLibraryConnected();
+    List<Album> getAlbums() {
+        return mediaLibrary.getAlbums();
     }
 }

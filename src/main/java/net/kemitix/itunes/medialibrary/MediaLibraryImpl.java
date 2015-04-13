@@ -1,53 +1,29 @@
 package net.kemitix.itunes.medialibrary;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 class MediaLibraryImpl implements MediaLibrary {
 
-    private File sqliteFile;
+    private final AlbumDao albumDao;
 
-    @Override
-    public void setLibraryFile(File sqliteFile) {
-        this.sqliteFile = sqliteFile;
-    }
-
-    private Connection connection;
-
-    private Connection getConnection()
-            throws SQLException, ClassNotFoundException, IOException {
-        if (connection == null) {
-
-            Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection(getJDBCConnectionString());
-        }
-        return connection;
-    }
-
-    private String getJDBCConnectionString() throws IOException {
-        return "jdbc:sqlite:" + getSqlliteFile().getCanonicalPath();
-    }
-
-    private File getSqlliteFile() {
-        if (sqliteFile == null) {
-            throw new NullPointerException("Library File not set");
-        }
-        return sqliteFile;
+    @Autowired
+    public MediaLibraryImpl(AlbumDao albumDao) {
+        this.albumDao = albumDao;
     }
 
     @Override
-    public boolean isLibraryConnected() {
+    public List<Album> getAlbums() {
         try {
-            return getConnection() != null;
-        } catch (SQLException | ClassNotFoundException | IOException ex) {
+            return albumDao.selectAll();
+        } catch (SQLException ex) {
             Logger.getLogger(MediaLibraryImpl.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         }
+        return null;
     }
-
 }
