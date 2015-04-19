@@ -10,14 +10,17 @@ class MediaLibraryImpl implements MediaLibrary {
 
     private final AlbumDao albumDao;
     private final ArtistDao artistDao;
+    private final ItemDao itemDao;
 
     @Autowired
     public MediaLibraryImpl(
             AlbumDao albumDao,
             ArtistDao artistDao,
+            ItemDao itemDao,
     ) {
         this.albumDao = albumDao;
         this.artistDao = artistDao;
+        this.itemDao = itemDao;
     }
 
     @Override
@@ -28,6 +31,11 @@ class MediaLibraryImpl implements MediaLibrary {
     @Override
     public List<Artist> getArtists() throws SQLException {
         return artistDao.selectAll();
+    }
+
+    @Override
+    public List<Item> getItems() throws SQLException {
+        return itemDao.selectAll();
     }
     }
 }
