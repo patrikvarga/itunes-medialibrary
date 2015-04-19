@@ -49,6 +49,14 @@
             <artifactId>spring-context</artifactId>
         </dependency>
 
+        <!-- Spring Common -->
+        <dependency>
+            <groupId>net.kemitix</groupId>
+            <artifactId>spring-common</artifactId>
+            <version>0.3.0-RELEASE</version>
+        </dependency>
+
+        <!-- Logging -->
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
@@ -59,7 +67,6 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
