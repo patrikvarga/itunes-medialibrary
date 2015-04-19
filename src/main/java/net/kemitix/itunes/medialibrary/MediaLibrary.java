@@ -1,8 +1,9 @@
 package net.kemitix.itunes.medialibrary;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface MediaLibrary {
 
-    List<Album> getAlbums();
+    List<Album> getAlbums() throws SQLException;
 }
