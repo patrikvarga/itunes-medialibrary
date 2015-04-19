@@ -1,26 +1,31 @@
 package net.kemitix.itunes.medialibrary;
 
-import java.sql.SQLException;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
-class AlbumDao {
+public class AlbumDao extends LibraryDao<Album> {
 
-    private final String SELECT_ALL_SQL = "select album_pid, album from album";
-    private final JdbcTemplate jdbcTemplate;
-    private final RowMapper<Album> rowMapper;
+    private final String SELECT_ALL_SQL = "select * from album";
+    private final String SELECT_BY_ID = "select * from album where album_pid = ?";
 
     @Autowired
-    public AlbumDao(JdbcTemplate jdbcTemplate, RowMapper<Album> rowMapper) {
-        this.jdbcTemplate = jdbcTemplate;
-        this.rowMapper = rowMapper;
+    public AlbumDao(
+            JdbcTemplate jdbcTemplate,
+            RowMapper<Album> rowMapper) {
+        super(jdbcTemplate, rowMapper);
     }
 
-    List<Album> selectAll() throws SQLException {
-        return jdbcTemplate.query(SELECT_ALL_SQL, rowMapper);
+    @Override
+    String getSelectAllSql() {
+        return SELECT_ALL_SQL;
     }
+
+    @Override
+    String getSelectByIdSql() {
+        return SELECT_BY_ID;
+    }
+
 }
