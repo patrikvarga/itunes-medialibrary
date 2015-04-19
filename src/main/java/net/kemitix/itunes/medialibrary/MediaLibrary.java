@@ -7,6 +7,8 @@ public interface MediaLibrary {
 
     List<Album> getAlbums() throws SQLException;
 
+    List<Artist> getArtists() throws SQLException;
+
     List<Item> getItems() throws SQLException;
 
     List<AlbumTracks> getAlbumTracks() throws SQLException;
