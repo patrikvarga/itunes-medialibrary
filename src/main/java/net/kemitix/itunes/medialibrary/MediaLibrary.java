@@ -2,7 +2,7 @@ package net.kemitix.itunes.medialibrary;
 
 import java.util.List;
 
-interface MediaLibrary {
+public interface MediaLibrary {
 
     List<Album> getAlbums();
 }
