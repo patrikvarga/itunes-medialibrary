@@ -2,8 +2,6 @@ package net.kemitix.itunes.medialibrary;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,12 +16,8 @@ class MediaLibraryImpl implements MediaLibrary {
     }
 
     @Override
-    public List<Album> getAlbums() {
-        try {
-            return albumDao.selectAll();
-        } catch (SQLException ex) {
-            Logger.getLogger(MediaLibraryImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+    public List<Album> getAlbums() throws SQLException {
+        return albumDao.selectAll();
+    }
     }
 }
