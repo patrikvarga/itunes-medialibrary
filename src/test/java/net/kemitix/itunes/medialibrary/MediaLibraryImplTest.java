@@ -33,21 +33,6 @@ public class MediaLibraryImplTest {
     }
 
     @Test
-    public void testMocks() {
-        //given
-        AlbumDao albumDaoResult = mediaLibrary.getAlbumDao();
-        ArtistDao artistDaoResult = mediaLibrary.getArtistDao();
-        ItemDao itemDaoResult = mediaLibrary.getItemDao();
-        AlbumTracksDao albumTracksDaoResult = mediaLibrary.getAlbumTracksDao();
-
-        //then
-        assertThat(albumDaoResult, is(albumDao));
-        assertThat(artistDaoResult, is(artistDao));
-        assertThat(itemDaoResult, is(itemDao));
-        assertThat(albumTracksDaoResult, is(albumTracksDao));
-    }
-
-    @Test
     public void testGetAlbums() throws SQLException {
         //given
         List<Album> albums = new ArrayList<>();
