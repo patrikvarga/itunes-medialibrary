@@ -53,7 +53,7 @@
         <dependency>
             <groupId>net.kemitix</groupId>
             <artifactId>spring-common</artifactId>
-            <version>0.3.0-RELEASE</version>
+            <version>0.3.1</version>
         </dependency>
 
         <!-- Spring Test -->
