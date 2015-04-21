@@ -5,7 +5,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-abstract class LibraryDao<T> {
+public abstract class LibraryDao<T> {
 
     private final JdbcTemplate jdbcTemplate;
 

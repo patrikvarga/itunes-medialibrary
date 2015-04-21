@@ -7,9 +7,11 @@ import java.util.Properties;
 import javax.sql.DataSource;
 import net.kemitix.spring.common.ResourceReader;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -37,12 +39,17 @@ public class LibraryConfiguration {
         return new HikariConfig(parameters);
     }
 
-    private String jdbcConnectionString() {
-        return "jdbc:sqlite:" + mediaLibraryFilePath();
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
     }
 
-    private String mediaLibraryFilePath() {
-        return "samples/MediaLibrary.sqlitedb";
+    @Value("${medialibrary.filename}")
+    private String mediaLibraryFilePath;
+
+    private String jdbcConnectionString() {
+        System.out.println("MediaLibrary File Path: " + mediaLibraryFilePath);
+        return "jdbc:sqlite:" + mediaLibraryFilePath;
     }
 
     @Bean

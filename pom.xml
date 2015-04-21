@@ -53,13 +53,32 @@
         <dependency>
             <groupId>net.kemitix</groupId>
             <artifactId>spring-common</artifactId>
-            <version>0.3.0-RELEASE</version>
+            <version>0.3.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Spring Test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- Logging -->
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.12</version>
         </dependency>
 
         <!-- DataSource (HikariCP) -->
