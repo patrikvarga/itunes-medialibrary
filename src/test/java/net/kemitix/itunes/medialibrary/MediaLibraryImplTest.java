@@ -45,4 +45,43 @@ public class MediaLibraryImplTest {
         assertThat(result, is(albums));
     }
 
+    @Test
+    public void testGetArtists() throws SQLException {
+        //given
+        List<Artist> artists = new ArrayList<>();
+        when(artistDao.selectAll()).thenReturn(artists);
+
+        //when
+        List<Artist> result = mediaLibrary.getArtists();
+
+        //then
+        assertThat(result, is(artists));
+    }
+
+    @Test
+    public void testGetItems() throws SQLException {
+        //given
+        List<Item> items = new ArrayList<>();
+        when(itemDao.selectAll()).thenReturn(items);
+
+        //when
+        List<Item> result = mediaLibrary.getItems();
+
+        //then
+        assertThat(result, is(items));
+    }
+
+    @Test
+    public void testGetAlbumTracks() throws SQLException {
+        //given
+        List<AlbumTracks> albumTracks = new ArrayList<>();
+        when(albumTracksDao.selectAll()).thenReturn(albumTracks);
+
+        //when
+        List<AlbumTracks> result = mediaLibrary.getAlbumTracks();
+
+        //then
+        assertThat(result, is(albumTracks));
+    }
+
 }
