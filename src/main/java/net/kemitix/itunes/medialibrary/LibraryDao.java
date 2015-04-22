@@ -1,10 +1,12 @@
 package net.kemitix.itunes.medialibrary;
 
 import java.util.List;
+import lombok.Getter;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+@Getter
 public abstract class LibraryDao<T> {
 
     private final JdbcTemplate jdbcTemplate;
