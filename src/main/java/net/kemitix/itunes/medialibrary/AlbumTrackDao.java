@@ -36,7 +36,7 @@ public class AlbumTrackDao extends LibraryDao<AlbumTrack> {
         return sql + " where location = ?";
     }
 
-    AlbumTrack find(File file) {
+    public AlbumTrack find(File file) {
         try {
             return getJdbcTemplate()
                     .queryForObject(getSelectByFileSql(), getRowMapper(), file.getName());
