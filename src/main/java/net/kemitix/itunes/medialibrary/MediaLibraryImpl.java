@@ -11,14 +11,14 @@ class MediaLibraryImpl implements MediaLibrary {
     private final AlbumDao albumDao;
     private final ArtistDao artistDao;
     private final ItemDao itemDao;
-    private final AlbumTracksDao albumTracksDao;
+    private final AlbumTrackDao albumTracksDao;
 
     @Autowired
     public MediaLibraryImpl(
             AlbumDao albumDao,
             ArtistDao artistDao,
             ItemDao itemDao,
-            AlbumTracksDao albumTracksDao
+            AlbumTrackDao albumTracksDao
     ) {
         this.albumDao = albumDao;
         this.artistDao = artistDao;

@@ -7,12 +7,12 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AlbumTracksDao extends LibraryDao<AlbumTrack> {
+public class AlbumTrackDao extends LibraryDao<AlbumTrack> {
 
     private final String sql;
 
     @Autowired
-    public AlbumTracksDao(
+    public AlbumTrackDao(
             JdbcTemplate jdbcTemplate,
             RowMapper<AlbumTrack> rowMapper,
             @Qualifier("album tracks") String sql) {

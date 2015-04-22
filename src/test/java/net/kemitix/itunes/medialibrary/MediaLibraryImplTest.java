@@ -20,14 +20,14 @@ public class MediaLibraryImplTest {
     private AlbumDao albumDao;
     private ArtistDao artistDao;
     private ItemDao itemDao;
-    private AlbumTracksDao albumTracksDao;
+    private AlbumTrackDao albumTracksDao;
 
     @Before
     public void setUp() {
         albumDao = mock(AlbumDao.class);
         artistDao = mock(ArtistDao.class);
         itemDao = mock(ItemDao.class);
-        albumTracksDao = mock(AlbumTracksDao.class);
+        albumTracksDao = mock(AlbumTrackDao.class);
         mediaLibrary
                 = new MediaLibraryImpl(albumDao, artistDao, itemDao, albumTracksDao);
     }
