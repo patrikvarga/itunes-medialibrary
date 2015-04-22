@@ -1,5 +1,7 @@
 package net.kemitix.itunes.medialibrary;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +84,20 @@ public class MediaLibraryImplTest {
 
         //then
         assertThat(result, is(albumTracks));
+    }
+
+    @Test
+    public void testFindAlbumTracksByFile() throws IOException {
+        //given
+        AlbumTrack albumTrack = mock(AlbumTrack.class);
+        File testfile = File.createTempFile("test", "file");
+        when(albumTracksDao.find(testfile)).thenReturn(albumTrack);
+
+        //when
+        AlbumTrack result = mediaLibrary.findAlbumTrack(testfile);
+
+        //then
+        assertThat(result, is(albumTrack));
     }
 
 }
