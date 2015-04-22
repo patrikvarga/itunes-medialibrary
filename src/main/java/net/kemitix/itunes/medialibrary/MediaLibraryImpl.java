@@ -42,7 +42,7 @@ class MediaLibraryImpl implements MediaLibrary {
     }
 
     @Override
-    public List<AlbumTracks> getAlbumTracks() throws SQLException {
+    public List<AlbumTrack> getAlbumTracks() throws SQLException {
         return albumTracksDao.selectAll();
     }
 }

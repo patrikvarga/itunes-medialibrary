@@ -7,17 +7,17 @@ import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
 @RunWith(BlockJUnit4ClassRunner.class)
-public class AlbumTracksTest {
+public class AlbumTrackTest {
 
-    private AlbumTracks albumTracks;
+    private AlbumTrack albumTracks;
 
     @Before
     public void setUp() {
-        albumTracks = new AlbumTracks();
+        albumTracks = new AlbumTrack();
     }
 
     /**
-     * Test of setAlbumArtist method, of class AlbumTracks.
+     * Test of setAlbumArtist method, of class AlbumTrack.
      */
     @Test
     public void testSetAlbumArtist() {
@@ -32,7 +32,7 @@ public class AlbumTracksTest {
     }
 
     /**
-     * Test of setAlbumTitle method, of class AlbumTracks.
+     * Test of setAlbumTitle method, of class AlbumTrack.
      */
     @Test
     public void testSetAlbumTitle() {
@@ -47,7 +47,7 @@ public class AlbumTracksTest {
     }
 
     /**
-     * Test of setTrackTitle method, of class AlbumTracks.
+     * Test of setTrackTitle method, of class AlbumTrack.
      */
     @Test
     public void testSetTrackTitle() {
@@ -62,7 +62,7 @@ public class AlbumTracksTest {
     }
 
     /**
-     * Test of setTrackArtist method, of class AlbumTracks.
+     * Test of setTrackArtist method, of class AlbumTrack.
      */
     @Test
     public void testSetTrackArtist() {
@@ -77,7 +77,7 @@ public class AlbumTracksTest {
     }
 
     /**
-     * Test of setYear method, of class AlbumTracks.
+     * Test of setYear method, of class AlbumTrack.
      */
     @Test
     public void testSetYear() {
@@ -92,7 +92,7 @@ public class AlbumTracksTest {
     }
 
     /**
-     * Test of setFileLocation method, of class AlbumTracks.
+     * Test of setFileLocation method, of class AlbumTrack.
      */
     @Test
     public void testSetFileLocation() {
@@ -107,7 +107,7 @@ public class AlbumTracksTest {
     }
 
     /**
-     * Test of setId method, of class AlbumTracks.
+     * Test of setId method, of class AlbumTrack.
      */
     @Test
     public void testSetId() {

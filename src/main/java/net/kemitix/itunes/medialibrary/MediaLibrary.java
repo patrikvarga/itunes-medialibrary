@@ -11,5 +11,5 @@ public interface MediaLibrary {
 
     List<Item> getItems() throws SQLException;
 
-    List<AlbumTracks> getAlbumTracks() throws SQLException;
+    List<AlbumTrack> getAlbumTracks() throws SQLException;
 }

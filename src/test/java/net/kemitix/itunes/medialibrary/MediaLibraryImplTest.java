@@ -74,11 +74,11 @@ public class MediaLibraryImplTest {
     @Test
     public void testGetAlbumTracks() throws SQLException {
         //given
-        List<AlbumTracks> albumTracks = new ArrayList<>();
+        List<AlbumTrack> albumTracks = new ArrayList<>();
         when(albumTracksDao.selectAll()).thenReturn(albumTracks);
 
         //when
-        List<AlbumTracks> result = mediaLibrary.getAlbumTracks();
+        List<AlbumTrack> result = mediaLibrary.getAlbumTracks();
 
         //then
         assertThat(result, is(albumTracks));

@@ -6,11 +6,11 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AlbumTrackRowMapper implements RowMapper<AlbumTracks> {
+public class AlbumTrackRowMapper implements RowMapper<AlbumTrack> {
 
     @Override
-    public AlbumTracks mapRow(ResultSet rs, int rowNum) throws SQLException {
-        AlbumTracks albumTracks = new AlbumTracks();
+    public AlbumTrack mapRow(ResultSet rs, int rowNum) throws SQLException {
+        AlbumTrack albumTracks = new AlbumTrack();
         albumTracks.setId(rs.getLong("item_pid"));
         albumTracks.setAlbumArtist(rs.getString("album_artist"));
         albumTracks.setAlbumTitle(rs.getString("album"));

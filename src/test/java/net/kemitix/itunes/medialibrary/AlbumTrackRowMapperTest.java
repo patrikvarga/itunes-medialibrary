@@ -34,7 +34,7 @@ public class AlbumTrackRowMapperTest {
         when(resultSet.getLong("item_pid")).thenReturn(itemPid);
 
         //when
-        AlbumTracks albumTracks = albumTrackRowMapper.mapRow(resultSet, rowNum);
+        AlbumTrack albumTracks = albumTrackRowMapper.mapRow(resultSet, rowNum);
 
         //then
         assertEquals(itemPid, albumTracks.getId());
