@@ -48,7 +48,6 @@ public class LibraryConfiguration {
     private String mediaLibraryFilePath;
 
     private String jdbcConnectionString() {
-        System.out.println("MediaLibrary File Path: " + mediaLibraryFilePath);
         return "jdbc:sqlite:" + mediaLibraryFilePath;
     }
 
