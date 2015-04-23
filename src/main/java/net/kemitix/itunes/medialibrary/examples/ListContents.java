@@ -3,7 +3,7 @@ package net.kemitix.itunes.medialibrary.examples;
 import java.sql.SQLException;
 import java.util.List;
 import static java.util.stream.Collectors.groupingBy;
-import net.kemitix.itunes.medialibrary.AlbumTracks;
+import net.kemitix.itunes.medialibrary.AlbumTrack;
 import net.kemitix.itunes.medialibrary.ITunesMediaLibrary;
 import net.kemitix.itunes.medialibrary.MediaLibrary;
 
@@ -22,18 +22,18 @@ public class ListContents {
 
     public static void main(String[] args) throws SQLException {
         MediaLibrary library = ITunesMediaLibrary.createLibrary(FILE);
-        List<AlbumTracks> allTracks = library.getAlbumTracks();
+        List<AlbumTrack> allTracks = library.getAlbumTracks();
         System.out.format("Found %d album tracks\n", allTracks.size());
         allTracks.stream()
-                .collect(groupingBy(AlbumTracks::getAlbumArtist))
-                .forEach((String albumArtist, List<AlbumTracks> artistsTracks) -> {
+                .collect(groupingBy(AlbumTrack::getAlbumArtist))
+                .forEach((String albumArtist, List<AlbumTrack> artistsTracks) -> {
                     System.out.println(albumArtist);
                     artistsTracks.stream()
-                    .collect(groupingBy(AlbumTracks::getAlbumTitle))
-                    .forEach((String albumTitle, List<AlbumTracks> albumTracks) -> {
+                    .collect(groupingBy(AlbumTrack::getAlbumTitle))
+                    .forEach((String albumTitle, List<AlbumTrack> albumTracks) -> {
                         System.out.println("\t" + albumTitle);
                         albumTracks.stream()
-                        .forEach((AlbumTracks albumTrack) -> {
+                        .forEach((AlbumTrack albumTrack) -> {
                             if (albumArtist.equals(albumTrack.getTrackArtist())) {
                                 System.out.format("\t\t- %s\n", albumTrack.getTrackTitle());
                             } else {

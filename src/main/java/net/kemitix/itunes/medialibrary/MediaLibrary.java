@@ -1,5 +1,6 @@
 package net.kemitix.itunes.medialibrary;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -11,5 +12,7 @@ public interface MediaLibrary {
 
     List<Item> getItems() throws SQLException;
 
-    List<AlbumTracks> getAlbumTracks() throws SQLException;
+    List<AlbumTrack> getAlbumTracks() throws SQLException;
+
+    AlbumTrack findAlbumTrack(File file);
 }

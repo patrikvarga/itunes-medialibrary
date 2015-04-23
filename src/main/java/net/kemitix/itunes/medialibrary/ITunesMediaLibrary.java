@@ -8,7 +8,6 @@ public class ITunesMediaLibrary {
     public static MediaLibrary createLibrary(String mediaLibraryFileName) {
         AnnotationConfigApplicationContext cx
                 = new AnnotationConfigApplicationContext();
-        cx.register(LibraryConfiguration.class);
         cx.getEnvironment()
                 .getPropertySources()
                 .addFirst(
@@ -22,6 +21,7 @@ public class ITunesMediaLibrary {
                                 return null;
                             }
                         });
+        cx.register(LibraryConfiguration.class);
         cx.refresh();
 
         return cx.getBean(MediaLibrary.class);

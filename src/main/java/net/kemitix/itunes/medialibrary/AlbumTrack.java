@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class AlbumTracks {
+public class AlbumTrack {
 
     //album_artist.album_artist,
     private String albumArtist;

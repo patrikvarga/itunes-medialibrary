@@ -1,5 +1,7 @@
 package net.kemitix.itunes.medialibrary;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +22,14 @@ public class MediaLibraryImplTest {
     private AlbumDao albumDao;
     private ArtistDao artistDao;
     private ItemDao itemDao;
-    private AlbumTracksDao albumTracksDao;
+    private AlbumTrackDao albumTracksDao;
 
     @Before
     public void setUp() {
         albumDao = mock(AlbumDao.class);
         artistDao = mock(ArtistDao.class);
         itemDao = mock(ItemDao.class);
-        albumTracksDao = mock(AlbumTracksDao.class);
+        albumTracksDao = mock(AlbumTrackDao.class);
         mediaLibrary
                 = new MediaLibraryImpl(albumDao, artistDao, itemDao, albumTracksDao);
     }
@@ -74,14 +76,28 @@ public class MediaLibraryImplTest {
     @Test
     public void testGetAlbumTracks() throws SQLException {
         //given
-        List<AlbumTracks> albumTracks = new ArrayList<>();
+        List<AlbumTrack> albumTracks = new ArrayList<>();
         when(albumTracksDao.selectAll()).thenReturn(albumTracks);
 
         //when
-        List<AlbumTracks> result = mediaLibrary.getAlbumTracks();
+        List<AlbumTrack> result = mediaLibrary.getAlbumTracks();
 
         //then
         assertThat(result, is(albumTracks));
+    }
+
+    @Test
+    public void testFindAlbumTracksByFile() throws IOException {
+        //given
+        AlbumTrack albumTrack = mock(AlbumTrack.class);
+        File testfile = File.createTempFile("test", "file");
+        when(albumTracksDao.find(testfile)).thenReturn(albumTrack);
+
+        //when
+        AlbumTrack result = mediaLibrary.findAlbumTrack(testfile);
+
+        //then
+        assertThat(result, is(albumTrack));
     }
 
 }
