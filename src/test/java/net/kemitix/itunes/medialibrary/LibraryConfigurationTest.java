@@ -1,6 +1,8 @@
 package net.kemitix.itunes.medialibrary;
 
 import com.zaxxer.hikari.HikariDataSource;
+
+import java.io.File;
 import java.io.IOException;
 import javax.sql.DataSource;
 import net.kemitix.spring.common.ResourceReader;
@@ -14,6 +16,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.util.ReflectionTestUtils.setField;
+
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -46,7 +50,12 @@ public class LibraryConfigurationTest {
      * Test of dataSource method, of class LibraryConfiguration.
      */
     @Test
-    public void testDataSource() {
+    public void testDataSource() throws IOException {
+        //given
+        File testFile = File.createTempFile("data", "source");
+        testFile.deleteOnExit();
+        setField(configuration, "mediaLibraryFilePath", testFile.getCanonicalPath());
+
         //when
         DataSource dataSource = configuration.dataSource();
 
