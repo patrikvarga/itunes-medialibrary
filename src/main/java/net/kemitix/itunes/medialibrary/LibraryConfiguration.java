@@ -28,7 +28,8 @@ public class LibraryConfiguration {
     }
 
     @Bean(destroyMethod = "close")
-    public DataSource dataSource() {
+    public DataSource dataSource(@Value("${medialibrary.filename}") String mediaLibraryFilePath) {
+        this.mediaLibraryFilePath = mediaLibraryFilePath;
         return new HikariDataSource(hikariConfiguration());
     }
 
@@ -44,7 +45,6 @@ public class LibraryConfiguration {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    @Value("${medialibrary.filename}")
     private String mediaLibraryFilePath;
 
     private String jdbcConnectionString() {
