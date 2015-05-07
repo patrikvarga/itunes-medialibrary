@@ -16,7 +16,7 @@ import net.kemitix.itunes.medialibrary.MediaLibrary;
  *
  * @author pcampbell@kemitix.net
  */
-public class ListContents {
+public class ListContentsExample {
 
     private static final String FILE = "src/test/resources/MediaLibrary.sqlitedb";
 

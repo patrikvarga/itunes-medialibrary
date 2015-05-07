@@ -218,7 +218,7 @@
                             <element>CLASS</element>
                             <excludes>
                                 <exclude>*Test</exclude>
-                                <exclude>*.examples.*</exclude>
+                                <exclude>*Example</exclude>
                             </excludes>
                             <limits>
                                 <limit>
@@ -232,7 +232,7 @@
                             <element>CLASS</element>
                             <excludes>
                                 <exclude>*Test</exclude>
-                                <exclude>*.examples.*</exclude>
+                                <exclude>*Example</exclude>
                             </excludes>
                             <limits>
                                 <limit implementation="org.jacoco.report.check.Limit">
