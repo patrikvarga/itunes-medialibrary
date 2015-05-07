@@ -16,7 +16,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.util.ReflectionTestUtils.setField;
 
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -54,10 +53,9 @@ public class LibraryConfigurationTest {
         //given
         File testFile = File.createTempFile("data", "source");
         testFile.deleteOnExit();
-        setField(configuration, "mediaLibraryFilePath", testFile.getCanonicalPath());
 
         //when
-        DataSource dataSource = configuration.dataSource();
+        DataSource dataSource = configuration.dataSource(testFile.getCanonicalPath());
 
         //then
         assertNotNull(dataSource);
