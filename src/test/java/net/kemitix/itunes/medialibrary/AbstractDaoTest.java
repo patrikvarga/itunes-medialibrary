@@ -8,18 +8,21 @@ import org.junit.Test;
 import static org.mockito.Mockito.mock;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 @Getter
 public abstract class AbstractDaoTest {
 
     private final JdbcTemplate jdbcTemplate;
     private final RowMapper rowMapper;
+    private final SimpleJdbcInsert insertActor;
     private final String sql;
     private LibraryDao dao;
 
     public AbstractDaoTest() {
         this.jdbcTemplate = mock(JdbcTemplate.class);
         this.rowMapper = mock(RowMapper.class);
+        this.insertActor = mock(SimpleJdbcInsert.class);
         this.sql = "select";
     }
 

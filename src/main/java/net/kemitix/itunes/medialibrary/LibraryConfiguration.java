@@ -8,13 +8,16 @@ import javax.sql.DataSource;
 import net.kemitix.spring.common.ResourceReader;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 @Configuration
 @ComponentScan({
@@ -25,6 +28,12 @@ public class LibraryConfiguration {
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    @Scope(SCOPE_PROTOTYPE)
+    public SimpleJdbcInsert insertActor(DataSource dataSource) {
+        return new SimpleJdbcInsert(dataSource).usingGeneratedKeyColumns("id");
     }
 
     @Bean(destroyMethod = "close")

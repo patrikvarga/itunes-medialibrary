@@ -10,7 +10,7 @@ public class ItemDaoTest extends AbstractDaoTest {
     @Before
     @Override
     public void setUp() {
-        setUpTest(new ItemDao(getJdbcTemplate(), getRowMapper()));
+        setUpTest(new ItemDao(getJdbcTemplate(), getRowMapper(), getInsertActor()));
     }
 
 }

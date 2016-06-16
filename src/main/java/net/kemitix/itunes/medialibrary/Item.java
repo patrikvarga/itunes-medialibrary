@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Item {
+public class Item implements Record {
 
     // item_pid
     private long id;

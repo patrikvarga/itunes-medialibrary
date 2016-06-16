@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Artist {
+public class Artist implements Record {
 
     private long id;
     private String title;

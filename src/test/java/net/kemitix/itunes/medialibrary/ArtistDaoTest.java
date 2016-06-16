@@ -10,7 +10,7 @@ public class ArtistDaoTest extends AbstractDaoTest {
     @Before
     @Override
     public void setUp() {
-        setUpTest(new ArtistDao(getJdbcTemplate(), getRowMapper()));
+        setUpTest(new ArtistDao(getJdbcTemplate(), getRowMapper(), getInsertActor()));
     }
 
 }

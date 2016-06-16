@@ -3,10 +3,11 @@ package net.kemitix.itunes.medialibrary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AlbumDao extends LibraryDao<Album> {
+public class AlbumDao extends WritableLibraryDao<Album> {
 
     private final String SELECT_ALL_SQL = "select * from album";
     private final String SELECT_BY_ID = "select * from album where album_pid = ?";
@@ -14,8 +15,9 @@ public class AlbumDao extends LibraryDao<Album> {
     @Autowired
     public AlbumDao(
             JdbcTemplate jdbcTemplate,
-            RowMapper<Album> rowMapper) {
-        super(jdbcTemplate, rowMapper);
+            RowMapper<Album> rowMapper,
+            SimpleJdbcInsert insertActor) {
+        super(jdbcTemplate, rowMapper, insertActor, "album");
     }
 
     @Override
