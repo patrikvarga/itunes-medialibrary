@@ -1,5 +1,8 @@
 package net.kemitix.itunes.medialibrary;
 
+import net.kemitix.itunes.medialibrary.items.Item;
+import net.kemitix.itunes.medialibrary.items.Artist;
+import net.kemitix.itunes.medialibrary.items.Album;
 import java.sql.SQLException;
 
 public interface WritableMediaLibrary extends MediaLibrary {

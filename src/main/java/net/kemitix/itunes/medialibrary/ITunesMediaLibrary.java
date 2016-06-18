@@ -1,5 +1,7 @@
 package net.kemitix.itunes.medialibrary;
 
+import net.kemitix.itunes.medialibrary.v4.DbVersion4;
+import net.kemitix.itunes.medialibrary.v5.DbVersion5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Lazy;
