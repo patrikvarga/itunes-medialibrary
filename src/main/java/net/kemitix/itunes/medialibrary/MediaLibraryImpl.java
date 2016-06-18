@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@ReadOnly
+@DbVersion5
 class MediaLibraryImpl implements MediaLibrary {
 
     private final AlbumDao albumDao;

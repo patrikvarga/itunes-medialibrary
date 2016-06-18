@@ -2,7 +2,6 @@ package net.kemitix.itunes.medialibrary;
 
 import java.io.File;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,7 +16,7 @@ public class AlbumTrackDao extends LibraryDao<AlbumTrack> {
     public AlbumTrackDao(
             JdbcTemplate jdbcTemplate,
             RowMapper<AlbumTrack> rowMapper,
-            @Qualifier("album tracks") String sql) {
+            @AlbumTracks String sql) {
         super(jdbcTemplate, rowMapper);
         this.sql = sql;
     }

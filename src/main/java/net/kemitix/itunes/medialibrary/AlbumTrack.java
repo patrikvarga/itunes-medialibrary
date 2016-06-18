@@ -21,6 +21,8 @@ public class AlbumTrack {
     private int year;
     //item_extra.location,
     private String fileLocation;
+    //base_location.path,
+    private String baseLocation;
     //item.item_pid
     private long id;
 }

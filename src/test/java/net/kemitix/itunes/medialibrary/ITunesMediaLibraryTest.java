@@ -16,7 +16,7 @@ public class ITunesMediaLibraryTest {
     @Before
     public void setUp() {
         mediaFile = "src/test/resources/MediaLibrary.sqlitedb";
-        library = ITunesMediaLibrary.createLibrary(mediaFile);
+        library = ITunesMediaLibrary.createV5Library(mediaFile);
     }
 
     /**

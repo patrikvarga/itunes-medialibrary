@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.Properties;
 import javax.sql.DataSource;
 import net.kemitix.spring.common.ResourceReader;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 import org.springframework.context.annotation.Bean;
@@ -61,16 +60,16 @@ public class LibraryConfiguration {
     }
 
     @Bean
-    @Qualifier("album tracks")
+    @AlbumTracks
     public Resource albumTracksResource() {
         return new ClassPathResource("album_tracks.sql");
     }
 
     @Bean
-    @Qualifier("album tracks")
+    @AlbumTracks
     public String albumTracksSql(
             ResourceReader reader,
-            @Qualifier("album tracks") Resource resource)
+            @AlbumTracks Resource resource)
             throws IOException {
         return reader.read(resource);
     }

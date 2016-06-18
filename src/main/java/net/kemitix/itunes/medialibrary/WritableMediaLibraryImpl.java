@@ -2,7 +2,11 @@ package net.kemitix.itunes.medialibrary;
 
 import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
+@Writable
+@DbVersion5
 public class WritableMediaLibraryImpl extends MediaLibraryImpl implements WritableMediaLibrary {
 
     @Autowired

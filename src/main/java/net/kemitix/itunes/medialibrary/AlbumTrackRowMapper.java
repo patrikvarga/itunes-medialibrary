@@ -10,16 +10,17 @@ public class AlbumTrackRowMapper implements RowMapper<AlbumTrack> {
 
     @Override
     public AlbumTrack mapRow(ResultSet rs, int rowNum) throws SQLException {
-        AlbumTrack albumTracks = new AlbumTrack();
-        albumTracks.setId(rs.getLong("item_pid"));
-        albumTracks.setAlbumArtist(rs.getString("album_artist"));
-        albumTracks.setAlbumTitle(rs.getString("album"));
-        albumTracks.setTrackArtist(rs.getString("item_artist"));
-        albumTracks.setTrackTitle(rs.getString("title"));
-        albumTracks.setTrackNumber(rs.getInt("track_number"));
-        albumTracks.setYear(rs.getInt("year"));
-        albumTracks.setFileLocation(rs.getString("location"));
-        return albumTracks;
+        final AlbumTrack albumTrack = new AlbumTrack();
+        albumTrack.setId(rs.getLong("item_pid"));
+        albumTrack.setAlbumArtist(rs.getString("album_artist"));
+        albumTrack.setAlbumTitle(rs.getString("album"));
+        albumTrack.setTrackArtist(rs.getString("item_artist"));
+        albumTrack.setTrackTitle(rs.getString("title"));
+        albumTrack.setTrackNumber(rs.getInt("track_number"));
+        albumTrack.setYear(rs.getInt("year"));
+        albumTrack.setFileLocation(rs.getString("location"));
+        albumTrack.setBaseLocation(rs.getString("path"));
+        return albumTrack;
     }
 
 }
