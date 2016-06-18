@@ -16,6 +16,7 @@ public class AlbumTrackRowMapper implements RowMapper<AlbumTrack> {
         albumTracks.setAlbumTitle(rs.getString("album"));
         albumTracks.setTrackArtist(rs.getString("item_artist"));
         albumTracks.setTrackTitle(rs.getString("title"));
+        albumTracks.setTrackNumber(rs.getInt("track_number"));
         albumTracks.setYear(rs.getInt("year"));
         albumTracks.setFileLocation(rs.getString("location"));
         return albumTracks;

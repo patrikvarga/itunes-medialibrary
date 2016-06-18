@@ -15,6 +15,8 @@ public class AlbumTrack {
     private String trackTitle;
     //item_artist.item_artist,
     private String trackArtist;
+    //item.track_number,
+    private int trackNumber;
     //item_extra.year,
     private int year;
     //item_extra.location,
