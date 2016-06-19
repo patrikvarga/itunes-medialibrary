@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AlbumRowMapper implements RowMapper<Album> {
+class AlbumRowMapper implements RowMapper<Album> {
 
     private final ArtistDao artistDao;
 

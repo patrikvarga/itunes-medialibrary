@@ -1,6 +1,5 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.DbVersion5;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
@@ -37,22 +36,22 @@ class MediaLibraryV5Impl implements MediaLibrary {
     }
 
     @Override
-    public List<Album> getAlbums() throws SQLException {
+    public List<Album> getAlbums() {
         return albumDao.selectAll();
     }
 
     @Override
-    public List<Artist> getArtists() throws SQLException {
+    public List<Artist> getArtists() {
         return artistDao.selectAll();
     }
 
     @Override
-    public List<Item> getItems() throws SQLException {
+    public List<Item> getItems() {
         return itemDao.selectAll();
     }
 
     @Override
-    public List<AlbumTrack> getAlbumTracks() throws SQLException {
+    public List<AlbumTrack> getAlbumTracks() {
         return albumTracksDao.selectAll();
     }
 

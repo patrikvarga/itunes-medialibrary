@@ -8,7 +8,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AlbumDao extends WritableLibraryDao<Album> {
+@DbVersion5
+class AlbumDao extends WritableLibraryDao<Album> {
 
     private final String SELECT_ALL_SQL = "select * from album";
     private final String SELECT_BY_ID = "select * from album where album_pid = ?";

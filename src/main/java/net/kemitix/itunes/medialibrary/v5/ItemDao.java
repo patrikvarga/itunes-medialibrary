@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@DbVersion5
 class ItemDao extends WritableLibraryDao<Item> {
 
     private final String SELECT_ALL_SQL = "select * from item";

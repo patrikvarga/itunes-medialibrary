@@ -10,7 +10,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AlbumTrackDao extends LibraryDao<AlbumTrack> {
+@DbVersion5
+class AlbumTrackDao extends LibraryDao<AlbumTrack> {
 
     private final String sql;
 

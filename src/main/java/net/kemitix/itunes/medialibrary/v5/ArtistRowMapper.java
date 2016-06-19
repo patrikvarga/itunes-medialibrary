@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ArtistRowMapper implements RowMapper<Artist> {
+class ArtistRowMapper implements RowMapper<Artist> {
 
     @Override
     public Artist mapRow(ResultSet rs, int rowNum) throws SQLException {

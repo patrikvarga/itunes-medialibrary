@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
-public abstract class WritableLibraryDao<T extends Record> extends LibraryDao<T> {
+abstract class WritableLibraryDao<T extends Record> extends LibraryDao<T> {
 
     private final SimpleJdbcInsert insertActor;
 

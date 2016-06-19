@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ItemRowMapper implements RowMapper<Item> {
+class ItemRowMapper implements RowMapper<Item> {
 
     private final AlbumDao albumDao;
 

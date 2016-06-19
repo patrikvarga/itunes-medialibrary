@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AlbumTrackRowMapper implements RowMapper<AlbumTrack> {
+class AlbumTrackRowMapper implements RowMapper<AlbumTrack> {
 
     @Override
     public AlbumTrack mapRow(ResultSet rs, int rowNum) throws SQLException {
