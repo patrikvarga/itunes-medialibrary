@@ -54,7 +54,7 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
     }
 
     private static boolean isMediaFile(Path path) {
-        return path.getFileName().endsWith(".mp3");
+        return path.getFileName().toString().endsWith(".mp3");
     }
 
     private static AlbumTrack toAlbumTrack(Path path) {
@@ -68,6 +68,7 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
             track.setTrackNumber(Integer.valueOf(file.getTrack()));
             track.setYear(Integer.valueOf(file.getYear()));
             track.setAlbumTitle(file.getAlbum());
+            track.setAlbumArtist(file.getArtist());
             return track;
         } catch (IOException | UnsupportedTagException | InvalidDataException ex) {
             throw new RuntimeException(ex);
@@ -84,7 +85,7 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(path)) {
             for (Path entry : stream) {
                 if (Files.isDirectory(entry)) {
-                    listFiles(entry);
+                    files.addAll(listFiles(entry));
                 }
                 files.add(entry);
             }
