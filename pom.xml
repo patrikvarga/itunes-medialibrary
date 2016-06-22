@@ -147,6 +147,12 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
+        
+        <dependency>
+            <groupId>com.mpatric</groupId>
+            <artifactId>mp3agic</artifactId>
+            <version>0.8.5-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <profiles>

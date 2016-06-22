@@ -1,5 +1,8 @@
 package net.kemitix.itunes.medialibrary.files;
 
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.Mp3File;
+import com.mpatric.mp3agic.UnsupportedTagException;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -11,17 +14,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import net.kemitix.itunes.medialibrary.MediaLibrary;
-import net.kemitix.itunes.medialibrary.ReadOnly;
 import net.kemitix.itunes.medialibrary.items.Album;
 import net.kemitix.itunes.medialibrary.items.AlbumTrack;
 import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.Item;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-@Component
-@ReadOnly
-@FileSystem
+@Component("ro-fs-lib")
+@Lazy
 public class MediaLibraryFilesSystemImpl implements MediaLibrary {
 
     @Value("${medialibrary.filename}")
@@ -52,15 +54,24 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
     }
 
     private static boolean isMediaFile(Path path) {
-        return true;
+        return path.getFileName().endsWith(".mp3");
     }
 
     private static AlbumTrack toAlbumTrack(Path path) {
-        final AlbumTrack track = new AlbumTrack();
-        track.setBaseLocation(path.getParent().toString());
-        track.setFileLocation(path.getFileName().toString());
-        // TODO read ID3 tag and fill info
-        return track;
+        try {
+            final AlbumTrack track = new AlbumTrack();
+            track.setBaseLocation(path.getParent().toString());
+            track.setFileLocation(path.getFileName().toString());
+            final Mp3File file = new Mp3File(path.toFile());
+            track.setTrackArtist(file.getArtist());
+            track.setTrackTitle(file.getTitle());
+            track.setTrackNumber(Integer.valueOf(file.getTrack()));
+            track.setYear(Integer.valueOf(file.getYear()));
+            track.setAlbumTitle(file.getAlbum());
+            return track;
+        } catch (IOException | UnsupportedTagException | InvalidDataException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override

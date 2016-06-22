@@ -1,5 +1,7 @@
 package net.kemitix.itunes.medialibrary;
 
+import java.lang.annotation.Annotation;
+import net.kemitix.itunes.medialibrary.files.FileSystem;
 import net.kemitix.itunes.medialibrary.v4.DbVersion4;
 import net.kemitix.itunes.medialibrary.v5.DbVersion5;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,24 +33,32 @@ public class ITunesMediaLibrary {
         @DbVersion5
         @Lazy
         private WritableMediaLibrary writableLib5;
+        @Autowired
+        @ReadOnly
+        @FileSystem
+        @Lazy
+        private MediaLibrary readonlyFsLib;
 
-        private <T extends MediaLibrary> T get(Class<T> clazz, boolean v4) {
+        private <T extends MediaLibrary, A extends Annotation> T get(Class<T> clazz, Class<A> annotation) {
             final boolean writable = WritableMediaLibrary.class.isAssignableFrom(clazz);
             if (writable) {
-                if (v4) {
+                if (annotation == DbVersion4.class) {
                     return (T) writableLib4;
-                } else {
+                } else if (annotation == DbVersion5.class) {
                     return (T) writableLib5;
                 }
-            } else if (v4) {
+            } else if (annotation == DbVersion4.class) {
                 return (T) readonlyLib4;
-            } else {
+            } else if (annotation == DbVersion5.class) {
                 return (T) readonlyLib5;
+            } else if (annotation == FileSystem.class) {
+                return (T) readonlyFsLib;
             }
+            throw new IllegalArgumentException("Unknown library type: " + annotation.getSimpleName());
         }
     }
 
-    private static <T extends MediaLibrary> T createLibrary(String mediaLibraryFileName, Class<T> clazz, boolean v4) {
+    private static <T extends MediaLibrary, A extends Annotation> T createLibrary(String mediaLibraryFileName, Class<T> clazz, Class<A> annotation) {
         final AnnotationConfigApplicationContext cx
                 = new AnnotationConfigApplicationContext();
         cx.getEnvironment()
@@ -69,25 +79,29 @@ public class ITunesMediaLibrary {
 
         final BeanAccessor beanAccessor = new BeanAccessor();
         cx.getAutowireCapableBeanFactory().autowireBean(beanAccessor);
-        final T bean = beanAccessor.get(clazz, v4);
+        final T bean = beanAccessor.get(clazz, annotation);
 
         return bean;
     }
 
     public static MediaLibrary createV5Library(String mediaLibraryFileName) {
-        return createLibrary(mediaLibraryFileName, MediaLibrary.class, false);
+        return createLibrary(mediaLibraryFileName, MediaLibrary.class, DbVersion5.class);
     }
 
     public static WritableMediaLibrary createWritableV5Library(String mediaLibraryFileName) {
-        return createLibrary(mediaLibraryFileName, WritableMediaLibrary.class, false);
+        return createLibrary(mediaLibraryFileName, WritableMediaLibrary.class, DbVersion5.class);
     }
 
     public static MediaLibrary createV4Library(String mediaLibraryFileName) {
-        return createLibrary(mediaLibraryFileName, MediaLibrary.class, true);
+        return createLibrary(mediaLibraryFileName, MediaLibrary.class, DbVersion4.class);
     }
 
     public static WritableMediaLibrary createWritableV4Library(String mediaLibraryFileName) {
-        return createLibrary(mediaLibraryFileName, WritableMediaLibrary.class, true);
+        return createLibrary(mediaLibraryFileName, WritableMediaLibrary.class, DbVersion4.class);
+    }
+
+    public static MediaLibrary createFileSystemLibrary(String mediaLibraryPath) {
+        return createLibrary(mediaLibraryPath, MediaLibrary.class, FileSystem.class);
     }
 
 }
