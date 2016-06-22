@@ -19,11 +19,11 @@ import net.kemitix.itunes.medialibrary.items.AlbumTrack;
 import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.Item;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Component("ro-fs-lib")
-@Lazy
+@Component
+@Profile("fs/ro")
 public class MediaLibraryFilesSystemImpl implements MediaLibrary {
 
     @Value("${medialibrary.filename}")

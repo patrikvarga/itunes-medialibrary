@@ -2,6 +2,7 @@ package net.kemitix.itunes.medialibrary.v5;
 
 import net.kemitix.itunes.medialibrary.items.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @DbVersion5
+@Profile({"v5/ro", "v5/rw"})
 class ArtistDao extends WritableLibraryDao<Artist> {
 
     private final String SELECT_ALL_SQL = "select * from album_artist";

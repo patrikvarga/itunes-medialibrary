@@ -6,11 +6,13 @@ import net.kemitix.itunes.medialibrary.items.Item;
 import net.kemitix.itunes.medialibrary.Writable;
 import net.kemitix.itunes.medialibrary.WritableMediaLibrary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
 @Writable
 @DbVersion5
+@Profile("v5/rw")
 class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableMediaLibrary {
 
     @Autowired

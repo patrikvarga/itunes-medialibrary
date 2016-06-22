@@ -9,11 +9,13 @@ import net.kemitix.itunes.medialibrary.items.AlbumTrack;
 import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.Item;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
 @ReadOnly
 @DbVersion4
+@Profile("v4/ro")
 public class MediaLibraryV4Impl implements MediaLibrary {
 
     @Value("${medialibrary.filename}")

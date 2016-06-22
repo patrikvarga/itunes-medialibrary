@@ -4,6 +4,7 @@ import java.io.File;
 import net.kemitix.itunes.medialibrary.items.AlbumTrack;
 import net.kemitix.itunes.medialibrary.AlbumTracks;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @DbVersion5
+@Profile({"v5/ro", "v5/rw"})
 class AlbumTrackDao extends LibraryDao<AlbumTrack> {
 
     private final String sql;

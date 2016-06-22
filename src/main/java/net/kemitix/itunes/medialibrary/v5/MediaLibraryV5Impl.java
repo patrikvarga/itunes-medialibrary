@@ -1,7 +1,6 @@
 package net.kemitix.itunes.medialibrary.v5;
 
 import java.io.File;
-import java.sql.SQLException;
 import java.util.List;
 import net.kemitix.itunes.medialibrary.items.Album;
 import net.kemitix.itunes.medialibrary.items.AlbumTrack;
@@ -10,11 +9,13 @@ import net.kemitix.itunes.medialibrary.items.Item;
 import net.kemitix.itunes.medialibrary.MediaLibrary;
 import net.kemitix.itunes.medialibrary.ReadOnly;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
 @ReadOnly
 @DbVersion5
+@Profile("v5/ro")
 class MediaLibraryV5Impl implements MediaLibrary {
 
     private final AlbumDao albumDao;

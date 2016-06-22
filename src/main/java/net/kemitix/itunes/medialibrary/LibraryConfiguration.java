@@ -11,6 +11,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
@@ -25,17 +26,20 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 public class LibraryConfiguration {
 
     @Bean
+    @Profile({"v5/ro", "v5/rw"})
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 
     @Bean
     @Scope(SCOPE_PROTOTYPE)
+    @Profile({"v5/ro", "v5/rw"})
     public SimpleJdbcInsert insertActor(DataSource dataSource) {
         return new SimpleJdbcInsert(dataSource).usingGeneratedKeyColumns("id");
     }
 
     @Bean(destroyMethod = "close")
+    @Profile({"v5/ro", "v5/rw"})
     public DataSource dataSource(@Value("${medialibrary.filename}") String mediaLibraryFilePath) {
         this.mediaLibraryFilePath = mediaLibraryFilePath;
         return new HikariDataSource(hikariConfiguration());
@@ -61,12 +65,14 @@ public class LibraryConfiguration {
 
     @Bean
     @AlbumTracks
+    @Profile({"v5/ro", "v5/rw"})
     public Resource albumTracksResource() {
         return new ClassPathResource("album_tracks.sql");
     }
 
     @Bean
     @AlbumTracks
+    @Profile({"v5/ro", "v5/rw"})
     public String albumTracksSql(
             ResourceReader reader,
             @AlbumTracks Resource resource)
