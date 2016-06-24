@@ -35,6 +35,11 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
     }
 
     @Override
+    public List<Artist> getAlbumArtists() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
     public List<Artist> getArtists() {
         throw new UnsupportedOperationException("Not supported yet.");
     }

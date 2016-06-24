@@ -11,13 +11,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 @DbVersion5
 @Profile({"v5/ro", "v5/rw"})
-class ArtistDao extends WritableLibraryDao<Artist> {
+class AlbumArtistDao extends WritableLibraryDao<Artist> {
 
     private final String SELECT_ALL_SQL = "select * from album_artist";
     private final String SELECT_BY_ID = "select * from album_artist where album_artist_pid = ?";
 
     @Autowired
-    public ArtistDao(JdbcTemplate jdbcTemplate, RowMapper<Artist> rowMapper, SimpleJdbcInsert insertActor) {
+    public AlbumArtistDao(JdbcTemplate jdbcTemplate, RowMapper<Artist> rowMapper, SimpleJdbcInsert insertActor) {
         super(jdbcTemplate, rowMapper, insertActor, "album_artist");
     }
 

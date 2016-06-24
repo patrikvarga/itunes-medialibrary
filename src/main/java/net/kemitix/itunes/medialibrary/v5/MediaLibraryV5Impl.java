@@ -19,7 +19,8 @@ import org.springframework.stereotype.Component;
 class MediaLibraryV5Impl implements MediaLibrary {
 
     protected final AlbumDao albumDao;
-    protected final ArtistDao artistDao;
+    protected final AlbumArtistDao albumArtistDao;
+    protected final ItemArtistDao itemArtistDao;
     protected final ItemDao itemDao;
     protected final GenreDao genreDao;
     private final AlbumTrackDao albumTracksDao;
@@ -27,13 +28,15 @@ class MediaLibraryV5Impl implements MediaLibrary {
     @Autowired
     public MediaLibraryV5Impl(
             AlbumDao albumDao,
-            ArtistDao artistDao,
+            AlbumArtistDao albumArtistDao,
+            ItemArtistDao itemArtistDao,
             ItemDao itemDao,
             AlbumTrackDao albumTracksDao,
             GenreDao genreDao
     ) {
         this.albumDao = albumDao;
-        this.artistDao = artistDao;
+        this.albumArtistDao = albumArtistDao;
+        this.itemArtistDao = itemArtistDao;
         this.itemDao = itemDao;
         this.albumTracksDao = albumTracksDao;
         this.genreDao = genreDao;
@@ -45,8 +48,13 @@ class MediaLibraryV5Impl implements MediaLibrary {
     }
 
     @Override
+    public List<Artist> getAlbumArtists() {
+        return albumArtistDao.selectAll();
+    }
+
+    @Override
     public List<Artist> getArtists() {
-        return artistDao.selectAll();
+        return itemArtistDao.selectAll();
     }
 
     @Override

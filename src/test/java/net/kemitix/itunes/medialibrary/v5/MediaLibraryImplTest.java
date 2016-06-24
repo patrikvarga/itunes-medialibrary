@@ -24,7 +24,8 @@ public class MediaLibraryImplTest {
     private MediaLibraryV5Impl mediaLibrary;
 
     private AlbumDao albumDao;
-    private ArtistDao artistDao;
+    private AlbumArtistDao albumArtistDao;
+    private ItemArtistDao itemArtistDao;
     private ItemDao itemDao;
     private GenreDao genreDao;
     private AlbumTrackDao albumTracksDao;
@@ -32,12 +33,13 @@ public class MediaLibraryImplTest {
     @Before
     public void setUp() {
         albumDao = mock(AlbumDao.class);
-        artistDao = mock(ArtistDao.class);
+        albumArtistDao = mock(AlbumArtistDao.class);
+        itemArtistDao = mock(ItemArtistDao.class);
         itemDao = mock(ItemDao.class);
         genreDao = mock(GenreDao.class);
         albumTracksDao = mock(AlbumTrackDao.class);
         mediaLibrary
-                = new MediaLibraryV5Impl(albumDao, artistDao, itemDao, albumTracksDao, genreDao);
+                = new MediaLibraryV5Impl(albumDao, albumArtistDao, itemArtistDao, itemDao, albumTracksDao, genreDao);
     }
 
     @Test
@@ -57,10 +59,10 @@ public class MediaLibraryImplTest {
     public void testGetArtists() throws SQLException {
         //given
         List<Artist> artists = new ArrayList<>();
-        when(artistDao.selectAll()).thenReturn(artists);
+        when(albumArtistDao.selectAll()).thenReturn(artists);
 
         //when
-        List<Artist> result = mediaLibrary.getArtists();
+        List<Artist> result = mediaLibrary.getAlbumArtists();
 
         //then
         assertThat(result, is(artists));

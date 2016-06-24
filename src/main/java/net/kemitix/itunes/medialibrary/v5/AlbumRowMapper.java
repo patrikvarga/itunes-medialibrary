@@ -12,11 +12,11 @@ import org.springframework.stereotype.Component;
 @Profile({"v5/ro", "v5/rw"})
 class AlbumRowMapper implements RowMapper<Album> {
 
-    private final ArtistDao artistDao;
+    private final AlbumArtistDao albumArtistDao;
 
     @Autowired
-    public AlbumRowMapper(ArtistDao artistDao) {
-        this.artistDao = artistDao;
+    public AlbumRowMapper(AlbumArtistDao albumArtistDao) {
+        this.albumArtistDao = albumArtistDao;
     }
 
     @Override
@@ -25,7 +25,7 @@ class AlbumRowMapper implements RowMapper<Album> {
         album.setId(rs.getLong("album_pid"));
         album.setTitle(rs.getString("album"));
         album.setSortTitle(rs.getString("sort_album"));
-        album.setArtist(artistDao.find(rs.getLong("album_artist_pid")));
+        album.setArtist(albumArtistDao.find(rs.getLong("album_artist_pid")));
         album.setYear(rs.getInt("album_year"));
         return album;
     }

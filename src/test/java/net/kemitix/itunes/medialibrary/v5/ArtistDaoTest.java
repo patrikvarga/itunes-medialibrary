@@ -1,6 +1,6 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.ArtistDao;
+import net.kemitix.itunes.medialibrary.v5.AlbumArtistDao;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
@@ -11,7 +11,7 @@ public class ArtistDaoTest extends AbstractDaoTest {
     @Before
     @Override
     public void setUp() {
-        setUpTest(new ArtistDao(getJdbcTemplate(), getRowMapper(), getInsertActor()));
+        setUpTest(new AlbumArtistDao(getJdbcTemplate(), getRowMapper(), getInsertActor()));
     }
 
 }

@@ -11,6 +11,7 @@ public class Album implements Record {
     private String title;
     private String sortTitle;
     private Artist artist;
+    private long albumArtistPid;
     private int year;
 
 }

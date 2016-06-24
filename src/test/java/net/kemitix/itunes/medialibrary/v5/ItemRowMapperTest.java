@@ -1,7 +1,5 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.ItemRowMapper;
-import net.kemitix.itunes.medialibrary.v5.AlbumDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import net.kemitix.itunes.medialibrary.items.Item;
@@ -19,11 +17,13 @@ public class ItemRowMapperTest {
     private ItemRowMapper itemRowMapper;
 
     private AlbumDao albumDao;
+    private ItemArtistDao itemArtistDao;
 
     @Before
     public void setUp() {
         albumDao = mock(AlbumDao.class);
-        itemRowMapper = new ItemRowMapper(albumDao);
+        itemArtistDao = mock(ItemArtistDao.class);
+        itemRowMapper = new ItemRowMapper(albumDao, itemArtistDao);
     }
 
     /**

@@ -11,6 +11,8 @@ public interface WritableMediaLibrary extends MediaLibrary {
 
     long createArtist(Artist artist);
 
+    long createAlbumArtist(Artist artist);
+
     long createItem(Item item);
 
     long createGenre(Genre genre);

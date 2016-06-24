@@ -3,6 +3,7 @@ package net.kemitix.itunes.medialibrary.v5;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import net.kemitix.itunes.medialibrary.items.Album;
+import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -14,10 +15,12 @@ import org.springframework.stereotype.Component;
 class ItemRowMapper implements RowMapper<Item> {
 
     private final AlbumDao albumDao;
+    private final ItemArtistDao itemArtistDao;
 
     @Autowired
-    public ItemRowMapper(AlbumDao albumDao) {
+    public ItemRowMapper(AlbumDao albumDao, ItemArtistDao itemArtistDao) {
         this.albumDao = albumDao;
+        this.itemArtistDao = itemArtistDao;
     }
 
     @Override
@@ -37,6 +40,10 @@ class ItemRowMapper implements RowMapper<Item> {
         item.setAlbumId(albumId);
         Album album = albumDao.find(albumId);
         item.setAlbum(album);
+
+        long artistId = rs.getLong("item_artist_id");
+        Artist artist = itemArtistDao.find(artistId);
+        item.setArtist(artist);
 
         item.setAlbumOrder(rs.getInt("album_order"));
         item.setAlbumOrderSection(rs.getInt("album_order_section"));

@@ -1,6 +1,6 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.ArtistRowMapper;
+import net.kemitix.itunes.medialibrary.v5.AlbumArtistRowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import net.kemitix.itunes.medialibrary.items.Artist;
@@ -15,11 +15,11 @@ import static org.mockito.Mockito.when;
 @RunWith(BlockJUnit4ClassRunner.class)
 public class ArtistRowMapperTest {
 
-    private ArtistRowMapper rowMapper;
+    private AlbumArtistRowMapper rowMapper;
 
     @Before
     public void setUp() {
-        rowMapper = new ArtistRowMapper();
+        rowMapper = new AlbumArtistRowMapper();
     }
 
     /**

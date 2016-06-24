@@ -19,12 +19,13 @@ class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableM
     @Autowired
     public WritableMediaLibraryV5Impl(
             AlbumDao albumDao,
-            ArtistDao artistDao,
+            AlbumArtistDao albumArtistDao,
+            ItemArtistDao itemArtistDao,
             ItemDao itemDao,
-            AlbumTrackDao albumTracksDao,
+            AlbumTrackDao albumTrackDao,
             GenreDao genreDao
     ) {
-        super(albumDao, artistDao, itemDao, albumTracksDao, genreDao);
+        super(albumDao, albumArtistDao, itemArtistDao, itemDao, albumTrackDao, genreDao);
     }
 
     @Override
@@ -34,7 +35,12 @@ class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableM
 
     @Override
     public long createArtist(Artist artist) {
-        return artistDao.insert(artist);
+        return itemArtistDao.insert(artist);
+    }
+
+    @Override
+    public long createAlbumArtist(Artist artist) {
+        return albumArtistDao.insert(artist);
     }
 
     @Override

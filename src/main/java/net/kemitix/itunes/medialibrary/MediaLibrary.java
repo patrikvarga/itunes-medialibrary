@@ -11,6 +11,8 @@ public interface MediaLibrary {
 
     List<Album> getAlbums();
 
+    List<Artist> getAlbumArtists();
+
     List<Artist> getArtists();
 
     List<Item> getItems();

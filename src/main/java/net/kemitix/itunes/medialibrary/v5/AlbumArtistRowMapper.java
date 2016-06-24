@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile({"v5/ro", "v5/rw"})
-class ArtistRowMapper implements RowMapper<Artist> {
+class AlbumArtistRowMapper implements RowMapper<Artist> {
 
     @Override
     public Artist mapRow(ResultSet rs, int rowNum) throws SQLException {
