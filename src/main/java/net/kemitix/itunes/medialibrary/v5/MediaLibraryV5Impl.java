@@ -18,9 +18,9 @@ import org.springframework.stereotype.Component;
 @Profile("v5/ro")
 class MediaLibraryV5Impl implements MediaLibrary {
 
-    private final AlbumDao albumDao;
-    private final ArtistDao artistDao;
-    private final ItemDao itemDao;
+    protected final AlbumDao albumDao;
+    protected final ArtistDao artistDao;
+    protected final ItemDao itemDao;
     private final AlbumTrackDao albumTracksDao;
 
     @Autowired

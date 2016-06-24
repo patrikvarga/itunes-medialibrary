@@ -22,17 +22,17 @@ class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableM
 
     @Override
     public long createAlbum(Album album) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return albumDao.insert(album);
     }
 
     @Override
     public long createArtist(Artist artist) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return artistDao.insert(artist);
     }
 
     @Override
     public long createItem(Item item) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return itemDao.insert(item);
     }
 
 }

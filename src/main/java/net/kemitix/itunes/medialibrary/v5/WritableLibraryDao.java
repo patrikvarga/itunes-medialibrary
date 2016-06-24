@@ -22,10 +22,11 @@ abstract class WritableLibraryDao<T extends Record> extends LibraryDao<T> {
         this.insertActor.withTableName(tableName);
     }
 
-    public void insert(T record) {
+    public long insert(T record) {
         final SqlParameterSource parameters = new BeanPropertySqlParameterSource(record);
-        final Number newId = insertActor.executeAndReturnKey(parameters);
-        record.setId(newId.longValue());
+        final long newId = insertActor.executeAndReturnKey(parameters).longValue();
+        record.setId(newId);
+        return newId;
     }
 
 }
