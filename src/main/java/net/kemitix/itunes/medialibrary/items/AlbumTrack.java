@@ -27,4 +27,10 @@ public class AlbumTrack {
     private String baseLocation;
     //item.item_pid
     private long id;
+
+    @Override
+    public String toString() {
+        return String.format("%s [%04d] %02d. %s - %s [%s/%s]", albumTitle, year, trackNumber, trackArtist, trackTitle, baseLocation, fileLocation);
+    }
+
 }

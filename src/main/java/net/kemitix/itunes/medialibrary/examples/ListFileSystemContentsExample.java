@@ -12,6 +12,10 @@ public class ListFileSystemContentsExample {
     public static void main(String[] args) {
         final MediaLibrary library = ITunesMediaLibrary.createFileSystemLibrary(MUSIC_DIR);
         final List<AlbumTrack> allTracks = library.getAlbumTracks();
+
+        allTracks.forEach(System.out::println);
+        System.out.println();
+
         ListContentsExample.printAlbumTracks(allTracks);
     }
 }

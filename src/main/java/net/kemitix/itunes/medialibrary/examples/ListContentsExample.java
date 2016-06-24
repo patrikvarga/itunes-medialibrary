@@ -35,15 +35,19 @@ public class ListContentsExample {
                             .collect(groupingBy(AlbumTrack::getAlbumTitle))
                             .forEach((String albumTitle, List<AlbumTrack> albumTracks) -> {
                                 System.out.println("\t" + albumTitle);
-                                albumTracks.stream()
-                                        .forEach((AlbumTrack albumTrack) -> {
-                                            if (albumArtist.equals(albumTrack.getTrackArtist())) {
-                                                System.out.format("\t\t%02d. %s\n", albumTrack.getTrackNumber(), albumTrack.getTrackTitle());
-                                            } else {
-                                                System.out.format("\t\t%02d. %s - %s\n", albumTrack.getTrackNumber(), albumTrack.getTrackArtist(), albumTrack.getTrackTitle());
-                                            }
-                                        });
+                                albumTracks.stream().forEach(ListContentsExample::printTrack);
                             });
                 });
     }
+
+    private static void printTrack(AlbumTrack albumTrack) {
+        if (albumTrack.getAlbumArtist().equals(albumTrack.getTrackArtist())) {
+            System.out.format("\t\t%02d. %s\n",
+                    albumTrack.getTrackNumber(), albumTrack.getTrackTitle());
+        } else {
+            System.out.format("\t\t%02d. %s - %s\n",
+                    albumTrack.getTrackNumber(), albumTrack.getTrackArtist(), albumTrack.getTrackTitle());
+        }
+    }
+
 }
