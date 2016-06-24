@@ -1,9 +1,8 @@
 package net.kemitix.itunes.medialibrary.examples;
 
-import java.sql.SQLException;
 import java.util.List;
 import static java.util.stream.Collectors.groupingBy;
-import net.kemitix.itunes.medialibrary.AlbumTrack;
+import net.kemitix.itunes.medialibrary.items.AlbumTrack;
 import net.kemitix.itunes.medialibrary.ITunesMediaLibrary;
 import net.kemitix.itunes.medialibrary.MediaLibrary;
 
@@ -18,12 +17,16 @@ public class ListContentsExample {
 
     private static final String FILE = "src/test/resources/MediaLibrary.sqlitedb";
 
-    public static void main(String[] args) throws SQLException {
-        final MediaLibrary library = ITunesMediaLibrary.createLibrary(FILE);
+    public static void main(String[] args) {
+        final MediaLibrary library = ITunesMediaLibrary.createV5Library(FILE);
         final List<AlbumTrack> allTracks = library.getAlbumTracks();
 
         System.out.format("Found %d album tracks\n\n", allTracks.size());
 
+        printAlbumTracks(allTracks);
+    }
+
+    static void printAlbumTracks(final List<AlbumTrack> allTracks) {
         allTracks.stream()
                 .collect(groupingBy(AlbumTrack::getAlbumArtist))
                 .forEach((String albumArtist, List<AlbumTrack> artistsTracks) -> {
