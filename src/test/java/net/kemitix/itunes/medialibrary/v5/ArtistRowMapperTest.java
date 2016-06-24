@@ -1,6 +1,5 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.AlbumArtistRowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import net.kemitix.itunes.medialibrary.items.Artist;

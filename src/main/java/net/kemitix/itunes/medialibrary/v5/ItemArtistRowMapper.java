@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile({"v5/ro", "v5/rw"})
-@ArtistType(ArtistType.Type.ALBUM_ARTIST)
-class AlbumArtistRowMapper implements RowMapper<Artist> {
+@ArtistType(ArtistType.Type.ITEM_ARTIST)
+class ItemArtistRowMapper implements RowMapper<Artist> {
 
     @Override
     public Artist mapRow(ResultSet rs, int rowNum) throws SQLException {
         Artist artist = new Artist();
-        artist.setId(rs.getLong("album_artist_pid"));
-        artist.setTitle(rs.getString("album_artist"));
-        artist.setSortTitle(rs.getString("sort_album_artist"));
+        artist.setId(rs.getLong("item_artist_pid"));
+        artist.setTitle(rs.getString("item_artist"));
+        artist.setSortTitle(rs.getString("sort_item_artist"));
         return artist;
     }
 

@@ -58,12 +58,14 @@ public class SyncFileSystemToV5DatabaseExample {
                 final Artist artist = new Artist();
                 artist.setTitle(newFsTrack.getTrackArtist());
                 artist.setSortTitle(newFsTrack.getTrackArtist());
+                artist.setRepresentativeItemId(newFsTrack.getId());
                 dbLibrary.createArtist(artist);
             }
             if (!matchingAlbumArtist.isPresent()) {
                 final Artist artist = new Artist();
                 artist.setTitle(newFsTrack.getAlbumArtist());
                 artist.setSortTitle(newFsTrack.getAlbumArtist());
+                artist.setRepresentativeItemId(newFsTrack.getId());
                 dbLibrary.createAlbumArtist(artist);
             }
 

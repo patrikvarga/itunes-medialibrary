@@ -23,10 +23,15 @@ abstract class WritableLibraryDao<T extends Record> extends LibraryDao<T> {
     }
 
     public long insert(T record) {
-        final SqlParameterSource parameters = new BeanPropertySqlParameterSource(record);
+        final SqlParameterSource parameters = getInsertParameters(record);
         final long newId = insertActor.executeAndReturnKey(parameters).longValue();
         record.setId(newId);
         return newId;
+    }
+
+    protected SqlParameterSource getInsertParameters(T record) {
+        final SqlParameterSource parameters = new BeanPropertySqlParameterSource(record);
+        return parameters;
     }
 
 }
