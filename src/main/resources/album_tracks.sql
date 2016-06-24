@@ -1,6 +1,7 @@
 SELECT
     album_artist.album_artist,
     album.album,
+    item.disc_number,
     item.track_number,
     item_extra.title,
     item_artist.item_artist,

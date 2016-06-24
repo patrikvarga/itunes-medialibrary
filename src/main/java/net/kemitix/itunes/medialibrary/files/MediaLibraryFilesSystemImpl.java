@@ -65,14 +65,60 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
             final Mp3File file = new Mp3File(path.toFile());
             track.setTrackArtist(file.getArtist());
             track.setTrackTitle(file.getTitle());
-            track.setTrackNumber(Integer.valueOf(file.getTrack()));
-            track.setYear(Integer.valueOf(file.getYear()));
+            track.setDiscNumber(getDiscNumberSafely(file));
+            track.setTrackNumber(getTrackNumberSafely(file));
+            track.setYear(getYearSafely(file));
             track.setAlbumTitle(file.getAlbum());
-            track.setAlbumArtist(file.getArtist());
+            track.setAlbumArtist(getAlbumArtistSafely(file));
             return track;
         } catch (IOException | UnsupportedTagException | InvalidDataException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    private static int getDiscNumberSafely(final Mp3File file) {
+        String trackNumberString = file.getTrack();
+        if (trackNumberString != null && trackNumberString.contains("/")) {
+            final String discNumberString = trackNumberString.split("/")[1];
+            return Integer.valueOf(discNumberString);
+        }
+        return 1;
+    }
+
+    private static int getTrackNumberSafely(final Mp3File file) {
+        String trackNumberString = file.getTrack();
+        if (trackNumberString != null) {
+            if (trackNumberString.contains("/")) {
+                trackNumberString = trackNumberString.split("/")[0];
+            }
+            return Integer.valueOf(trackNumberString);
+        } else {
+            return 0;
+        }
+    }
+
+    private static int getYearSafely(final Mp3File file) {
+        String yearString = file.getYear();
+        if (yearString != null) {
+            return Integer.valueOf(yearString);
+        } else {
+            return 0;
+        }
+    }
+
+    private static String getAlbumArtistSafely(final Mp3File file) {
+        String albumArtist = null;
+        if (file.hasId3v2Tag()) {
+            if (file.getId3v2Tag().getAlbumArtist() != null) {
+                albumArtist = file.getId3v2Tag().getAlbumArtist();
+            } else if (file.getId3v2Tag().getArtist() != null) {
+                albumArtist = file.getId3v2Tag().getArtist();
+            }
+        }
+        if (albumArtist == null && file.hasId3v1Tag() && file.getId3v1Tag().getArtist() != null) {
+            albumArtist = file.getId3v1Tag().getArtist();
+        }
+        return albumArtist;
     }
 
     @Override
