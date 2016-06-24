@@ -3,6 +3,7 @@ package net.kemitix.itunes.medialibrary;
 import net.kemitix.itunes.medialibrary.items.Item;
 import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.Album;
+import net.kemitix.itunes.medialibrary.items.Genre;
 
 public interface WritableMediaLibrary extends MediaLibrary {
 
@@ -11,5 +12,7 @@ public interface WritableMediaLibrary extends MediaLibrary {
     long createArtist(Artist artist);
 
     long createItem(Item item);
+
+    long createGenre(Genre genre);
 
 }

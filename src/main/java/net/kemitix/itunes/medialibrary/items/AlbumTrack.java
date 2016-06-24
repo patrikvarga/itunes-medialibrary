@@ -1,5 +1,6 @@
 package net.kemitix.itunes.medialibrary.items;
 
+import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,10 +28,41 @@ public class AlbumTrack {
     private String baseLocation;
     //item.item_pid
     private long id;
+    //genre.genre
+    private String genre;
 
     @Override
     public String toString() {
         return String.format("%s [%04d] %02d. %s - %s [%s/%s]", albumTitle, year, trackNumber, trackArtist, trackTitle, baseLocation, fileLocation);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.fileLocation);
+        hash = 59 * hash + Objects.hashCode(this.baseLocation);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AlbumTrack other = (AlbumTrack) obj;
+        if (!Objects.equals(this.fileLocation, other.fileLocation)) {
+            return false;
+        }
+        if (!Objects.equals(this.baseLocation, other.baseLocation)) {
+            return false;
+        }
+        return true;
     }
 
 }

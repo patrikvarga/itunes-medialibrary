@@ -47,7 +47,9 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
     @Override
     public List<AlbumTrack> getAlbumTracks() {
         // TODO getAlbumTracks from directories
-        return listFiles(Paths.get(mediaLibraryFilePath)).stream()
+        final List<Path> files = listFiles(Paths.get(mediaLibraryFilePath));
+        Collections.sort(files);
+        return files.stream()
                 .filter(MediaLibraryFilesSystemImpl::isMediaFile)
                 .map(MediaLibraryFilesSystemImpl::toAlbumTrack)
                 .collect(Collectors.toList());
@@ -138,7 +140,6 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-        Collections.sort(files);
         return files;
     }
 }

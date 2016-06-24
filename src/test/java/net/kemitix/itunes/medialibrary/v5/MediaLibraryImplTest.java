@@ -1,10 +1,5 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.ArtistDao;
-import net.kemitix.itunes.medialibrary.v5.AlbumTrackDao;
-import net.kemitix.itunes.medialibrary.v5.ItemDao;
-import net.kemitix.itunes.medialibrary.v5.AlbumDao;
-import net.kemitix.itunes.medialibrary.v5.MediaLibraryV5Impl;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -31,6 +26,7 @@ public class MediaLibraryImplTest {
     private AlbumDao albumDao;
     private ArtistDao artistDao;
     private ItemDao itemDao;
+    private GenreDao genreDao;
     private AlbumTrackDao albumTracksDao;
 
     @Before
@@ -38,9 +34,10 @@ public class MediaLibraryImplTest {
         albumDao = mock(AlbumDao.class);
         artistDao = mock(ArtistDao.class);
         itemDao = mock(ItemDao.class);
+        genreDao = mock(GenreDao.class);
         albumTracksDao = mock(AlbumTrackDao.class);
         mediaLibrary
-                = new MediaLibraryV5Impl(albumDao, artistDao, itemDao, albumTracksDao);
+                = new MediaLibraryV5Impl(albumDao, artistDao, itemDao, albumTracksDao, genreDao);
     }
 
     @Test
