@@ -47,6 +47,7 @@ class AlbumArtistDao extends WritableLibraryDao<Artist> {
         parameters.addValue("store_id", 0);
         parameters.addValue("keep_local", 0);
         parameters.addValue("keep_local_status", 0);
+        parameters.addValue("representative_item_pid", 0);
         return parameters;
     }
 

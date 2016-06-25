@@ -14,7 +14,7 @@ class BaseLocationRowMapper implements RowMapper<BaseLocation> {
     @Override
     public BaseLocation mapRow(ResultSet rs, int rowNum) throws SQLException {
         final BaseLocation genre = new BaseLocation();
-        genre.setId(rs.getLong("genre_id"));
+        genre.setId(rs.getLong("base_location_id"));
         genre.setPath(rs.getString("path"));
         return genre;
     }

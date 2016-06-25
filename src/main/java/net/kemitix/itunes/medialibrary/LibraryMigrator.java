@@ -5,9 +5,12 @@ import java.util.Collections;
 import static java.util.Comparator.comparing;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import net.kemitix.itunes.medialibrary.items.Album;
 import net.kemitix.itunes.medialibrary.items.AlbumTrack;
 import net.kemitix.itunes.medialibrary.items.Artist;
+import net.kemitix.itunes.medialibrary.items.BaseLocation;
+import net.kemitix.itunes.medialibrary.items.Genre;
 import net.kemitix.itunes.medialibrary.items.Item;
 import net.kemitix.itunes.medialibrary.items.ItemExtra;
 
@@ -30,7 +33,7 @@ public class LibraryMigrator {
             final long albumId = findOrCreateAlbum(newTrack, albumArtistId);
             final long genreId = findOrCreateGenre(newTrack);
             final long baseLocationId = findOrCreateBaseLocation(newTrack);
-            final long itemId = dest.createItem(toItem(newTrack, itemArtistId, albumArtistId, albumId));
+            final long itemId = dest.createItem(toItem(newTrack, itemArtistId, albumArtistId, albumId, genreId, baseLocationId));
             dest.updateRepresentativeItemIds(itemId, itemArtistId, albumArtistId, albumId);
         });
 
@@ -44,8 +47,12 @@ public class LibraryMigrator {
             printTrack(t);
         });
         System.out.println("\n");
-        final List<AlbumTrack> destTracks = dest.getAlbumTracks();
-        Collections.sort(destTracks, comparing(AlbumTrack::getBaseLocation).thenComparing(AlbumTrack::getFileLocation));
+        final List<AlbumTrack> destTracks = dest.getAlbumTracks().stream()
+                .filter(t -> t.getBaseLocation() != null && t.getFileLocation() != null)
+                .collect(Collectors.toList());
+        Collections.sort(destTracks,
+                comparing(AlbumTrack::getBaseLocation).
+                thenComparing(AlbumTrack::getFileLocation));
         System.out.println("Found " + destTracks.size() + " tracks in database");
         destTracks.forEach(LibraryMigrator::printTrack);
         System.out.println("\n");
@@ -106,18 +113,41 @@ public class LibraryMigrator {
     }
 
     private long findOrCreateGenre(AlbumTrack track) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (track.getGenre() == null) {
+            return 0;
+        }
+        final List<Genre> allGenresInDest = dest.getGenres();
+        final Optional<Genre> matchingGenre = allGenresInDest.stream().filter(g
+                -> g.getGenre().equals(track.getGenre())).findFirst();
+        if (!matchingGenre.isPresent()) {
+            final Genre genre = new Genre();
+            genre.setGenre(track.getGenre());
+            dest.createGenre(genre);
+            return genre.getId();
+        } else {
+            return matchingGenre.get().getId();
+        }
     }
 
     private long findOrCreateBaseLocation(AlbumTrack track) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        final List<BaseLocation> allBaseLocationsInDest = dest.getBaseLocations();
+        final Optional<BaseLocation> matchingBaseLocation = allBaseLocationsInDest.stream().filter(bl
+                -> bl.getPath().equals(track.getBaseLocation())).findFirst();
+        if (!matchingBaseLocation.isPresent()) {
+            final BaseLocation baseLocation = new BaseLocation();
+            baseLocation.setPath(track.getBaseLocation());
+            dest.createBaseLocation(baseLocation);
+            return baseLocation.getId();
+        } else {
+            return matchingBaseLocation.get().getId();
+        }
     }
 
     private static void printTrack(AlbumTrack t) {
         System.out.println(t.getBaseLocation() + "\t" + t.getFileLocation() + "\t\t" + t.getTrackArtist() + ": " + t.getTrackTitle());
     }
 
-    private static Item toItem(AlbumTrack t, long itemArtistId, long albumArtistId, long albumId) {
+    private static Item toItem(AlbumTrack t, long itemArtistId, long albumArtistId, long albumId, long genreId, long baseLocationId) {
         final Item item = new Item();
         // TODO item transform
         item.setAlbumArtistPid(albumArtistId);
@@ -126,9 +156,9 @@ public class LibraryMigrator {
         item.setAlbumPid(albumId);
         item.setAlbumOrder(0);
         item.setAlbumOrderSection(0);
-        item.setBaseLocationId(albumArtistId);
+        item.setBaseLocationId(baseLocationId);
         item.setDiscNumber(t.getDiscNumber());
-        item.setGenreId(albumId);
+        item.setGenreId(genreId);
         item.setGenreOrder(0);
         item.setGenreOrderSection(0);
         item.setItemArtistPid(itemArtistId);

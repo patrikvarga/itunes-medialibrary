@@ -8,6 +8,8 @@ import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.Item;
 import net.kemitix.itunes.medialibrary.MediaLibrary;
 import net.kemitix.itunes.medialibrary.ReadOnly;
+import net.kemitix.itunes.medialibrary.items.BaseLocation;
+import net.kemitix.itunes.medialibrary.items.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -74,4 +76,15 @@ class MediaLibraryV5Impl implements MediaLibrary {
     public AlbumTrack findAlbumTrack(File file) {
         return albumTracksDao.find(file);
     }
+
+    @Override
+    public List<Genre> getGenres() {
+        return genreDao.selectAll();
+    }
+
+    @Override
+    public List<BaseLocation> getBaseLocations() {
+        return baseLocationDao.selectAll();
+    }
+
 }

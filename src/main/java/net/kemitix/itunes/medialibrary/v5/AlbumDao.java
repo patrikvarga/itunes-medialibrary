@@ -49,6 +49,7 @@ class AlbumDao extends WritableLibraryDao<Album> {
         parameters.addValue("user_rating", 0);
         parameters.addValue("liked_state", 0);
         parameters.addValue("all_compilations", 0);
+        parameters.addValue("representative_item_pid", 0);
         return parameters;
     }
 }

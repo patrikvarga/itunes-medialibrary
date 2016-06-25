@@ -25,5 +25,6 @@ public class ItemExtra implements Record {
     private String location;
     //file_size
     private long fileSize;
-
+    // media_type
+    private int mediaType = 8;
 }

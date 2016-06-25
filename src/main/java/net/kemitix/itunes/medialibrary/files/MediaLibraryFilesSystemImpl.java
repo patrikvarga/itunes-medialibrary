@@ -17,6 +17,8 @@ import net.kemitix.itunes.medialibrary.MediaLibrary;
 import net.kemitix.itunes.medialibrary.items.Album;
 import net.kemitix.itunes.medialibrary.items.AlbumTrack;
 import net.kemitix.itunes.medialibrary.items.Artist;
+import net.kemitix.itunes.medialibrary.items.BaseLocation;
+import net.kemitix.itunes.medialibrary.items.Genre;
 import net.kemitix.itunes.medialibrary.items.Item;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
@@ -41,6 +43,16 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
 
     @Override
     public List<Artist> getArtists() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Genre> getGenres() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<BaseLocation> getBaseLocations() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
