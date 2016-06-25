@@ -23,6 +23,7 @@ class MediaLibraryV5Impl implements MediaLibrary {
     protected final ItemArtistDao itemArtistDao;
     protected final ItemDao itemDao;
     protected final GenreDao genreDao;
+    protected final BaseLocationDao baseLocationDao;
     private final AlbumTrackDao albumTracksDao;
 
     @Autowired
@@ -32,7 +33,8 @@ class MediaLibraryV5Impl implements MediaLibrary {
             ItemArtistDao itemArtistDao,
             ItemDao itemDao,
             AlbumTrackDao albumTracksDao,
-            GenreDao genreDao
+            GenreDao genreDao,
+            BaseLocationDao baseLocationDao
     ) {
         this.albumDao = albumDao;
         this.albumArtistDao = albumArtistDao;
@@ -40,6 +42,7 @@ class MediaLibraryV5Impl implements MediaLibrary {
         this.itemDao = itemDao;
         this.albumTracksDao = albumTracksDao;
         this.genreDao = genreDao;
+        this.baseLocationDao = baseLocationDao;
     }
 
     @Override

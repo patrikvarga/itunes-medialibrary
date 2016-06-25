@@ -18,12 +18,14 @@ public class ItemRowMapperTest {
 
     private AlbumDao albumDao;
     private ItemArtistDao itemArtistDao;
+    private ItemExtraDao itemExtraDao;
 
     @Before
     public void setUp() {
         albumDao = mock(AlbumDao.class);
         itemArtistDao = mock(ItemArtistDao.class);
-        itemRowMapper = new ItemRowMapper(albumDao, itemArtistDao);
+        itemExtraDao = mock(ItemExtraDao.class);
+        itemRowMapper = new ItemRowMapper(albumDao, itemArtistDao, itemExtraDao);
     }
 
     /**

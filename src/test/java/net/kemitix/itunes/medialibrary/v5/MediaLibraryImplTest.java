@@ -28,6 +28,7 @@ public class MediaLibraryImplTest {
     private ItemArtistDao itemArtistDao;
     private ItemDao itemDao;
     private GenreDao genreDao;
+    private BaseLocationDao baseLocationDao;
     private AlbumTrackDao albumTracksDao;
 
     @Before
@@ -37,9 +38,10 @@ public class MediaLibraryImplTest {
         itemArtistDao = mock(ItemArtistDao.class);
         itemDao = mock(ItemDao.class);
         genreDao = mock(GenreDao.class);
+        baseLocationDao = mock(BaseLocationDao.class);
         albumTracksDao = mock(AlbumTrackDao.class);
         mediaLibrary
-                = new MediaLibraryV5Impl(albumDao, albumArtistDao, itemArtistDao, itemDao, albumTracksDao, genreDao);
+                = new MediaLibraryV5Impl(albumDao, albumArtistDao, itemArtistDao, itemDao, albumTracksDao, genreDao, baseLocationDao);
     }
 
     @Test

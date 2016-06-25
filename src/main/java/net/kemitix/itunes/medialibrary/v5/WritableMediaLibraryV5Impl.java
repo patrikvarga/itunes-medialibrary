@@ -5,6 +5,7 @@ import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.Item;
 import net.kemitix.itunes.medialibrary.Writable;
 import net.kemitix.itunes.medialibrary.WritableMediaLibrary;
+import net.kemitix.itunes.medialibrary.items.BaseLocation;
 import net.kemitix.itunes.medialibrary.items.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -23,9 +24,10 @@ class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableM
             ItemArtistDao itemArtistDao,
             ItemDao itemDao,
             AlbumTrackDao albumTrackDao,
-            GenreDao genreDao
+            GenreDao genreDao,
+            BaseLocationDao baseLocationDao
     ) {
-        super(albumDao, albumArtistDao, itemArtistDao, itemDao, albumTrackDao, genreDao);
+        super(albumDao, albumArtistDao, itemArtistDao, itemDao, albumTrackDao, genreDao, baseLocationDao);
     }
 
     @Override
@@ -46,12 +48,16 @@ class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableM
     @Override
     public long createItem(Item item) {
         return itemDao.insert(item);
-        return itemExtraDao.insert(item);
     }
 
     @Override
     public long createGenre(Genre genre) {
         return genreDao.insert(genre);
+    }
+
+    @Override
+    public long createBaseLocation(BaseLocation baseLocation) {
+        return baseLocationDao.insert(baseLocation);
     }
 
     @Override

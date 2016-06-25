@@ -30,6 +30,7 @@ public class Item implements Record {
 
     private Album album;
     private Artist artist;
+    private ItemExtra extra;
 
     // album_order
     private int albumOrder;
