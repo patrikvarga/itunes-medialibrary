@@ -1,6 +1,5 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.LibraryDao;
 import lombok.Getter;
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.junit.Assert.assertNotNull;

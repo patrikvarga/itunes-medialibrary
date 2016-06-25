@@ -15,10 +15,17 @@ class ItemDao extends WritableLibraryDao<Item> {
 
     private final String SELECT_ALL_SQL = "select * from item";
     private final String SELECT_BY_ID = "select * from item where item_pid = ?";
+    private final ItemExtraDao itemExtraDao;
 
     @Autowired
-    public ItemDao(JdbcTemplate jdbcTemplate, RowMapper<Item> rowMapper, SimpleJdbcInsert insertActor) {
+    public ItemDao(
+            ItemExtraDao itemExtraDao,
+            JdbcTemplate jdbcTemplate,
+            RowMapper<Item> rowMapper,
+            SimpleJdbcInsert insertActor
+    ) {
         super(jdbcTemplate, rowMapper, insertActor, "item");
+        this.itemExtraDao = itemExtraDao;
     }
 
     @Override
@@ -29,6 +36,14 @@ class ItemDao extends WritableLibraryDao<Item> {
     @Override
     String getSelectByIdSql() {
         return SELECT_BY_ID;
+    }
+
+    @Override
+    public long insert(Item record) {
+        long id = super.insert(record);
+        record.getExtra().setId(id);
+        itemExtraDao.insert(record.getExtra());
+        return id;
     }
 
 }

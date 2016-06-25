@@ -33,14 +33,14 @@ class ItemRowMapper implements RowMapper<Item> {
         item.setMediaType(rs.getInt("media_type"));
         item.setTitleOrder(rs.getInt("title_order"));
         item.setTitleOrderSection(rs.getInt("title_order_section"));
-        item.setItemArtistId(rs.getLong("item_artist_pid"));
+        item.setItemArtistPid(rs.getLong("item_artist_pid"));
         item.setItemArtistOrder(rs.getInt("item_artist_order"));
         item.setItemArtistOrderSection(rs.getInt("item_artist_order_section"));
         item.setSeriesNameOrder(rs.getInt("series_name_order"));
         item.setSeriesNameOrderSection(rs.getInt("series_name_order_section"));
 
         long albumId = rs.getLong("album_pid");
-        item.setAlbumId(albumId);
+        item.setAlbumPid(albumId);
         Album album = albumDao.find(albumId);
         item.setAlbum(album);
 
@@ -54,7 +54,7 @@ class ItemRowMapper implements RowMapper<Item> {
 
         item.setAlbumOrder(rs.getInt("album_order"));
         item.setAlbumOrderSection(rs.getInt("album_order_section"));
-        item.setAlbumArtistId(rs.getLong("album_artist_pid"));
+        item.setAlbumArtistPid(rs.getLong("album_artist_pid"));
         item.setAlbumArtistOrder(rs.getInt("album_artist_order"));
         item.setAlbumArtistOrderSection(rs.getInt("album_artist_order_section"));
         item.setGenreId(rs.getLong("genre_id"));

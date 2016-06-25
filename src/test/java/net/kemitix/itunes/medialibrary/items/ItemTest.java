@@ -1,7 +1,5 @@
 package net.kemitix.itunes.medialibrary.items;
 
-import net.kemitix.itunes.medialibrary.items.Item;
-import net.kemitix.itunes.medialibrary.items.Album;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -88,10 +86,10 @@ public class ItemTest {
         int value = 1234;
 
         //when
-        item.setItemArtistId(value);
+        item.setItemArtistPid(value);
 
         //then
-        assertEquals(value, item.getItemArtistId());
+        assertEquals(value, item.getItemArtistPid());
     }
 
     /**
@@ -163,10 +161,10 @@ public class ItemTest {
         int value = 1234;
 
         //when
-        item.setAlbumId(value);
+        item.setAlbumPid(value);
 
         //then
-        assertEquals(value, item.getAlbumId());
+        assertEquals(value, item.getAlbumPid());
     }
 
     /**
@@ -223,10 +221,10 @@ public class ItemTest {
         int value = 1234;
 
         //when
-        item.setAlbumArtistId(value);
+        item.setAlbumArtistPid(value);
 
         //then
-        assertEquals(value, item.getAlbumArtistId());
+        assertEquals(value, item.getAlbumArtistPid());
     }
 
     /**
