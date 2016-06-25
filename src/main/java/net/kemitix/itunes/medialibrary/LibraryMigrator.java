@@ -106,9 +106,30 @@ public class LibraryMigrator {
         System.out.println(t.getBaseLocation() + "\t" + t.getFileLocation() + "\t\t" + t.getTrackArtist() + ": " + t.getTrackTitle());
     }
 
-    private static Item toItem(AlbumTrack newTrack, long itemArtistId, long albumArtistId, long albumId) {
+    private static Item toItem(AlbumTrack t, long itemArtistId, long albumArtistId, long albumId) {
         final Item item = new Item();
         // TODO item transform
+        item.setAlbumArtistId(albumArtistId);
+        item.setAlbumArtistOrder(0);
+        item.setAlbumArtistOrderSection(0);
+        item.setAlbumId(albumId);
+        item.setAlbumOrder(0);
+        item.setAlbumOrderSection(0);
+        item.setBaseLocationId(albumArtistId);
+        item.setDiscNumber(t.getDiscNumber());
+        item.setGenreId(albumId);
+        item.setGenreOrder(0);
+        item.setGenreOrderSection(0);
+        item.setItemArtistId(itemArtistId);
+        item.setItemArtistOrder(0);
+        item.setItemArtistOrderSection(0);
+        item.setMediaType(8); // 8 == mp3
+        item.setRemoteLocationId(0);
+        item.setSeriesNameOrder(0);
+        item.setSeriesNameOrderSection(0);
+        item.setTitleOrder(0);
+        item.setTitleOrderSection(0);
+        item.setTrackNumber(t.getTrackNumber());
         return item;
     }
 

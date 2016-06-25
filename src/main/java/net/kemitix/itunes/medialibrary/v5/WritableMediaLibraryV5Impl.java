@@ -46,6 +46,7 @@ class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableM
     @Override
     public long createItem(Item item) {
         return itemDao.insert(item);
+        return itemExtraDao.insert(item);
     }
 
     @Override
