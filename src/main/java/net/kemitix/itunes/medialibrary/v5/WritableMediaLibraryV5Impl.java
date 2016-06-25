@@ -53,4 +53,11 @@ class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableM
         return genreDao.insert(genre);
     }
 
+    @Override
+    public void updateRepresentativeItemIds(long itemId, long itemArtistId, long albumArtistId, long albumId) {
+        itemArtistDao.update(itemArtistId, "representative_item_pid", itemId);
+        albumArtistDao.update(albumArtistId, "representative_item_pid", itemId);
+        albumDao.update(albumId, "representative_item_pid", itemId);
+    }
+
 }

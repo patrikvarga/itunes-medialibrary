@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 abstract class WritableLibraryDao<T extends Record> extends LibraryDao<T> {
 
     private final SimpleJdbcInsert insertActor;
+    private final String tableName;
 
     public WritableLibraryDao(
             JdbcTemplate jdbcTemplate,
@@ -19,6 +20,7 @@ abstract class WritableLibraryDao<T extends Record> extends LibraryDao<T> {
     ) {
         super(jdbcTemplate, rowMapper);
         this.insertActor = insertActor;
+        this.tableName = tableName;
         this.insertActor.withTableName(tableName);
     }
 
@@ -32,6 +34,10 @@ abstract class WritableLibraryDao<T extends Record> extends LibraryDao<T> {
     protected SqlParameterSource getInsertParameters(T record) {
         final SqlParameterSource parameters = new BeanPropertySqlParameterSource(record);
         return parameters;
+    }
+
+    public void update(long id, String columnName, Object newValue) {
+        this.jdbcTemplate.update("UPDATE " + tableName + " SET " + columnName + " = ? WHERE id = ?", newValue, id);
     }
 
 }

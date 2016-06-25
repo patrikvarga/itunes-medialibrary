@@ -13,6 +13,5 @@ public class Album implements Record {
     private Artist artist;
     private long albumArtistPid;
     private int year;
-    private long representativeItemId;
 
 }

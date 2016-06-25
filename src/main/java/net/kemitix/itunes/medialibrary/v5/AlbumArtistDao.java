@@ -43,7 +43,6 @@ class AlbumArtistDao extends WritableLibraryDao<Artist> {
         final MapSqlParameterSource parameters = new MapSqlParameterSource();
         parameters.addValue("album_artist", record.getTitle());
         parameters.addValue("sort_album_artist", record.getSortTitle());
-        parameters.addValue("representative_item_pid", record.getRepresentativeItemId());
         parameters.addValue("cloud_status", 0);
         parameters.addValue("store_id", 0);
         parameters.addValue("keep_local", 0);

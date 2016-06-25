@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 @Getter
 abstract class LibraryDao<T> {
 
-    private final JdbcTemplate jdbcTemplate;
+    protected final JdbcTemplate jdbcTemplate;
 
     private final RowMapper<T> rowMapper;
 

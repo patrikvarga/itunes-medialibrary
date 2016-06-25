@@ -10,5 +10,4 @@ public class Artist implements Record {
     private long id;
     private String title;
     private String sortTitle;
-    private long representativeItemId;
 }

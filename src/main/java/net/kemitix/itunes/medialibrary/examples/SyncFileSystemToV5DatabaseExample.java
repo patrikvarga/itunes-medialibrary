@@ -11,6 +11,7 @@ import java.util.Optional;
 import net.kemitix.itunes.medialibrary.WritableMediaLibrary;
 import net.kemitix.itunes.medialibrary.items.Album;
 import net.kemitix.itunes.medialibrary.items.Artist;
+import net.kemitix.itunes.medialibrary.items.Item;
 
 public class SyncFileSystemToV5DatabaseExample {
 
@@ -45,42 +46,68 @@ public class SyncFileSystemToV5DatabaseExample {
         final List<Album> allDbAlbums = dbLibrary.getAlbums();
 
         for (AlbumTrack newFsTrack : newFsTracks) {
-            final Optional<Album> matchingAlbum = allDbAlbums.stream().filter(a
-                    -> a.getTitle().equals(newFsTrack.getAlbumTitle())
-                    && a.getArtist().getTitle().equals(newFsTrack.getAlbumArtist())
-                    && a.getYear() == newFsTrack.getYear()).findFirst();
-            final Optional<Artist> matchingAlbumArtist = allDbAlbumArtists.stream().filter(a
-                    -> a.getTitle().equals(newFsTrack.getAlbumArtist())).findFirst();
-            final Optional<Artist> matchingArtist = allDbArtists.stream().filter(a
-                    -> a.getTitle().equals(newFsTrack.getTrackArtist())).findFirst();
+            final long itemArtistId = findOrCreateArtist(allDbArtists, newFsTrack, dbLibrary);
+            final long albumArtistId = findOrCreateAlbumArtist(allDbAlbumArtists, newFsTrack, dbLibrary);
+            final long albumId = findOrCreateAlbum(allDbAlbums, newFsTrack, dbLibrary, albumArtistId);
+            final long itemId = dbLibrary.createItem(toItem(newFsTrack, itemArtistId, albumArtistId, albumId, dbLibrary));
+            dbLibrary.updateRepresentativeItemIds(itemId, itemArtistId, albumArtistId, albumId);
+        }
+    }
 
-            if (!matchingArtist.isPresent()) {
-                final Artist artist = new Artist();
-                artist.setTitle(newFsTrack.getTrackArtist());
-                artist.setSortTitle(newFsTrack.getTrackArtist());
-                artist.setRepresentativeItemId(newFsTrack.getId());
-                dbLibrary.createArtist(artist);
-            }
-            if (!matchingAlbumArtist.isPresent()) {
-                final Artist artist = new Artist();
-                artist.setTitle(newFsTrack.getAlbumArtist());
-                artist.setSortTitle(newFsTrack.getAlbumArtist());
-                artist.setRepresentativeItemId(newFsTrack.getId());
-                dbLibrary.createAlbumArtist(artist);
-            }
+    private static long findOrCreateArtist(final List<Artist> allDbArtists, final AlbumTrack newFsTrack, final WritableMediaLibrary dbLibrary) {
+        final Optional<Artist> matchingArtist = allDbArtists.stream().filter(a
+                -> a.getTitle().equals(newFsTrack.getTrackArtist())).findFirst();
+        if (!matchingArtist.isPresent()) {
+            final Artist artist = new Artist();
+            artist.setTitle(newFsTrack.getTrackArtist());
+            artist.setSortTitle(newFsTrack.getTrackArtist());
+            dbLibrary.createArtist(artist);
+            return artist.getId();
+        } else {
+            return matchingArtist.get().getId();
+        }
+    }
 
-            if (!matchingAlbum.isPresent()) {
-                final Album album = new Album();
-                album.setTitle(newFsTrack.getAlbumTitle());
-                album.setSortTitle(newFsTrack.getAlbumTitle());
-                album.setYear(newFsTrack.getYear());
-                dbLibrary.createAlbum(album);
-            }
+    private static long findOrCreateAlbumArtist(final List<Artist> allDbAlbumArtists, final AlbumTrack newFsTrack, final WritableMediaLibrary dbLibrary) {
+        final Optional<Artist> matchingAlbumArtist = allDbAlbumArtists.stream().filter(a
+                -> a.getTitle().equals(newFsTrack.getAlbumArtist())).findFirst();
+        if (!matchingAlbumArtist.isPresent()) {
+            final Artist artist = new Artist();
+            artist.setTitle(newFsTrack.getAlbumArtist());
+            artist.setSortTitle(newFsTrack.getAlbumArtist());
+            dbLibrary.createAlbumArtist(artist);
+            return artist.getId();
+        } else {
+            return matchingAlbumArtist.get().getId();
+        }
+    }
+
+    private static long findOrCreateAlbum(final List<Album> allDbAlbums, final AlbumTrack newFsTrack, final WritableMediaLibrary dbLibrary, long albumArtistId) {
+        final Optional<Album> matchingAlbum = allDbAlbums.stream().filter(a
+                -> a.getTitle().equals(newFsTrack.getAlbumTitle())
+                && a.getArtist() != null && a.getArtist().getTitle().equals(newFsTrack.getAlbumArtist())
+                && a.getYear() == newFsTrack.getYear()).findFirst();
+        if (!matchingAlbum.isPresent()) {
+            final Album album = new Album();
+            album.setTitle(newFsTrack.getAlbumTitle());
+            album.setSortTitle(newFsTrack.getAlbumTitle());
+            album.setYear(newFsTrack.getYear());
+            album.setAlbumArtistPid(albumArtistId);
+            dbLibrary.createAlbum(album);
+            return album.getId();
+        } else {
+            return matchingAlbum.get().getId();
         }
     }
 
     private static void printTrack(AlbumTrack t) {
         System.out.println(t.getBaseLocation() + "\t" + t.getFileLocation() + "\t\t" + t.getTrackArtist() + ": " + t.getTrackTitle());
+    }
+
+    private static Item toItem(AlbumTrack newFsTrack, long itemArtistId, long albumArtistId, long albumId, WritableMediaLibrary dbLibrary) {
+        final Item item = new Item();
+        // TODO item transform
+        return item;
     }
 
 }

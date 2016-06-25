@@ -111,7 +111,7 @@ public class LibraryDaoTest {
     public class LibraryDaoImpl extends LibraryDao {
 
         public LibraryDaoImpl() {
-            super(jdbcTemplate, rowMapper);
+            super(LibraryDaoTest.this.jdbcTemplate, rowMapper);
         }
 
         @Override

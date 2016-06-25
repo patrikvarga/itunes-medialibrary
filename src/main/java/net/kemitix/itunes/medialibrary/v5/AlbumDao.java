@@ -43,7 +43,6 @@ class AlbumDao extends WritableLibraryDao<Album> {
         parameters.addValue("sort_album", record.getSortTitle());
         parameters.addValue("album_artist_pid", record.getAlbumArtistPid());
         parameters.addValue("album_year", record.getYear());
-        parameters.addValue("representative_item_pid", record.getRepresentativeItemId());
         parameters.addValue("cloud_status", 0);
         parameters.addValue("keep_local", 1);
         parameters.addValue("keep_local_status", 2);

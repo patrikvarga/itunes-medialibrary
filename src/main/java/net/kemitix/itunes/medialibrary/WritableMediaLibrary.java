@@ -17,4 +17,6 @@ public interface WritableMediaLibrary extends MediaLibrary {
 
     long createGenre(Genre genre);
 
+    void updateRepresentativeItemIds(long itemId, long itemArtistId, long albumArtistId, long albumId);
+
 }
