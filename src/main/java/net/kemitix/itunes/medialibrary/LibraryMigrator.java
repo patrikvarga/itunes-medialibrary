@@ -2,7 +2,6 @@ package net.kemitix.itunes.medialibrary;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import static java.util.Comparator.comparing;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -12,7 +11,7 @@ import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.BaseLocation;
 import net.kemitix.itunes.medialibrary.items.Genre;
 import net.kemitix.itunes.medialibrary.items.Item;
-import net.kemitix.itunes.medialibrary.items.ItemExtra;
+import static java.util.Comparator.comparing;
 
 public class LibraryMigrator {
 
@@ -33,7 +32,7 @@ public class LibraryMigrator {
             final long albumId = findOrCreateAlbum(newTrack, albumArtistId);
             final long genreId = findOrCreateGenre(newTrack);
             final long baseLocationId = findOrCreateBaseLocation(newTrack);
-            final Item newItem = toItem(newTrack, itemArtistId, albumArtistId, albumId, genreId, baseLocationId);
+            final Item newItem = Item.of(newTrack, itemArtistId, albumArtistId, albumId, genreId, baseLocationId);
             final long itemId = dest.createItem(newItem);
             dest.updateRepresentativeItemIds(itemId, itemArtistId, albumArtistId, albumId);
         });
@@ -146,46 +145,6 @@ public class LibraryMigrator {
 
     private static void printTrack(AlbumTrack t) {
         System.out.println(t.getBaseLocation() + "\t" + t.getFileLocation() + "\t\t" + t.getTrackArtist() + ": " + t.getTrackTitle());
-    }
-
-    private static Item toItem(AlbumTrack t, long itemArtistId, long albumArtistId, long albumId, long genreId, long baseLocationId) {
-        final Item item = new Item();
-        item.setAlbumArtistPid(albumArtistId);
-        item.setAlbumArtistOrder(0);
-        item.setAlbumArtistOrderSection(0);
-        item.setAlbumPid(albumId);
-        item.setAlbumOrder(0);
-        item.setAlbumOrderSection(0);
-        item.setBaseLocationId(baseLocationId);
-        item.setDiscNumber(t.getDiscNumber());
-        item.setGenreId(genreId);
-        item.setGenreOrder(0);
-        item.setGenreOrderSection(0);
-        item.setItemArtistPid(itemArtistId);
-        item.setItemArtistOrder(0);
-        item.setItemArtistOrderSection(0);
-        item.setMediaType(8); // 8 == mp3
-        item.setRemoteLocationId(0);
-        item.setSeriesNameOrder(0);
-        item.setSeriesNameOrderSection(0);
-        item.setTitleOrder(0);
-        item.setTitleOrderSection(0);
-        item.setTrackNumber(t.getTrackNumber());
-        item.setExtra(toItemExtra(t));
-        return item;
-    }
-
-    private static ItemExtra toItemExtra(AlbumTrack t) {
-        final ItemExtra extra = new ItemExtra();
-        extra.setComment(t.getComment());
-        extra.setLocation(t.getFileLocation());
-        extra.setTitle(t.getTrackTitle());
-        extra.setSortTitle(t.getTrackTitle());
-        extra.setBpm(t.getBpm());
-        extra.setFileSize(t.getFileSize());
-        extra.setTotalTimeMs(t.getTotalTimeMs());
-        extra.setYear(t.getYear());
-        return extra;
     }
 
 }

@@ -27,4 +27,18 @@ public class ItemExtra implements Record {
     private long fileSize;
     // media_type
     private int mediaType = 8;
+
+    static ItemExtra of(AlbumTrack t) {
+        final ItemExtra extra = new ItemExtra();
+        extra.setComment(t.getComment());
+        extra.setLocation(t.getFileLocation());
+        extra.setTitle(t.getTrackTitle());
+        extra.setSortTitle(t.getTrackTitle());
+        extra.setBpm(t.getBpm());
+        extra.setFileSize(t.getFileSize());
+        extra.setTotalTimeMs(t.getTotalTimeMs());
+        extra.setYear(t.getYear());
+        return extra;
+    }
+
 }

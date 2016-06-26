@@ -80,4 +80,31 @@ public class Item implements Record {
     // show_composer
     private int showComposer;
 
+    public static Item of(AlbumTrack t, long itemArtistId, long albumArtistId, long albumId, long genreId, long baseLocationId) {
+        final Item item = new Item();
+        item.setAlbumArtistPid(albumArtistId);
+        item.setAlbumArtistOrder(0);
+        item.setAlbumArtistOrderSection(0);
+        item.setAlbumPid(albumId);
+        item.setAlbumOrder(0);
+        item.setAlbumOrderSection(0);
+        item.setBaseLocationId(baseLocationId);
+        item.setDiscNumber(t.getDiscNumber());
+        item.setGenreId(genreId);
+        item.setGenreOrder(0);
+        item.setGenreOrderSection(0);
+        item.setItemArtistPid(itemArtistId);
+        item.setItemArtistOrder(0);
+        item.setItemArtistOrderSection(0);
+        item.setMediaType(8); // 8 == mp3
+        item.setRemoteLocationId(0);
+        item.setSeriesNameOrder(0);
+        item.setSeriesNameOrderSection(0);
+        item.setTitleOrder(0);
+        item.setTitleOrderSection(0);
+        item.setTrackNumber(t.getTrackNumber());
+        item.setExtra(ItemExtra.of(t));
+        return item;
+    }
+
 }
