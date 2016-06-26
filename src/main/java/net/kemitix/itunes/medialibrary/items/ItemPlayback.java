@@ -5,19 +5,18 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class BaseLocation implements Record {
+public class ItemPlayback implements Record {
 
-    private Long baseLocationId;
-    private String path;
+    private Long itemPid;
 
     @Override
     public Long getId() {
-        return getBaseLocationId();
+        return getItemPid();
     }
 
     @Override
     public void setId(Long id) {
-        setBaseLocationId(id);
+        setItemPid(id);
     }
 
 }

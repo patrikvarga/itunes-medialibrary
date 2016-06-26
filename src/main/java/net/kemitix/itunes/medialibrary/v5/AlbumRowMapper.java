@@ -21,7 +21,7 @@ class AlbumRowMapper implements RowMapper<Album> {
 
     @Override
     public Album mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Album album = new Album();
+        final Album album = new Album();
         album.setId(rs.getLong("album_pid"));
         album.setTitle(rs.getString("album"));
         album.setSortTitle(rs.getString("sort_album"));

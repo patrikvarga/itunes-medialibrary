@@ -34,7 +34,7 @@ public class AlbumRowMapperTest {
         //given
         ResultSet resultSet = mock(ResultSet.class);
         int rowNum = 1;
-        long itemPid = 1234l;
+        Long itemPid = 1234l;
         when(resultSet.getLong("album_pid")).thenReturn(itemPid);
 
         //when

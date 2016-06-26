@@ -8,12 +8,12 @@ import net.kemitix.itunes.medialibrary.items.Item;
 import net.kemitix.itunes.medialibrary.items.ItemExtra;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
 @Profile({"v5/ro", "v5/rw"})
-class ItemRowMapper implements RowMapper<Item> {
+class ItemRowMapper extends BeanPropertyRowMapper<Item> {
 
     private final AlbumDao albumDao;
     private final ItemArtistDao itemArtistDao;
@@ -21,6 +21,7 @@ class ItemRowMapper implements RowMapper<Item> {
 
     @Autowired
     public ItemRowMapper(AlbumDao albumDao, ItemArtistDao itemArtistDao, ItemExtraDao itemExtraDao) {
+        super(Item.class);
         this.albumDao = albumDao;
         this.itemArtistDao = itemArtistDao;
         this.itemExtraDao = itemExtraDao;
@@ -28,44 +29,21 @@ class ItemRowMapper implements RowMapper<Item> {
 
     @Override
     public Item mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Item item = new Item();
-        item.setId(rs.getLong("item_pid"));
-        item.setMediaType(rs.getInt("media_type"));
-        item.setTitleOrder(rs.getInt("title_order"));
-        item.setTitleOrderSection(rs.getInt("title_order_section"));
-        item.setItemArtistPid(rs.getLong("item_artist_pid"));
-        item.setItemArtistOrder(rs.getInt("item_artist_order"));
-        item.setItemArtistOrderSection(rs.getInt("item_artist_order_section"));
-        item.setSeriesNameOrder(rs.getInt("series_name_order"));
-        item.setSeriesNameOrderSection(rs.getInt("series_name_order_section"));
+        final Item item = super.mapRow(rs, rowNum);
 
-        long albumId = rs.getLong("album_pid");
+        final long albumId = rs.getLong("album_pid");
         item.setAlbumPid(albumId);
-        Album album = albumDao.find(albumId);
+        final Album album = albumDao.find(albumId);
         item.setAlbum(album);
 
-        long artistId = rs.getLong("item_artist_id");
-        Artist artist = itemArtistDao.find(artistId);
+        final long artistId = rs.getLong("item_artist_id");
+        final Artist artist = itemArtistDao.find(artistId);
         item.setArtist(artist);
 
-        long itemId = rs.getLong("item_pid");
-        ItemExtra extra = itemExtraDao.find(itemId);
+        final long itemId = rs.getLong("item_pid");
+        final ItemExtra extra = itemExtraDao.find(itemId);
         item.setExtra(extra);
 
-        item.setAlbumOrder(rs.getInt("album_order"));
-        item.setAlbumOrderSection(rs.getInt("album_order_section"));
-        item.setAlbumArtistPid(rs.getLong("album_artist_pid"));
-        item.setAlbumArtistOrder(rs.getInt("album_artist_order"));
-        item.setAlbumArtistOrderSection(rs.getInt("album_artist_order_section"));
-        item.setGenreId(rs.getLong("genre_id"));
-        item.setGenreOrder(rs.getInt("genre_order"));
-        item.setGenreOrderSection(rs.getInt("genre_order_section"));
-        item.setDiscNumber(rs.getInt("disc_number"));
-        item.setTrackNumber(rs.getInt("track_number"));
-        item.setEpisodeSortId(rs.getLong("episode_sort_id"));
-        item.setBaseLocationId(rs.getLong("base_location_id"));
-        item.setRemoteLocationId(rs.getLong("remote_location_id"));
-        item.setExcludeFromShuffle(rs.getInt("exclude_from_shuffle"));
         return item;
     }
 

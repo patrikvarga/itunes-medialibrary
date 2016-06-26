@@ -9,12 +9,18 @@ import static org.mockito.Mockito.mock;
 public class ItemDaoTest extends AbstractDaoTest {
 
     private ItemExtraDao itemExtraDao;
+    private ItemSearchDao itemSearchDao;
+    private ItemStoreDao itemStoreDao;
+    private ItemPlaybackDao itemPlaybackDao;
 
     @Before
     @Override
     public void setUp() {
         this.itemExtraDao = mock(ItemExtraDao.class);
-        setUpTest(new ItemDao(itemExtraDao, getJdbcTemplate(), getRowMapper(), getInsertActor()));
+        this.itemSearchDao = mock(ItemSearchDao.class);
+        this.itemStoreDao = mock(ItemStoreDao.class);
+        this.itemPlaybackDao = mock(ItemPlaybackDao.class);
+        setUpTest(new ItemDao(itemExtraDao, itemSearchDao, itemStoreDao, itemPlaybackDao, getJdbcTemplate(), getRowMapper(), getInsertActor()));
     }
 
 }

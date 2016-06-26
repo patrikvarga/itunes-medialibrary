@@ -31,7 +31,7 @@ public class ArtistRowMapperTest {
         //given
         ResultSet resultSet = mock(ResultSet.class);
         int rowNum = 3;
-        long id = 12345l;
+        Long id = 12345l;
         when(resultSet.getLong("album_artist_pid")).thenReturn(id);
 
         //when

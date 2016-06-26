@@ -8,8 +8,7 @@ import lombok.Setter;
 @Getter
 public class ItemExtra implements Record {
 
-    // item_pid
-    private long id;
+    private Long itemPid;
     private String title;
     private String sortTitle;
     private String comment;
@@ -30,6 +29,16 @@ public class ItemExtra implements Record {
     private int locationKindId;
     private int version;
     private int displayVersion;
+
+    @Override
+    public Long getId() {
+        return getItemPid();
+    }
+
+    @Override
+    public void setId(Long id) {
+        setItemPid(id);
+    }
 
     static ItemExtra of(AlbumTrack t) {
         final ItemExtra extra = new ItemExtra();

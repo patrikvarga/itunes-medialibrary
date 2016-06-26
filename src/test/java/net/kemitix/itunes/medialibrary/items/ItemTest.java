@@ -23,7 +23,7 @@ public class ItemTest {
     @Test
     public void testSetId() {
         //given
-        long value = 1234l;
+        Long value = 1234l;
 
         //when
         item.setId(value);

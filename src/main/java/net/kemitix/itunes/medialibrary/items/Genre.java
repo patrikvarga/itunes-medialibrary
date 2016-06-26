@@ -7,12 +7,21 @@ import lombok.Setter;
 @Getter
 public class Genre implements Record {
 
-    // genre_id
-    private long id;
+    private Long genreId;
     private String genre;
     private int cloudStatus;
     private int keepLocal;
     private int keepLocalStatus;
     private int representativeItemPid;
+
+    @Override
+    public Long getId() {
+        return getGenreId();
+    }
+
+    @Override
+    public void setId(Long id) {
+        setGenreId(id);
+    }
 
 }

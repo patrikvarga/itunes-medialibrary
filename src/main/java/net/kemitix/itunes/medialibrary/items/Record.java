@@ -2,7 +2,7 @@ package net.kemitix.itunes.medialibrary.items;
 
 public interface Record {
 
-    public long getId();
+    public Long getId();
 
-    void setId(long id);
+    void setId(Long id);
 }

@@ -15,7 +15,7 @@ class AlbumArtistRowMapper implements RowMapper<Artist> {
 
     @Override
     public Artist mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Artist artist = new Artist();
+        final Artist artist = new Artist();
         artist.setId(rs.getLong("album_artist_pid"));
         artist.setName(rs.getString("album_artist"));
         artist.setSortName(rs.getString("sort_album_artist"));

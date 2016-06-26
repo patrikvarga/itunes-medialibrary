@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 public class Artist implements Record {
 
-    private long id;
+    private Long id;
     private String name;
     private String sortName;
 }

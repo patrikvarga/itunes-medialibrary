@@ -8,8 +8,7 @@ import lombok.Setter;
 @Getter
 public class Item implements Record {
 
-    // item_pid
-    private long id;
+    private Long itemPid;
     private int mediaType = 8;
     private int titleOrder;
     private int titleOrderSection;
@@ -23,6 +22,9 @@ public class Item implements Record {
     private Album album;
     private Artist artist;
     private ItemExtra extra;
+    private ItemSearch search;
+    private ItemStore store;
+    private ItemPlayback playback;
 
     private int albumOrder;
     private int albumOrderSection;
@@ -48,6 +50,16 @@ public class Item implements Record {
     private long dateAdded = new Date().getTime() / 1000;
     private int showComposer;
 
+    @Override
+    public Long getId() {
+        return getItemPid();
+    }
+
+    @Override
+    public void setId(Long id) {
+        setItemPid(id);
+    }
+
     public static Item of(AlbumTrack t, long itemArtistId, long albumArtistId, long albumId, long genreId, long baseLocationId) {
         final Item item = new Item();
         item.setAlbumArtistPid(albumArtistId);
@@ -71,7 +83,12 @@ public class Item implements Record {
         item.setTitleOrder(0);
         item.setTitleOrderSection(0);
         item.setTrackNumber(t.getTrackNumber());
+
         item.setExtra(ItemExtra.of(t));
+        item.setSearch(new ItemSearch());
+        item.setStore(new ItemStore());
+        item.setPlayback(new ItemPlayback());
+
         return item;
     }
 

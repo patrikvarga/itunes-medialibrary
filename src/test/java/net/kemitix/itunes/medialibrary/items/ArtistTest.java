@@ -1,6 +1,5 @@
 package net.kemitix.itunes.medialibrary.items;
 
-import net.kemitix.itunes.medialibrary.items.Artist;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +22,7 @@ public class ArtistTest {
     @Test
     public void testSetId() {
         //given
-        long value = 1234l;
+        Long value = 1234l;
 
         //when
         artist.setId(value);
