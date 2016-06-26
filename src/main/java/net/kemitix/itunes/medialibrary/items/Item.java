@@ -87,7 +87,7 @@ public class Item implements Record {
         item.setExtra(ItemExtra.of(t));
         item.setSearch(new ItemSearch());
         item.setStore(new ItemStore());
-        item.setPlayback(new ItemPlayback());
+        item.setPlayback(t.getPlayback());
 
         return item;
     }
