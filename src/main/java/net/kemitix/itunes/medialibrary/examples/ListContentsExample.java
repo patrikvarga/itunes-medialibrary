@@ -1,10 +1,10 @@
 package net.kemitix.itunes.medialibrary.examples;
 
 import java.util.List;
-import static java.util.stream.Collectors.groupingBy;
 import net.kemitix.itunes.medialibrary.items.AlbumTrack;
 import net.kemitix.itunes.medialibrary.ITunesMediaLibrary;
 import net.kemitix.itunes.medialibrary.MediaLibrary;
+import static java.util.stream.Collectors.groupingBy;
 
 /**
  * Displays all the tracks in the test media library, grouped by artist and album.
@@ -28,6 +28,15 @@ public class ListContentsExample {
 
     static void printAlbumTracks(final List<AlbumTrack> allTracks) {
         allTracks.stream()
+                .map(t -> {
+                    if (t.getAlbumArtist() == null) {
+                        t.setAlbumArtist("<Unknown>");
+                    }
+                    if (t.getAlbumTitle() == null) {
+                        t.setAlbumTitle("<Unknown>");
+                    }
+                    return t;
+                })
                 .collect(groupingBy(AlbumTrack::getAlbumArtist))
                 .forEach((String albumArtist, List<AlbumTrack> artistsTracks) -> {
                     System.out.println(albumArtist);
