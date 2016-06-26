@@ -13,22 +13,9 @@ import org.springframework.stereotype.Repository;
 @Profile({"v5/ro", "v5/rw"})
 class BaseLocationDao extends WritableLibraryDao<BaseLocation> {
 
-    private final String SELECT_ALL_SQL = "select * from base_location";
-    private final String SELECT_BY_ID = "select * from base_location where base_location_id = ?";
-
     @Autowired
     public BaseLocationDao(JdbcTemplate jdbcTemplate, RowMapper<BaseLocation> rowMapper, SimpleJdbcInsert insertActor) {
-        super(jdbcTemplate, rowMapper, insertActor, "base_location");
-    }
-
-    @Override
-    String getSelectAllSql() {
-        return SELECT_ALL_SQL;
-    }
-
-    @Override
-    String getSelectByIdSql() {
-        return SELECT_BY_ID;
+        super(jdbcTemplate, rowMapper, insertActor, "base_location", "base_location_id");
     }
 
 }

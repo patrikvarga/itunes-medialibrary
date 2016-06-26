@@ -25,7 +25,7 @@ class ItemArtistDao extends WritableLibraryDao<Artist> {
             @ArtistType(ArtistType.Type.ITEM_ARTIST) RowMapper<Artist> rowMapper,
             SimpleJdbcInsert insertActor
     ) {
-        super(jdbcTemplate, rowMapper, insertActor, "item_artist");
+        super(jdbcTemplate, rowMapper, insertActor, "item_artist", "item_artist_pid");
     }
 
     @Override
@@ -41,8 +41,8 @@ class ItemArtistDao extends WritableLibraryDao<Artist> {
     @Override
     protected SqlParameterSource getInsertParameters(Artist record) {
         final MapSqlParameterSource parameters = new MapSqlParameterSource();
-        parameters.addValue("item_artist", record.getTitle());
-        parameters.addValue("sort_item_artist", record.getSortTitle());
+        parameters.addValue("item_artist", record.getName());
+        parameters.addValue("sort_item_artist", record.getSortName());
         parameters.addValue("series_name", "");
         parameters.addValue("cloud_status", 0);
         parameters.addValue("store_id", 0);

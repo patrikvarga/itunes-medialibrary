@@ -66,11 +66,11 @@ public class LibraryMigrator {
     private long findOrCreateArtist(final AlbumTrack track) {
         final List<Artist> allArtistsInDest = dest.getArtists();
         final Optional<Artist> matchingArtist = allArtistsInDest.stream().filter(a
-                -> a.getTitle().equals(track.getTrackArtist())).findFirst();
+                -> a.getName().equals(track.getTrackArtist())).findFirst();
         if (!matchingArtist.isPresent()) {
             final Artist artist = new Artist();
-            artist.setTitle(track.getTrackArtist());
-            artist.setSortTitle(track.getTrackArtist());
+            artist.setName(track.getTrackArtist());
+            artist.setSortName(track.getTrackArtist());
             dest.createArtist(artist);
             return artist.getId();
         } else {
@@ -81,11 +81,11 @@ public class LibraryMigrator {
     private long findOrCreateAlbumArtist(final AlbumTrack track) {
         final List<Artist> allAlbumArtistsInDest = dest.getAlbumArtists();
         final Optional<Artist> matchingAlbumArtist = allAlbumArtistsInDest.stream().filter(a
-                -> a.getTitle().equals(track.getAlbumArtist())).findFirst();
+                -> a.getName().equals(track.getAlbumArtist())).findFirst();
         if (!matchingAlbumArtist.isPresent()) {
             final Artist artist = new Artist();
-            artist.setTitle(track.getAlbumArtist());
-            artist.setSortTitle(track.getAlbumArtist());
+            artist.setName(track.getAlbumArtist());
+            artist.setSortName(track.getAlbumArtist());
             dest.createAlbumArtist(artist);
             return artist.getId();
         } else {
@@ -97,7 +97,7 @@ public class LibraryMigrator {
         final List<Album> allAlbumsInDest = dest.getAlbums();
         final Optional<Album> matchingAlbum = allAlbumsInDest.stream().filter(a
                 -> a.getTitle().equals(track.getAlbumTitle())
-                && a.getArtist() != null && a.getArtist().getTitle().equals(track.getAlbumArtist())
+                && a.getArtist() != null && a.getArtist().getName().equals(track.getAlbumArtist())
                 && a.getYear() == track.getYear()).findFirst();
         if (!matchingAlbum.isPresent()) {
             final Album album = new Album();

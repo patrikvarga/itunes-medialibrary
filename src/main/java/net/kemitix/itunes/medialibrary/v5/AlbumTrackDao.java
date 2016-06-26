@@ -22,7 +22,7 @@ class AlbumTrackDao extends LibraryDao<AlbumTrack> {
             JdbcTemplate jdbcTemplate,
             RowMapper<AlbumTrack> rowMapper,
             @AlbumTracks String sql) {
-        super(jdbcTemplate, rowMapper);
+        super(jdbcTemplate, rowMapper, null, null);
         this.sql = sql;
     }
 

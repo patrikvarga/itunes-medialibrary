@@ -10,19 +10,28 @@ import org.springframework.jdbc.core.RowMapper;
 abstract class LibraryDao<T> {
 
     protected final JdbcTemplate jdbcTemplate;
-
+    protected final String tableName;
+    protected final String idColumn;
     private final RowMapper<T> rowMapper;
 
-    abstract String getSelectAllSql();
+    String getSelectAllSql() {
+        return "select * from " + tableName;
+    }
 
-    abstract String getSelectByIdSql();
+    String getSelectByIdSql() {
+        return "select * from " + tableName + " where " + idColumn + " = ?";
+    }
 
     public LibraryDao(
             JdbcTemplate jdbcTemplate,
-            RowMapper rowMapper
+            RowMapper rowMapper,
+            String tableName,
+            String idColumn
     ) {
         this.jdbcTemplate = jdbcTemplate;
         this.rowMapper = rowMapper;
+        this.tableName = tableName;
+        this.idColumn = idColumn;
     }
 
     public List<T> selectAll() {

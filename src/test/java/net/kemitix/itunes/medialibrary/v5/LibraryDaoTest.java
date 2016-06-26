@@ -1,6 +1,5 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.LibraryDao;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -111,7 +110,7 @@ public class LibraryDaoTest {
     public class LibraryDaoImpl extends LibraryDao {
 
         public LibraryDaoImpl() {
-            super(LibraryDaoTest.this.jdbcTemplate, rowMapper);
+            super(LibraryDaoTest.this.jdbcTemplate, rowMapper, null, null);
         }
 
         @Override

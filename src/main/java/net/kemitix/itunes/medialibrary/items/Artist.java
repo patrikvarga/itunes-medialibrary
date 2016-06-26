@@ -8,6 +8,6 @@ import lombok.Setter;
 public class Artist implements Record {
 
     private long id;
-    private String title;
-    private String sortTitle;
+    private String name;
+    private String sortName;
 }

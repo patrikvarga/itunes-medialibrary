@@ -13,8 +13,6 @@ import org.springframework.stereotype.Repository;
 @Profile({"v5/ro", "v5/rw"})
 class ItemDao extends WritableLibraryDao<Item> {
 
-    private final String SELECT_ALL_SQL = "select * from item";
-    private final String SELECT_BY_ID = "select * from item where item_pid = ?";
     private final ItemExtraDao itemExtraDao;
 
     @Autowired
@@ -24,23 +22,13 @@ class ItemDao extends WritableLibraryDao<Item> {
             RowMapper<Item> rowMapper,
             SimpleJdbcInsert insertActor
     ) {
-        super(jdbcTemplate, rowMapper, insertActor, "item");
+        super(jdbcTemplate, rowMapper, insertActor, "item", "item_pid");
         this.itemExtraDao = itemExtraDao;
     }
 
     @Override
-    String getSelectAllSql() {
-        return SELECT_ALL_SQL;
-    }
-
-    @Override
-    String getSelectByIdSql() {
-        return SELECT_BY_ID;
-    }
-
-    @Override
     public long insert(Item record) {
-        long id = super.insert(record);
+        final long id = super.insert(record);
         record.getExtra().setId(id);
         itemExtraDao.insert(record.getExtra());
         return id;

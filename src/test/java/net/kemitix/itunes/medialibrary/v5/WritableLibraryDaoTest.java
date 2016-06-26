@@ -1,6 +1,5 @@
 package net.kemitix.itunes.medialibrary.v5;
 
-import net.kemitix.itunes.medialibrary.v5.WritableLibraryDao;
 import java.sql.SQLException;
 import net.kemitix.itunes.medialibrary.items.Album;
 import org.junit.Before;
@@ -30,7 +29,7 @@ public class WritableLibraryDaoTest {
         insertActor = mock(SimpleJdbcInsert.class);
         rowMapper = mock(RowMapper.class);
 
-        dao = new WritableLibraryDao<Album>(jdbcTemplate, rowMapper, insertActor, "") {
+        dao = new WritableLibraryDao<Album>(jdbcTemplate, rowMapper, insertActor, null, null) {
             @Override
             String getSelectAllSql() {
                 throw new UnsupportedOperationException("Not supported yet.");

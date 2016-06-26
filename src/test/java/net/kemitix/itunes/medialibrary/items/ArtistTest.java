@@ -41,10 +41,10 @@ public class ArtistTest {
         String value = "value";
 
         //when
-        artist.setTitle(value);
+        artist.setName(value);
 
         //then
-        assertEquals(value, artist.getTitle());
+        assertEquals(value, artist.getName());
     }
 
     /**
@@ -56,10 +56,10 @@ public class ArtistTest {
         String value = "value";
 
         //when
-        artist.setSortTitle(value);
+        artist.setSortName(value);
 
         //then
-        assertEquals(value, artist.getSortTitle());
+        assertEquals(value, artist.getSortName());
     }
 
 }

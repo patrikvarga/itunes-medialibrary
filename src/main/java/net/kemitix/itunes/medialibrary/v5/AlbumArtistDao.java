@@ -16,33 +16,20 @@ import org.springframework.stereotype.Repository;
 @Profile({"v5/ro", "v5/rw"})
 class AlbumArtistDao extends WritableLibraryDao<Artist> {
 
-    private final String SELECT_ALL_SQL = "select * from album_artist";
-    private final String SELECT_BY_ID = "select * from album_artist where album_artist_pid = ?";
-
     @Autowired
     public AlbumArtistDao(
             JdbcTemplate jdbcTemplate,
             @ArtistType(ArtistType.Type.ALBUM_ARTIST) RowMapper<Artist> rowMapper,
             SimpleJdbcInsert insertActor
     ) {
-        super(jdbcTemplate, rowMapper, insertActor, "album_artist");
-    }
-
-    @Override
-    String getSelectAllSql() {
-        return SELECT_ALL_SQL;
-    }
-
-    @Override
-    String getSelectByIdSql() {
-        return SELECT_BY_ID;
+        super(jdbcTemplate, rowMapper, insertActor, "album_artist", "album_artist_pid");
     }
 
     @Override
     protected SqlParameterSource getInsertParameters(Artist record) {
         final MapSqlParameterSource parameters = new MapSqlParameterSource();
-        parameters.addValue("album_artist", record.getTitle());
-        parameters.addValue("sort_album_artist", record.getSortTitle());
+        parameters.addValue("album_artist", record.getName());
+        parameters.addValue("sort_album_artist", record.getSortName());
         parameters.addValue("cloud_status", 0);
         parameters.addValue("store_id", 0);
         parameters.addValue("keep_local", 0);
