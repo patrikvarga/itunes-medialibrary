@@ -20,6 +20,6 @@ public interface WritableMediaLibrary extends MediaLibrary {
 
     long createBaseLocation(BaseLocation baseLocation);
 
-    void updateRepresentativeItemIds(long itemId, long itemArtistId, long albumArtistId, long albumId);
+    void updateRepresentativeItemIds(long itemId, long itemArtistId, long albumArtistId, long albumId, long genreId);
 
 }

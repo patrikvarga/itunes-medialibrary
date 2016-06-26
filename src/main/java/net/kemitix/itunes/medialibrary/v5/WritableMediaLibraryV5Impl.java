@@ -61,10 +61,11 @@ class WritableMediaLibraryV5Impl extends MediaLibraryV5Impl implements WritableM
     }
 
     @Override
-    public void updateRepresentativeItemIds(long itemId, long itemArtistId, long albumArtistId, long albumId) {
+    public void updateRepresentativeItemIds(long itemId, long itemArtistId, long albumArtistId, long albumId, long genreId) {
         itemArtistDao.update(itemArtistId, "representative_item_pid", itemId);
         albumArtistDao.update(albumArtistId, "representative_item_pid", itemId);
         albumDao.update(albumId, "representative_item_pid", itemId);
+        genreDao.update(genreId, "representative_item_pid", itemId);
     }
 
 }

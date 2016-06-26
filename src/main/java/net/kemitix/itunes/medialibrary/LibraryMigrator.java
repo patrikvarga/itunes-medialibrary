@@ -34,7 +34,7 @@ public class LibraryMigrator {
             final long baseLocationId = findOrCreateBaseLocation(newTrack);
             final Item newItem = Item.of(newTrack, itemArtistId, albumArtistId, albumId, genreId, baseLocationId);
             final long itemId = dest.createItem(newItem);
-            dest.updateRepresentativeItemIds(itemId, itemArtistId, albumArtistId, albumId);
+            dest.updateRepresentativeItemIds(itemId, itemArtistId, albumArtistId, albumId, genreId);
         });
 
     }

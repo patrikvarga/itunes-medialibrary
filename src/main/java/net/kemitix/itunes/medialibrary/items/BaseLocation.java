@@ -9,7 +9,6 @@ public class BaseLocation implements Record {
 
     // base_location_id
     private long id;
-    // path
     private String path;
 
 }

@@ -9,7 +9,10 @@ public class Genre implements Record {
 
     // genre_id
     private long id;
-    // genre
     private String genre;
+    private int cloudStatus;
+    private int keepLocal;
+    private int keepLocalStatus;
+    private int representativeItemPid;
 
 }

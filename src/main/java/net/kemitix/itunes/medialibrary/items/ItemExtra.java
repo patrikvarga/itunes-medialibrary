@@ -1,5 +1,6 @@
 package net.kemitix.itunes.medialibrary.items;
 
+import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,24 +10,26 @@ public class ItemExtra implements Record {
 
     // item_pid
     private long id;
-    //title
     private String title;
-    //sort_title
     private String sortTitle;
-    //comment
     private String comment;
-    //bpm
     private int bpm;
-    //total_time_ms
-    private int totalTimeMs;
-    //year
+    private long totalTimeMs;
     private int year;
-    //location
     private String location;
-    //file_size
     private long fileSize;
-    // media_type
     private int mediaType = 8;
+    private int isAudibleAudioBook;
+    private long dateModified = new Date().getTime() / 1000;
+    private int mediaKind = 1;
+    private int contentRating;
+    private int contentRatingLevel;
+    private int isUserDisabled;
+    private int geniusId;
+    private int pendingGeniusChecksum;
+    private int locationKindId;
+    private int version;
+    private int displayVersion;
 
     static ItemExtra of(AlbumTrack t) {
         final ItemExtra extra = new ItemExtra();
