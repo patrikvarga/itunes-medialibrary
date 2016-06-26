@@ -24,6 +24,10 @@ class AlbumTrackRowMapper implements RowMapper<AlbumTrack> {
         albumTrack.setYear(rs.getInt("year"));
         albumTrack.setFileLocation(rs.getString("location"));
         albumTrack.setBaseLocation(rs.getString("path"));
+        albumTrack.setComment(rs.getString("comment"));
+        albumTrack.setBpm(rs.getInt("bpm"));
+        albumTrack.setFileSize(rs.getLong("file_size"));
+        albumTrack.setTotalTimeMs(rs.getInt("total_time_ms"));
         return albumTrack;
     }
 

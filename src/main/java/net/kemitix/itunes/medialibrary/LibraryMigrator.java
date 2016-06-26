@@ -33,7 +33,8 @@ public class LibraryMigrator {
             final long albumId = findOrCreateAlbum(newTrack, albumArtistId);
             final long genreId = findOrCreateGenre(newTrack);
             final long baseLocationId = findOrCreateBaseLocation(newTrack);
-            final long itemId = dest.createItem(toItem(newTrack, itemArtistId, albumArtistId, albumId, genreId, baseLocationId));
+            final Item newItem = toItem(newTrack, itemArtistId, albumArtistId, albumId, genreId, baseLocationId);
+            final long itemId = dest.createItem(newItem);
             dest.updateRepresentativeItemIds(itemId, itemArtistId, albumArtistId, albumId);
         });
 
@@ -149,7 +150,6 @@ public class LibraryMigrator {
 
     private static Item toItem(AlbumTrack t, long itemArtistId, long albumArtistId, long albumId, long genreId, long baseLocationId) {
         final Item item = new Item();
-        // TODO item transform
         item.setAlbumArtistPid(albumArtistId);
         item.setAlbumArtistOrder(0);
         item.setAlbumArtistOrderSection(0);
@@ -177,14 +177,13 @@ public class LibraryMigrator {
 
     private static ItemExtra toItemExtra(AlbumTrack t) {
         final ItemExtra extra = new ItemExtra();
-//        extra.setId(t.get);
-//        extra.setComment(t.get);
+        extra.setComment(t.getComment());
         extra.setLocation(t.getFileLocation());
         extra.setTitle(t.getTrackTitle());
         extra.setSortTitle(t.getTrackTitle());
-//        extra.setBpm(t.get);
-//        extra.setFileSize(t.get);
-//        extra.setTotalTimeMs(t.get);
+        extra.setBpm(t.getBpm());
+        extra.setFileSize(t.getFileSize());
+        extra.setTotalTimeMs(t.getTotalTimeMs());
         extra.setYear(t.getYear());
         return extra;
     }

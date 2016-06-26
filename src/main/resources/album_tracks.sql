@@ -9,7 +9,11 @@ SELECT
     base_location.path,
     item_extra.location,
     item.item_pid,
-    genre.genre
+    genre.genre,
+    item_extra.comment,
+    item_extra.bpm,
+    item_extra.total_time_ms,
+    item_extra.file_size
 FROM
     item
 LEFT OUTER JOIN item_artist ON item.item_artist_pid = item_artist.item_artist_pid

@@ -11,7 +11,7 @@ public class Item implements Record {
     // item_pid
     private long id;
     // media_type
-    private int mediaType;
+    private int mediaType = 8;
     // title_order
     private int titleOrder;
     // title_order_section

@@ -30,6 +30,14 @@ public class AlbumTrack {
     private long id;
     //genre.genre
     private String genre;
+    //comment
+    private String comment;
+    //bpm
+    private int bpm;
+    //total_time_ms
+    private int totalTimeMs;
+    //file_size
+    private long fileSize;
 
     @Override
     public String toString() {
