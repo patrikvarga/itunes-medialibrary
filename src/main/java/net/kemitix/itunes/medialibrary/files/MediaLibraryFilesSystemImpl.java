@@ -20,6 +20,7 @@ import net.kemitix.itunes.medialibrary.items.Artist;
 import net.kemitix.itunes.medialibrary.items.BaseLocation;
 import net.kemitix.itunes.medialibrary.items.Genre;
 import net.kemitix.itunes.medialibrary.items.Item;
+import net.kemitix.itunes.medialibrary.items.ItemPlayback;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -94,6 +95,7 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
             track.setTrackNumber(getTrackNumberSafely(file));
             track.setTrackTitle(file.getTitle());
             track.setYear(getYearSafely(file));
+            track.setPlayback(getPlayback(file));
             return track;
         } catch (IOException | UnsupportedTagException | InvalidDataException ex) {
             throw new RuntimeException(ex);
@@ -147,6 +149,13 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
 
     private static int getBpmSafely(Mp3File file) {
         return file.hasId3v2Tag() ? file.getId3v2Tag().getBPM() : 0;
+    }
+
+    private static ItemPlayback getPlayback(Mp3File file) {
+        final ItemPlayback playback = new ItemPlayback();
+        playback.setBitRate(file.getBitrate());
+        playback.setSampleRate(file.getSampleRate());
+        return playback;
     }
 
     @Override

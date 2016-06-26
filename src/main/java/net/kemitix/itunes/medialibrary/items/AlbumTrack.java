@@ -39,6 +39,8 @@ public class AlbumTrack {
     //file_size
     private long fileSize;
 
+    private ItemPlayback playback;
+
     @Override
     public String toString() {
         return String.format("%s [%04d] %02d. %s - %s [%s/%s]", albumTitle, year, trackNumber, trackArtist, trackTitle, baseLocation, fileLocation);
