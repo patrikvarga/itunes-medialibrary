@@ -27,7 +27,7 @@ class AlbumTrackRowMapper implements RowMapper<AlbumTrack> {
         albumTrack.setComment(rs.getString("comment"));
         albumTrack.setBpm(rs.getInt("bpm"));
         albumTrack.setFileSize(rs.getLong("file_size"));
-        albumTrack.setTotalTimeMs(rs.getInt("total_time_ms"));
+        albumTrack.setTotalTimeMs(rs.getLong("total_time_ms"));
         return albumTrack;
     }
 

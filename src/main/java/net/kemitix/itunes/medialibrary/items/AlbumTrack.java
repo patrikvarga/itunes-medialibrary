@@ -35,7 +35,7 @@ public class AlbumTrack {
     //bpm
     private int bpm;
     //total_time_ms
-    private int totalTimeMs;
+    private long totalTimeMs;
     //file_size
     private long fileSize;
 

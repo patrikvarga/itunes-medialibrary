@@ -21,7 +21,7 @@ public class ItemExtraRowMapper implements RowMapper<ItemExtra> {
         extra.setSortTitle(rs.getString("sort_title"));
         extra.setBpm(rs.getInt("bpm"));
         extra.setFileSize(rs.getInt("file_size"));
-        extra.setTotalTimeMs(rs.getInt("total_time_ms"));
+        extra.setTotalTimeMs(rs.getLong("total_time_ms"));
         extra.setYear(rs.getInt("year"));
         return extra;
     }

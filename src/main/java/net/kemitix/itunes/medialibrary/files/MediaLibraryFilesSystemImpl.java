@@ -63,7 +63,6 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
 
     @Override
     public List<AlbumTrack> getAlbumTracks() {
-        // TODO getAlbumTracks from directories
         final List<Path> files = listFiles(Paths.get(mediaLibraryFilePath));
         Collections.sort(files);
         return files.stream()
@@ -81,14 +80,20 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
             final AlbumTrack track = new AlbumTrack();
             track.setBaseLocation(path.getParent().toString());
             track.setFileLocation(path.getFileName().toString());
-            final Mp3File file = new Mp3File(path.toFile());
-            track.setTrackArtist(file.getArtist());
-            track.setTrackTitle(file.getTitle());
-            track.setDiscNumber(getDiscNumberSafely(file));
-            track.setTrackNumber(getTrackNumberSafely(file));
-            track.setYear(getYearSafely(file));
-            track.setAlbumTitle(file.getAlbum());
+            final File f = path.toFile();
+            final Mp3File file = new Mp3File(f);
             track.setAlbumArtist(getAlbumArtistSafely(file));
+            track.setAlbumTitle(file.getAlbum());
+            track.setBpm(getBpmSafely(file));
+            track.setComment(file.getComment());
+            track.setDiscNumber(getDiscNumberSafely(file));
+            track.setFileSize(f.length());
+            track.setGenre(file.getGenreDescription());
+            track.setTotalTimeMs(file.getLengthInMilliseconds());
+            track.setTrackArtist(file.getArtist());
+            track.setTrackNumber(getTrackNumberSafely(file));
+            track.setTrackTitle(file.getTitle());
+            track.setYear(getYearSafely(file));
             return track;
         } catch (IOException | UnsupportedTagException | InvalidDataException ex) {
             throw new RuntimeException(ex);
@@ -138,6 +143,10 @@ public class MediaLibraryFilesSystemImpl implements MediaLibrary {
             albumArtist = file.getId3v1Tag().getArtist();
         }
         return albumArtist;
+    }
+
+    private static int getBpmSafely(Mp3File file) {
+        return file.hasId3v2Tag() ? file.getId3v2Tag().getBPM() : 0;
     }
 
     @Override
