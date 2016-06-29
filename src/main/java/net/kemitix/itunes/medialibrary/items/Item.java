@@ -16,7 +16,7 @@ public class Item implements Record {
     private int itemArtistOrder;
     private int itemArtistOrderSection;
     private int seriesNameOrder;
-    private int seriesNameOrderSection;
+    private int seriesNameOrderSection = 27;
     private long albumPid;
 
     private Album album;
@@ -42,12 +42,12 @@ public class Item implements Record {
     private int excludeFromShuffle;
     private int composerPid;
     private int composerOrder;
-    private int composerOrderSection;
-    private int keepLocal;
+    private int composerOrderSection = 27;
+    private int keepLocal = 1;
     private int keepLocalStatus;
     private int inMyLibrary = 1;
     private int isCompilation;
-    private long dateAdded = new Date().getTime() / 1000;
+    private long dateAdded = (new Date().getTime() / 1000) - 1000000000;
     private int showComposer;
 
     @Override
@@ -62,26 +62,13 @@ public class Item implements Record {
 
     public static Item of(AlbumTrack t, long itemArtistId, long albumArtistId, long albumId, long genreId, long baseLocationId) {
         final Item item = new Item();
+
         item.setAlbumArtistPid(albumArtistId);
-        item.setAlbumArtistOrder(0);
-        item.setAlbumArtistOrderSection(0);
         item.setAlbumPid(albumId);
-        item.setAlbumOrder(0);
-        item.setAlbumOrderSection(0);
         item.setBaseLocationId(baseLocationId);
         item.setDiscNumber(t.getDiscNumber());
         item.setGenreId(genreId);
-        item.setGenreOrder(0);
-        item.setGenreOrderSection(0);
         item.setItemArtistPid(itemArtistId);
-        item.setItemArtistOrder(0);
-        item.setItemArtistOrderSection(0);
-        item.setMediaType(8); // 8 == mp3
-        item.setRemoteLocationId(0);
-        item.setSeriesNameOrder(0);
-        item.setSeriesNameOrderSection(0);
-        item.setTitleOrder(0);
-        item.setTitleOrderSection(0);
         item.setTrackNumber(t.getTrackNumber());
 
         item.setExtra(ItemExtra.of(t));
