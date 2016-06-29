@@ -25,6 +25,8 @@ public class Item implements Record {
     private ItemSearch search;
     private ItemStore store;
     private ItemPlayback playback;
+    private ItemVideo video;
+    private ItemStats stats;
 
     private int albumOrder;
     private int albumOrderSection;
@@ -74,6 +76,8 @@ public class Item implements Record {
         item.setExtra(ItemExtra.of(t));
         item.setSearch(new ItemSearch());
         item.setStore(new ItemStore());
+        item.setVideo(new ItemVideo());
+        item.setStats(new ItemStats());
         item.setPlayback(t.getPlayback());
 
         return item;

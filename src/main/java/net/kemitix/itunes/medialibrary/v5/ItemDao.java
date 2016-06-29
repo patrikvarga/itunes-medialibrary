@@ -17,6 +17,8 @@ class ItemDao extends WritableLibraryDao<Item> {
     private final ItemSearchDao itemSearchDao;
     private final ItemStoreDao itemStoreDao;
     private final ItemPlaybackDao itemPlaybackDao;
+    private final ItemStatsDao itemStatsDao;
+    private final ItemVideoDao itemVideoDao;
 
     @Autowired
     public ItemDao(
@@ -24,6 +26,8 @@ class ItemDao extends WritableLibraryDao<Item> {
             ItemSearchDao itemSearchDao,
             ItemStoreDao itemStoreDao,
             ItemPlaybackDao itemPlaybackDao,
+            ItemStatsDao itemStatsDao,
+            ItemVideoDao itemVideoDao,
             JdbcTemplate jdbcTemplate,
             RowMapper<Item> rowMapper,
             SimpleJdbcInsert insertActor
@@ -33,6 +37,8 @@ class ItemDao extends WritableLibraryDao<Item> {
         this.itemSearchDao = itemSearchDao;
         this.itemStoreDao = itemStoreDao;
         this.itemPlaybackDao = itemPlaybackDao;
+        this.itemStatsDao = itemStatsDao;
+        this.itemVideoDao = itemVideoDao;
     }
 
     @Override
@@ -46,6 +52,8 @@ class ItemDao extends WritableLibraryDao<Item> {
         itemSearchDao.insert(record.getSearch());
         itemStoreDao.insert(record.getStore());
         itemPlaybackDao.insert(record.getPlayback());
+        itemVideoDao.insert(record.getVideo());
+        itemStatsDao.insert(record.getStats());
         return id;
     }
 

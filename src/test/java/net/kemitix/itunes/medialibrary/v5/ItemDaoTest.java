@@ -12,6 +12,8 @@ public class ItemDaoTest extends AbstractDaoTest {
     private ItemSearchDao itemSearchDao;
     private ItemStoreDao itemStoreDao;
     private ItemPlaybackDao itemPlaybackDao;
+    private ItemStatsDao itemStatsDao;
+    private ItemVideoDao itemVideoDao;
 
     @Before
     @Override
@@ -20,7 +22,9 @@ public class ItemDaoTest extends AbstractDaoTest {
         this.itemSearchDao = mock(ItemSearchDao.class);
         this.itemStoreDao = mock(ItemStoreDao.class);
         this.itemPlaybackDao = mock(ItemPlaybackDao.class);
-        setUpTest(new ItemDao(itemExtraDao, itemSearchDao, itemStoreDao, itemPlaybackDao, getJdbcTemplate(), getRowMapper(), getInsertActor()));
+        this.itemStatsDao = mock(ItemStatsDao.class);
+        this.itemVideoDao = mock(ItemVideoDao.class);
+        setUpTest(new ItemDao(itemExtraDao, itemSearchDao, itemStoreDao, itemPlaybackDao, itemStatsDao, itemVideoDao, getJdbcTemplate(), getRowMapper(), getInsertActor()));
     }
 
 }

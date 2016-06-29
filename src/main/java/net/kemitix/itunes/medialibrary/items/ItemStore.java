@@ -44,7 +44,7 @@ public class ItemStore implements Record {
     private long isArtistUploadedContent;
     private long cloudAssetAvailable;
     private long isSubscription;
-    private long syncInMyLibrary; // many 1s in table
+    private long syncInMyLibrary = 1; // many 1s in table
     private long cloudInMyLibrary;
     private String extrasUrl = "";
     private String vppOrgName = "";
