@@ -22,7 +22,7 @@ public class ItemStats implements Record {
     private long rememberBookmark;
     private float bookmarkTimeMs;
     private long hidden;
-    private long choseByAutoFill;
+    private long chosenByAutoFill;
     private long likedState;
     private long likedStateChanged;
 

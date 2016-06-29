@@ -12,10 +12,10 @@ public class ItemVideo implements Record {
     private long isRental;
     private long hasChapterData;
     private long seasonNumber;
-    private String episodeId;
-    private String networkName;
-    private String extendedContentRating;
-    private String moveInfo;
+    private String episodeId = "";
+    private String networkName = "";
+    private String extendedContentRating = "";
+    private String movieInfo = "";
     private long hasAlternateAudio;
     private long hasSubtitles;
     private long audioLanguage;
